@@ -1,0 +1,9 @@
+repos:
+- repo: https://github.com/dbt-checkpoint/dbt-checkpoint
+  rev: v1.1.1
+  hooks:
+  - id: dbt-compile
+  - id: dbt-docs-generate
+  - id: check-source-has-all-columns
+  - id: check-model-has-all-columns
+  - id: check-model-has-properties-file

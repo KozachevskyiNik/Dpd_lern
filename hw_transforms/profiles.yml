@@ -1,0 +1,30 @@
+hw_transforms:
+  outputs:
+    beta:
+        database: awsdatacatalog
+        region_name: eu-west-1
+        s3_data_dir: s3://hw-dbt-tables
+        s3_staging_dir: s3://hw-druid-results/programmatic/
+        s3_data_naming: schema_table_unique
+        aws_access_key_id: "{{ env_var('AWS_ACCESS_KEY_ID') }}"
+        aws_secret_access_key: "{{ env_var('AWS_SECRET_ACCESS_KEY') }}"
+        work_group: Athena-DBT 
+        schema: beta
+        threads: 8
+        num_retries: 0
+        type: athena
+    prod:
+        database: awsdatacatalog
+        region_name: eu-west-1
+        s3_data_dir: s3://hw-dbt-tables
+        s3_staging_dir: s3://hw-druid-results/programmatic/
+        s3_data_naming: schema_table_unique
+        aws_access_key_id: "{{ env_var('AWS_ACCESS_KEY_ID') }}"
+        aws_secret_access_key: "{{ env_var('AWS_SECRET_ACCESS_KEY') }}"
+        work_group: Athena-DBT 
+        schema: prod
+        threads: 8
+        num_retries: 0
+        type: athena
+
+  target: prod

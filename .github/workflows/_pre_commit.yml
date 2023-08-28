@@ -1,0 +1,49 @@
+name: Pre-commit hooks
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+jobs:
+
+  gitleaks:
+    name: Gitleaks
+    runs-on: [ self-hosted ]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE}}
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: false
+
+  get-changed-files:
+    name: Get List of Changed Files
+    secrets: inherit
+    uses: ./.github/workflows/_changed_files.yml
+
+  sqlfmt:
+    name: SQL Fmt
+    secrets: inherit
+    uses: ./.github/workflows/_sql_fmt.yml
+    needs: [ get-changed-files ]
+    with:
+      changed-files: ${{ needs.get-changed-files.outputs.list-files }}
+
+  sqlfluff:
+    name: SQL Fluff
+    secrets: inherit
+    uses: ./.github/workflows/_sql_fluff.yml
+    needs: [ get-changed-files ]
+    with:
+      changed-files: ${{ needs.get-changed-files.outputs.list-files }}
+
+  dbtcheckpoint:
+    name: DBT CheckPoint
+    secrets: inherit
+    uses: ./.github/workflows/_dbt_checkpoint.yml
+    needs: [ get-changed-files ]
+    with:
+      changed-files: ${{ needs.get-changed-files.outputs.list-files }}

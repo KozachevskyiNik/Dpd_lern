@@ -1,0 +1,22 @@
+on:
+  workflow_call:
+    outputs:
+      list-files:
+        value: ${{ jobs.changed-files.outputs.list }}
+        description: list of changed files
+
+jobs:
+  changed-files:
+    runs-on: [self-hosted, alpha]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get Changed Files
+        id: changed-files
+        uses: tj-actions/changed-files@v37
+        with:
+          files_yaml: |
+            dbt:
+              - '${{ vars.DBT_PROJECT_DIR }}/**/*.sql'
+              - '${{ vars.DBT_PROJECT_DIR }}/**/*.yml'
+    outputs:
+      list: ${{ steps.changed-files.outputs.dbt_all_changed_files }}

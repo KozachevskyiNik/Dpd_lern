@@ -1,0 +1,19 @@
+on:
+  workflow_call:
+    inputs:
+      changed-files:
+        required: true
+        type: string
+        description: list of changed files
+
+jobs:
+  sqlfmt:
+    runs-on: [self-hosted, alpha]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - run: pip install shandy-sqlfmt[jinjafmt]
+      - name: Run sqlfmt
+        run: sqlfmt --diff ${{ inputs.changed-files }}
