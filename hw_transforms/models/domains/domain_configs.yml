@@ -1,0 +1,378 @@
+version: 2
+
+models: 
+  - name: rds__dam_data
+    config:
+      tags:
+        - domain_tables
+        - daily
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+      columns:
+      - name: db_name
+        description: ""
+
+      - name: child_id
+        description: ""
+
+      - name: child_dob
+        description: ""
+
+      - name: species
+        description: ""
+
+      - name: child_sex
+        description: ""
+
+      - name: child_tag
+        description: ""
+
+      - name: child_breed
+        description: ""
+
+      - name: child_reg_date
+        description: ""
+
+      - name: dam_id
+        description: ""
+
+      - name: dam_sex
+        description: ""
+
+      - name: dam_tag
+        description: ""
+
+      - name: dam_breed
+        description: ""
+
+      - name: dam_total_children
+        description: ""
+
+      - name: dam_dob
+        description: ""
+  
+  - name: rds__sire_data
+    config:
+      tags: 
+        - domain_tables
+        - daily
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+      columns:
+      - name: db_name
+        description: ""
+
+      - name: child_id
+        description: ""
+
+      - name: child_dob
+        description: ""
+
+      - name: species
+        description: ""
+
+      - name: child_sex
+        description: ""
+
+      - name: child_tag
+        description: ""
+
+      - name: child_breed
+        description: ""
+
+      - name: child_reg_date
+        description: ""
+
+      - name: sire_id
+        description: ""
+
+      - name: sire_sex
+        description: ""
+
+      - name: sire_tag
+        description: ""
+
+      - name: sire_breed
+        description: ""
+
+      - name: sire_pedigree
+        description: ""
+
+      - name: stock_bull_flag
+        description: ""
+
+      - name: sire_total_children
+        description: ""
+
+      - name: sire_dob
+        description: ""
+
+  - name: rds__weight_tasks
+    config:
+      tags: 
+        - domain_tables
+        - daily
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(animal_id, 5)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+      columns:
+      - name: country
+        description: ""
+
+      - name: db_name
+        description: ""
+
+      - name: task_id
+        description: ""
+
+      - name: animal_id
+        description: ""
+
+      - name: task_type
+        description: ""
+
+      - name: farm_id
+        description: ""
+
+      - name: record_date
+        description: ""
+
+      - name: weight_on_date
+        description: ""
+
+      - name: lifetime_adg
+        description: ""
+
+      - name: species
+        description: ""
+
+      - name: live_weight
+        description: ""
+
+      - name: city
+        description: ""
+
+      - name: herd_number
+        description: ""
+
+      - name: farm_type
+        description: ""
+
+      - name: farm_option
+        description: ""
+
+      - name: farm_band
+        description: ""
+
+      - name: farm_app_type
+        description: ""
+
+      - name: user_id
+        description: ""
+
+      - name: last_weight
+        description: ""
+
+      - name: weight_difference
+        description: ""
+
+      - name: days_btwn_weighings
+        description: ""
+
+      - name: days_lived_till_weighing
+        description: ""
+
+      - name: days_btwn_movement_off
+        description: ""
+
+      - name: derived_live_wt
+        description: ""
+
+      - name: inter_weighing_adg
+        description: ""
+
+      - name: lifetime_adg_at_weighing
+        description: ""
+
+      - name: days_till_200
+        description: ""
+
+  - name: rds__movement_tasks
+    config:
+      tags: 
+        - domain_tables
+        - daily
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(animal_id, 5)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+      columns:
+      - name: task_id
+        description: ""
+
+      - name: db_name
+        description: ""
+
+      - name: country
+        description: ""
+
+      - name: type_id
+        description: ""
+
+      - name: animal_id
+        description: ""
+
+      - name: farm_id
+        description: ""
+
+      - name: record_date
+        description: ""
+
+      - name: task_belongs_to
+        description: ""
+
+      - name: tag
+        description: ""
+
+      - name: dob
+        description: ""
+
+      - name: breed
+        description: ""
+
+      - name: moved_in_date
+        description: ""
+
+      - name: off_herd_date
+        description: ""
+
+      - name: off_herd_reason
+        description: ""
+
+      - name: sale_price
+        description: ""
+
+      - name: purchase_price
+        description: ""
+
+      - name: move_cert_type
+        description: ""
+
+      - name: operator_hw_herd_number
+        description: ""
+
+      - name: operator_herd_number
+        description: ""
+
+      - name: operator_name
+        description: ""
+
+      - name: operator_type
+        description: ""
+
+      - name: herd_number
+        description: ""
+
+      - name: city
+        description: ""
+
+      - name: county
+        description: ""
+
+      - name: farm_type
+        description: ""
+
+      - name: farm_option
+        description: ""
+
+      - name: farm_level
+        description: ""
+
+  - name: rds__animal_parentage_data
+    config:
+      tags: 
+        - domain_tables
+        - daily
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(animal_id, 5)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+
+  - name: rds__kill_insights_pre_calc
+    config:
+      tags: 
+        - domain_tables
+        - daily
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(animal_id, 5)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+
+  - name: rds__sale_tasks
+    config:
+      tags: 
+        - domain_tables
+        - daily
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(animal_id, 5)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+      columns:
+      - name: db_name
+        description: ""
+
+      - name: animal_id
+        description: ""
+
+      - name: task_id
+        description: ""
+
+      - name: sale_date
+        description: ""
+
+      - name: sold_to
+        description: ""
+  
+  - name: rds__purchase_tasks
+    config:
+      tags: 
+        - domain_tables
+        - daily
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(animal_id, 5)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+      columns:
+      - name: db_name
+        description: ""
+
+      - name: animal_id
+        description: ""
+
+      - name: task_id
+        description: ""
+
+      - name: purchase_date
+        description: ""
+
+      - name: sourced_from
+        description: ""

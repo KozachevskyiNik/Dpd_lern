@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  hw-dbt-dev:
+    build: .
+    env_file: .env
+    volumes:
+      - .:/usr/app/dbt/
+    command: tail -f /dev/null

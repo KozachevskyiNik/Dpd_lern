@@ -1,0 +1,1143 @@
+sources:
+  - name: rds_beta
+    description: ""
+    database: awsdatacatalog
+    schema: beta_raw
+    tags:
+      - beta
+    tables:
+      - name: beta__animal_option_factories
+        description: ""
+        columns:
+          - name: partition_date
+            data_type: DATE
+            description: ""
+          - name: upsolver_schema_version
+            data_type: INT
+            description: ""
+          - name: animal_option_id
+            data_type: BIGINT
+            description: ""
+          - name: db_name
+            data_type: VARCHAR
+            description: ""
+          - name: processing_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: kill_out_grade
+            data_type: VARCHAR
+            description: ""
+          - name: mart_weight
+            data_type: DOUBLE
+            description: ""
+          - name: price_per_kilo
+            data_type: DOUBLE
+            description: ""
+          - name: dead_weight
+            data_type: DOUBLE
+            description: ""
+          - name: killsheet_datetime
+            data_type: BIGINT
+            description: ""
+          - name: killsheet_name
+            data_type: VARCHAR
+            description: ""
+          - name: mart_datetime
+            data_type: BIGINT
+            description: ""
+          - name: mart_name
+            data_type: VARCHAR
+            description: ""
+          - name: is_animal_weight_calculated
+            data_type: BIGINT
+            description: ""
+
+      - name: beta__animal_options
+        description: ""
+        columns:
+          - name: partition_date
+            data_type: DATE
+            description: ""
+          - name: upsolver_schema_version
+            data_type: INT
+            description: ""
+          - name: db_name
+            data_type: VARCHAR
+            description: ""
+          - name: animal_option_id
+            data_type: BIGINT
+            description: ""
+          - name: processing_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: table_name
+            data_type: VARCHAR
+            description: ""
+          - name: animal_id
+            data_type: VARCHAR
+            description: ""
+
+      - name: beta__animals
+        description: ""
+        columns:
+          - name: partition_date
+            data_type: DATE
+            description: ""
+          - name: upsolver_schema_version
+            data_type: INT
+            description: ""
+          - name: animal_id
+            data_type: VARCHAR
+            description: ""
+          - name: db_name
+            data_type: VARCHAR
+            description: ""
+          - name: processing_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: tag
+            data_type: VARCHAR
+            description: ""
+          - name: farm_id
+            data_type: VARCHAR
+            description: ""
+          - name: species_id
+            data_type: VARCHAR
+            description: ""
+          - name: animal_type_id
+            data_type: VARCHAR
+            description: ""
+          - name: breed_id
+            data_type: VARCHAR
+            description: ""
+          - name: add_to_auditlog
+            data_type: BIGINT
+            description: ""
+          - name: age_flag
+            data_type: VARCHAR
+            description: ""
+          - name: sex
+            data_type: VARCHAR
+            description: ""
+          - name: dob_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: dod_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: date_moved_in
+            data_type: TIMESTAMP
+            description: ""
+          - name: off_herd_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: dam
+            data_type: VARCHAR
+            description: ""
+          - name: genetic_dam_tag
+            data_type: VARCHAR
+            description: ""
+          - name: sire
+            data_type: VARCHAR
+            description: ""
+          - name: calf_reg_datetime
+            data_type: TIMESTAMP
+            description: ""
+          - name: b_loc
+            data_type: VARCHAR
+            description: ""
+          - name: b_subloc
+            data_type: VARCHAR
+            description: ""
+          - name: buyer_id
+            data_type: VARCHAR
+            description: ""
+          - name: calf_weight
+            data_type: DOUBLE
+            description: ""
+          - name: calving_difficulty
+            data_type: VARCHAR
+            description: ""
+          - name: changes_source
+            data_type: VARCHAR
+            description: ""
+          - name: changes_ipsource
+            data_type: VARCHAR
+            description: ""
+          - name: colour_id
+            data_type: VARCHAR
+            description: ""
+          - name: device_id
+            data_type: BIGINT
+            description: ""
+          - name: display_description
+            data_type: VARCHAR
+            description: ""
+          - name: disposal_manner
+            data_type: VARCHAR
+            description: ""
+          - name: disposal_place
+            data_type: VARCHAR
+            description: ""
+          - name: eid
+            data_type: VARCHAR
+            description: ""
+          - name: freezebrand
+            data_type: VARCHAR
+            description: ""
+          - name: herd_book_number
+            data_type: VARCHAR
+            description: ""
+          - name: in_herd
+            data_type: BIGINT
+            description: ""
+          - name: lactation
+            data_type: BIGINT
+            description: ""
+          - name: last_adg_weight
+            data_type: DOUBLE
+            description: ""
+          - name: last_weight
+            data_type: DOUBLE
+            description: ""
+          - name: notes
+            data_type: VARCHAR
+            description: ""
+          - name: off_herd_reason
+            data_type: VARCHAR
+            description: ""
+          - name: pedigree
+            data_type: VARCHAR
+            description: ""
+          - name: purpose_id
+            data_type: VARCHAR
+            description: ""
+          - name: purchase_price
+            data_type: DOUBLE
+            description: ""
+          - name: saleprice
+            data_type: DOUBLE
+            description: ""
+          - name: sire_breed_id
+            data_type: VARCHAR
+            description: ""
+          - name: size
+            data_type: VARCHAR
+            description: ""
+          - name: source
+            data_type: VARCHAR
+            description: ""
+          - name: status
+            data_type: VARCHAR
+            description: ""
+          - name: still_born
+            data_type: VARCHAR
+            description: ""
+          - name: stock_bull
+            data_type: BIGINT
+            description: ""
+          - name: supplier_id
+            data_type: VARCHAR
+            description: ""
+          - name: vigor
+            data_type: VARCHAR
+            description: ""
+          - name: weight
+            data_type: DOUBLE
+            description: ""
+          - name: created_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: updated_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: meat_withdrawal_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: milk_withdrawal_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: br_test_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: expected_calving_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: last_weigh_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: weight_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: tb_test_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: until_date
+            data_type: TIMESTAMP
+            description: ""
+
+      - name: beta__farms
+        description: ""
+        columns:
+          - name: partition_date
+            data_type: DATE
+            description: ""
+          - name: upsolver_schema_version
+            data_type: INT
+            description: ""
+          - name: farm_id
+            data_type: VARCHAR
+            description: ""
+          - name: db_name
+            data_type: VARCHAR
+            description: ""
+          - name: processing_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: herd_number
+            data_type: VARCHAR
+            description: ""
+          - name: national_herd_id
+            data_type: VARCHAR
+            description: ""
+          - name: farm_type_id
+            data_type: VARCHAR
+            description: ""
+          - name: owner_user_id
+            data_type: DOUBLE
+            description: ""
+          - name: herd_first_name
+            data_type: VARCHAR
+            description: ""
+          - name: herd_last_name
+            data_type: VARCHAR
+            description: ""
+          - name: herd_email
+            data_type: VARCHAR
+            description: ""
+          - name: address_line_1
+            data_type: VARCHAR
+            description: ""
+          - name: address_line_2
+            data_type: VARCHAR
+            description: ""
+          - name: city
+            data_type: VARCHAR
+            description: ""
+          - name: county
+            data_type: VARCHAR
+            description: ""
+          - name: post_code
+            data_type: VARCHAR
+            description: ""
+          - name: data_sync_enabled
+            data_type: DOUBLE
+            description: ""
+          - name: data_auto_export_enabled
+            data_type: DOUBLE
+            description: ""
+          - name: created_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: updated_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: active
+            data_type: BIGINT
+            description: ""
+          - name: bb_lamb_expiry_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: bb_dairy_expiry_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: bb_beef_expiry_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: bb_last_check_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: calf_reg_count
+            data_type: BIGINT
+            description: ""
+          - name: country
+            data_type: VARCHAR
+            description: ""
+          - name: hwfarmtype_id
+            data_type: VARCHAR
+            description: ""
+          - name: hwfarmtype_selectedoption
+            data_type: VARCHAR
+            description: ""
+          - name: changes_ipsource
+            data_type: VARCHAR
+            description: ""
+          - name: total_calf_reg_count
+            data_type: BIGINT
+            description: ""
+          - name: plan_addition_type
+            data_type: VARCHAR
+            description: ""
+          - name: level
+            data_type: VARCHAR
+            description: ""
+          - name: band
+            data_type: VARCHAR
+            description: ""
+          - name: for_free
+            data_type: DOUBLE
+            description: ""
+          - name: is_pro
+            data_type: BIGINT
+            description: ""
+          - name: renewal_band
+            data_type: VARCHAR
+            description: ""
+          - name: is_buitelaar
+            data_type: BIGINT
+            description: ""
+          - name: use_dna_pilot_program
+            data_type: BIGINT
+            description: ""
+          - name: timezone
+            data_type: VARCHAR
+            description: ""
+
+      - name: beta__farms_medata
+        description: ""
+        columns:
+          - name: partition_date
+            data_type: DATE
+            description: ""
+          - name: upsolver_schema_version
+            data_type: INT
+            description: ""
+          - name: farmtype_id
+            data_type: VARCHAR
+            description: ""
+          - name: db_name
+            data_type: VARCHAR
+            description: ""
+          - name: processing_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: farm_id
+            data_type: VARCHAR
+            description: ""
+          - name: created_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: updated_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: farm_type_id
+            data_type: VARCHAR
+            description: ""
+          - name: option_id
+            data_type: VARCHAR
+            description: ""
+          - name: level_id
+            data_type: VARCHAR
+            description: ""
+          - name: band_id
+            data_type: VARCHAR
+            description: ""
+          - name: type_farm
+            data_type: DOUBLE
+            description: ""
+          - name: pro_flag
+            data_type: BIGINT
+            description: ""
+          - name: changes_ipsource
+            data_type: VARCHAR
+            description: ""
+          - name: active
+            data_type: BIGINT
+            description: ""
+          - name: plan_id
+            data_type: VARCHAR
+            description: ""
+
+      - name: beta__fos_users
+        description: ""
+        columns:
+          - name: partition_date
+            data_type: DATE
+            description: ""
+          - name: upsolver_schema_version
+            data_type: INT
+            description: ""
+          - name: user_id
+            data_type: DOUBLE
+            description: ""
+          - name: db_name
+            data_type: VARCHAR
+            description: ""
+          - name: processing_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: external_id
+            data_type: VARCHAR
+            description: ""
+          - name: subscription_id
+            data_type: VARCHAR
+            description: ""
+          - name: username
+            data_type: VARCHAR
+            description: ""
+          - name: username_canonical
+            data_type: VARCHAR
+            description: ""
+          - name: email
+            data_type: VARCHAR
+            description: ""
+          - name: milkprocessor_id
+            data_type: VARCHAR
+            description: ""
+          - name: meatprocessor_id
+            data_type: VARCHAR
+            description: ""
+          - name: email_canonical
+            data_type: VARCHAR
+            description: ""
+          - name: enabled
+            data_type: DOUBLE
+            description: ""
+          - name: salt
+            data_type: VARCHAR
+            description: ""
+          - name: password
+            data_type: VARCHAR
+            description: ""
+          - name: locked
+            data_type: DOUBLE
+            description: ""
+          - name: expired
+            data_type: BIGINT
+            description: ""
+          - name: expires_at_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: created_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: updated_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: first_name
+            data_type: VARCHAR
+            description: ""
+          - name: last_name
+            data_type: VARCHAR
+            description: ""
+          - name: website
+            data_type: VARCHAR
+            description: ""
+          - name: address_line_1
+            data_type: VARCHAR
+            description: ""
+          - name: address_line_2
+            data_type: VARCHAR
+            description: ""
+          - name: city
+            data_type: VARCHAR
+            description: ""
+          - name: county
+            data_type: VARCHAR
+            description: ""
+          - name: post_code
+            data_type: VARCHAR
+            description: ""
+          - name: plan_type_id
+            data_type: VARCHAR
+            description: ""
+          - name: group_id
+            data_type: VARCHAR
+            description: ""
+          - name: auto_renew
+            data_type: DOUBLE
+            description: ""
+          - name: billing_num_herds
+            data_type: DOUBLE
+            description: ""
+          - name: charge_amount
+            data_type: DOUBLE
+            description: ""
+          - name: payer_reference
+            data_type: VARCHAR
+            description: ""
+          - name: card_reference
+            data_type: VARCHAR
+            description: ""
+          - name: do_not_renew
+            data_type: DOUBLE
+            description: ""
+          - name: last_renewal_notification
+            data_type: DOUBLE
+            description: ""
+          - name: initial_sub_type_id
+            data_type: VARCHAR
+            description: ""
+          - name: notes
+            data_type: VARCHAR
+            description: ""
+          - name: new_payment_system
+            data_type: DOUBLE
+            description: ""
+          - name: card_id
+            data_type: VARCHAR
+            description: ""
+          - name: payment_attempts
+            data_type: DOUBLE
+            description: ""
+          - name: paid_until_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: vip
+            data_type: DOUBLE
+            description: ""
+          - name: dnr_set_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: dnr_clear_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: dnr_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: free_register
+            data_type: DOUBLE
+            description: ""
+          - name: status
+            data_type: VARCHAR
+            description: ""
+          - name: last_called
+            data_type: DOUBLE
+            description: ""
+          - name: dnr_reason
+            data_type: VARCHAR
+            description: ""
+          - name: last_amount
+            data_type: DOUBLE
+            description: ""
+          - name: last_renewal
+            data_type: DOUBLE
+            description: ""
+          - name: hub_spot_id
+            data_type: VARCHAR
+            description: ""
+          - name: usage_summary_id
+            data_type: VARCHAR
+            description: ""
+          - name: dnr_clear_by_id
+            data_type: DOUBLE
+            description: ""
+          - name: dnr_set_by_id
+            data_type: DOUBLE
+            description: ""
+          - name: expired_remember_me
+            data_type: BIGINT
+            description: ""
+          - name: failed_payments
+            data_type: DOUBLE
+            description: ""
+          - name: country
+            data_type: VARCHAR
+            description: ""
+          - name: do_not_contact
+            data_type: DOUBLE
+            description: ""
+          - name: last_call_attempt_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: changes_ipsource
+            data_type: VARCHAR
+            description: ""
+          - name: icbf_status
+            data_type: DOUBLE
+            description: ""
+          - name: agent_id
+            data_type: VARCHAR
+            description: ""
+          - name: support_involved
+            data_type: DOUBLE
+            description: ""
+          - name: price_set_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: dnr_return_reason
+            data_type: VARCHAR
+            description: ""
+          - name: pre_audit
+            data_type: BIGINT
+            description: ""
+          - name: creation_source
+            data_type: BIGINT
+            description: ""
+          - name: payment_customer
+            data_type: BIGINT
+            description: ""
+          - name: payment_system
+            data_type: BIGINT
+            description: ""
+          - name: billing_first_name
+            data_type: VARCHAR
+            description: ""
+          - name: billing_last_name
+            data_type: VARCHAR
+            description: ""
+          - name: billing_company_name
+            data_type: VARCHAR
+            description: ""
+          - name: billing_email
+            data_type: VARCHAR
+            description: ""
+          - name: is_mobile
+            data_type: BIGINT
+            description: ""
+
+      - name: beta__livestock_purchases
+        description: ""
+        columns:
+          - name: partition_date
+            data_type: DATE
+            description: ""
+          - name: upsolver_schema_version
+            data_type: INT
+            description: ""
+          - name: task_id
+            data_type: VARCHAR
+            description: ""
+          - name: db_name
+            data_type: VARCHAR
+            description: ""
+          - name: processing_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: seller_id
+            data_type: VARCHAR
+            description: ""
+
+      - name: beta__livestock_sales
+        description: ""
+        columns:
+          - name: partition_date
+            data_type: DATE
+            description: ""
+          - name: upsolver_schema_version
+            data_type: INT
+            description: ""
+          - name: task_id
+            data_type: VARCHAR
+            description: ""
+          - name: db_name
+            data_type: VARCHAR
+            description: ""
+          - name: processing_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: buyer_id
+            data_type: VARCHAR
+            description: ""
+
+      - name: beta__operators
+        description: ""
+        columns:
+          - name: partition_date
+            data_type: DATE
+            description: ""
+          - name: upsolver_schema_version
+            data_type: INT
+            description: ""
+          - name: operator_id
+            data_type: VARCHAR
+            description: ""
+          - name: db_name
+            data_type: VARCHAR
+            description: ""
+          - name: processing_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: name
+            data_type: VARCHAR
+            description: ""
+          - name: phone
+            data_type: VARCHAR
+            description: ""
+          - name: farm_id
+            data_type: VARCHAR
+            description: ""
+          - name: type
+            data_type: VARCHAR
+            description: ""
+          - name: herd_number
+            data_type: VARCHAR
+            description: ""
+          - name: created_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: updated_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: country
+            data_type: VARCHAR
+            description: ""
+          - name: common_id
+            data_type: VARCHAR
+            description: ""
+          - name: changes_ipsource
+            data_type: VARCHAR
+            description: ""
+          - name: is_default
+            data_type: BIGINT
+            description: ""
+
+      - name: beta__task_animals
+        description: ""
+        columns:
+          - name: partition_date
+            data_type: DATE
+            description: ""
+          - name: upsolver_schema_version
+            data_type: INT
+            description: ""
+          - name: task_animal_id
+            data_type: VARCHAR
+            description: ""
+          - name: db_name
+            data_type: VARCHAR
+            description: ""
+          - name: processing_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: task_id
+            data_type: VARCHAR
+            description: ""
+          - name: animal_id
+            data_type: VARCHAR
+            description: ""
+          - name: complete
+            data_type: BIGINT
+            description: ""
+          - name: active
+            data_type: BIGINT
+            description: ""
+          - name: error
+            data_type: VARCHAR
+            description: ""
+
+      - name: beta__tasks
+        description: ""
+        columns:
+          - name: partition_date
+            data_type: DATE
+            description: ""
+          - name: upsolver_schema_version
+            data_type: INT
+            description: ""
+          - name: task_id
+            data_type: VARCHAR
+            description: ""
+          - name: db_name
+            data_type: VARCHAR
+            description: ""
+          - name: animal_type_id
+            data_type: VARCHAR
+            description: ""
+          - name: task_group_id
+            data_type: VARCHAR
+            description: ""
+          - name: parent_task_id
+            data_type: VARCHAR
+            description: ""
+          - name: farm_id
+            data_type: VARCHAR
+            description: ""
+          - name: display_description
+            data_type: VARCHAR
+            description: ""
+          - name: description
+            data_type: VARCHAR
+            description: ""
+          - name: task_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: status_id
+            data_type: VARCHAR
+            description: ""
+          - name: type_id
+            data_type: VARCHAR
+            description: ""
+          - name: sickness_id
+            data_type: VARCHAR
+            description: ""
+          - name: remedy_id
+            data_type: VARCHAR
+            description: ""
+          - name: batch_number
+            data_type: VARCHAR
+            description: ""
+          - name: supplier_id
+            data_type: VARCHAR
+            description: ""
+          - name: vet_call_out
+            data_type: DOUBLE
+            description: ""
+          - name: dose_amount
+            data_type: DOUBLE
+            description: ""
+          - name: dose_type
+            data_type: VARCHAR
+            description: ""
+          - name: milk_withdrawal_period
+            data_type: DOUBLE
+            description: ""
+          - name: meat_withdrawal_period
+            data_type: DOUBLE
+            description: ""
+          - name: scan_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: expected_calving_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: stock_bull
+            data_type: VARCHAR
+            description: ""
+          - name: ai_sire
+            data_type: VARCHAR
+            description: ""
+          - name: unknown_sire
+            data_type: DOUBLE
+            description: ""
+          - name: sexed_semen_used
+            data_type: VARCHAR
+            description: ""
+          - name: genetic_dam_tag
+            data_type: VARCHAR
+            description: ""
+          - name: days_pregnant
+            data_type: DOUBLE
+            description: ""
+          - name: multi_pregnancy
+            data_type: DOUBLE
+            description: ""
+          - name: weight
+            data_type: DOUBLE
+            description: ""
+          - name: weight_gain
+            data_type: DOUBLE
+            description: ""
+          - name: performed_by_id
+            data_type: VARCHAR
+            description: ""
+          - name: prescribed_by_id
+            data_type: VARCHAR
+            description: ""
+          - name: remedy_expiry_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: purchased_amount
+            data_type: DOUBLE
+            description: ""
+          - name: remedy_qty_used
+            data_type: DOUBLE
+            description: ""
+          - name: remedy_qty_returned
+            data_type: DOUBLE
+            description: ""
+          - name: remedy_qty_left
+            data_type: DOUBLE
+            description: ""
+          - name: result
+            data_type: DOUBLE
+            description: ""
+          - name: scan_sex
+            data_type: VARCHAR
+            description: ""
+          - name: cost
+            data_type: DOUBLE
+            description: ""
+          - name: feed_type_id
+            data_type: VARCHAR
+            description: ""
+          - name: move_to_herd_no
+            data_type: VARCHAR
+            description: ""
+          - name: move_third_party_herd_no
+            data_type: VARCHAR
+            description: ""
+          - name: mover_cert_type
+            data_type: VARCHAR
+            description: ""
+          - name: move_cert_no
+            data_type: VARCHAR
+            description: ""
+          - name: move_separate_cert_per_animal
+            data_type: DOUBLE
+            description: ""
+          - name: move_to_feedlot
+            data_type: DOUBLE
+            description: ""
+          - name: move_to_feed_lot
+            data_type: DOUBLE
+            description: ""
+          - name: move_apply_success_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: created_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: updated_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: source
+            data_type: VARCHAR
+            description: ""
+          - name: country
+            data_type: VARCHAR
+            description: ""
+          - name: processed
+            data_type: DOUBLE
+            description: ""
+          - name: send_seller_confirmation
+            data_type: DOUBLE
+            description: ""
+          - name: status_mov_doc_number_to_buyer
+            data_type: DOUBLE
+            description: ""
+          - name: manner_id
+            data_type: VARCHAR
+            description: ""
+          - name: location_id
+            data_type: VARCHAR
+            description: ""
+          - name: changes_owner
+            data_type: VARCHAR
+            description: ""
+          - name: changes_ipsource
+            data_type: VARCHAR
+            description: ""
+          - name: tag_supplier_id
+            data_type: VARCHAR
+            description: ""
+          - name: tag_type_id
+            data_type: VARCHAR
+            description: ""
+          - name: crop_id
+            data_type: VARCHAR
+            description: ""
+          - name: title
+            data_type: VARCHAR
+            description: ""
+          - name: spray_number
+            data_type: VARCHAR
+            description: ""
+          - name: spray_rate
+            data_type: DOUBLE
+            description: ""
+          - name: body_condition_score
+            data_type: DOUBLE
+            description: ""
+          - name: spray_water_volume
+            data_type: DOUBLE
+            description: ""
+          - name: days_with_bull
+            data_type: DOUBLE
+            description: ""
+          - name: treatment_course
+            data_type: DOUBLE
+            description: ""
+          - name: area_treated
+            data_type: DOUBLE
+            description: ""
+          - name: animals_treated
+            data_type: DOUBLE
+            description: ""
+          - name: is_spray_returned
+            data_type: DOUBLE
+            description: ""
+          - name: is_stripe
+            data_type: DOUBLE
+            description: ""
+          - name: returned_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: last_test_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: growth_stage
+            data_type: VARCHAR
+            description: ""
+          - name: pu_number
+            data_type: VARCHAR
+            description: ""
+          - name: sprayer_id
+            data_type: VARCHAR
+            description: ""
+          - name: spray_reason
+            data_type: VARCHAR
+            description: ""
+          - name: not_from_own_stock
+            data_type: DOUBLE
+            description: ""
+          - name: move_to_mart_abbatoir
+            data_type: DOUBLE
+            description: ""
+          - name: read_only
+            data_type: DOUBLE
+            description: ""
+          - name: sent_to_supplier
+            data_type: DOUBLE
+            description: ""
+          - name: rate_ha
+            data_type: DOUBLE
+            description: ""
+          - name: score
+            data_type: DOUBLE
+            description: ""
+          - name: unit_type_id
+            data_type: VARCHAR
+            description: ""
+          - name: cost_type
+            data_type: DOUBLE
+            description: ""
+          - name: heat_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: heat_reminder_for
+            data_type: DOUBLE
+            description: ""
+          - name: expected_heat_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: reminder_cycles
+            data_type: DOUBLE
+            description: ""
+          - name: running_with_bull
+            data_type: DOUBLE
+            description: ""
+          - name: bull_leaves_date
+            data_type: TIMESTAMP
+            description: ""
+          - name: treated_animals_desc
+            data_type: VARCHAR
+            description: ""
+          - name: disposal_route
+            data_type: VARCHAR
+            description: ""
+          - name: confirmation_stickers
+            data_type: VARCHAR
+            description: ""
+          - name: task_type
+            data_type: VARCHAR
+            description: ""
+          - name: belongs_to_app
+            data_type: VARCHAR
+            description: ""
+          - name: created_offline_date_time
+            data_type: TIMESTAMP
+            description: ""
+          - name: updated_offline_date_time
+            data_type: TIMESTAMP
+            description: ""

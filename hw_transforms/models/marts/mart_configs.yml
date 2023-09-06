@@ -1,0 +1,129 @@
+version: 2
+
+models: 
+  - name: mart__kill_insights
+    description: '{{ doc("mart__kill_insights") }}'
+    config:
+      tags: 
+        - mart_tables
+        - daily
+      materialized: table
+      schema: marts
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(farm_id, 5)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+      columns:
+      - name: db_name
+        description: ""
+
+      - name: animal_id
+        description: ""
+
+      - name: farm_id
+        description: ""
+
+      - name: in_herd_flag
+        description: ""
+
+      - name: species
+        description: ""
+
+      - name: sex
+        description: ""
+
+      - name: tag
+        description: ""
+
+      - name: breed
+        description: ""
+
+      - name: move_in_date
+        description: ""
+
+      - name: off_herd_date
+        description: ""
+
+      - name: dob
+        description: ""
+
+      - name: calf_reg_date
+        description: ""
+
+      - name: age_in_days
+        description: ""
+
+      - name: age_in_months
+        description: ""
+
+      - name: dam_id
+        description: ""
+
+      - name: dam_tag
+        description: ""
+
+      - name: dam_breed
+        description: ""
+
+      - name: dam_total_children
+        description: ""
+
+      - name: sire_id
+        description: ""
+
+      - name: sire_tag
+        description: ""
+
+      - name: sire_breed
+        description: ""
+
+      - name: sire_total_children
+        description: ""
+
+      - name: sale_date
+        description: ""
+
+      - name: purchase_date
+        description: ""
+
+      - name: sourced_from
+        description: ""
+
+      - name: sold_to
+        description: ""
+
+      - name: purchase_price
+        description: ""
+
+      - name: sale_price
+        description: ""
+
+      - name: fat_str
+        description: ""
+
+      - name: conf_str
+        description: ""
+
+      - name: fat_conf_encoded
+        description: ""
+
+      - name: live_weight
+        description: ""
+
+      - name: dead_weight
+        description: ""
+
+      - name: ppkg_live
+        description: ""
+
+      - name: gross_margin
+        description: ""
+
+      - name: gross_margin_dih
+        description: ""
+
+      - name: adg_in_herd
+        description: ""
+
+      - name: kill_out_percentage
+        description: ""

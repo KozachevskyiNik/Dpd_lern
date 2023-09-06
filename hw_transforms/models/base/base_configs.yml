@@ -1,0 +1,386 @@
+version: 2
+
+models: 
+  - name: rds__animals_base
+    config:
+      tags: 
+        - base_tables
+        - hourly
+      materialized: incremental
+      schema: base
+      table_type: iceberg
+      incremental_strategy: merge
+      format: parquet
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+      on_schema_change: append_new_columns
+      partitioned_by: ["bucket(animal_id, 5)"]
+      unique_key: ["db_name","animal_id"]
+      columns:
+      - name: db_name
+        description: ""
+
+      - name: animal_id
+        description: ""
+
+      - name: species
+        description: ""
+
+      - name: sex
+        description: ""
+
+      - name: farm_id
+        description: ""
+
+      - name: tag
+        description: ""
+
+      - name: dob
+        description: ""
+
+      - name: breed
+        description: ""
+
+      - name: in_herd_flag
+        description: ""
+
+      - name: moved_in_date
+        description: ""
+
+      - name: off_herd_date
+        description: ""
+
+      - name: off_herd_reason
+        description: ""
+
+      - name: stock_bull_flag
+        description: ""
+
+      - name: pedigree
+        description: ""
+
+      - name: freezebrand
+        description: ""
+
+      - name: dam_id
+        description: ""
+
+      - name: genetic_dam_tag
+        description: ""
+
+      - name: sire_id
+        description: ""
+
+      - name: ai_bull_code
+        description: ""
+
+      - name: purchase_price
+        description: ""
+
+      - name: sale_price
+        description: ""
+
+      - name: calf_reg_date
+        description: ""
+
+      - name: size
+        description: ""
+
+      - name: vigor
+        description: ""
+
+      - name: purpose
+        description: ""
+
+      - name: type
+        description: ""
+
+      - name: dead_weight
+        description: ""
+
+      - name: ppkg
+        description: ""
+
+      - name: mart_weight
+        description: ""
+
+      - name: mart_name
+        description: ""
+
+      - name: date_on_mart_image
+        description: ""
+
+      - name: date_on_killsheet
+        description: ""
+
+      - name: killsheet_name
+        description: ""
+
+      - name: calc_wt_flag
+        description: ""
+
+  - name: rds__tasks_base
+    config:
+      tags: 
+        - base_tables
+        - hourly
+      materialized: incremental
+      schema: base
+      table_type: iceberg
+      incremental_strategy: merge
+      format: parquet
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+      on_schema_change: append_new_columns
+      partitioned_by: ["bucket(task_id, 5)"]
+      unique_key: ["db_name","task_animal_id"]
+      columns:
+      - name: country
+        description: ""
+
+      - name: db_name
+        description: ""
+
+      - name: processing_time
+        description: ""
+
+      - name: task_id
+        description: ""
+
+      - name: status_id
+        description: ""
+
+      - name: task_type
+        description: ""
+
+      - name: species
+        description: ""
+
+      - name: farm_id
+        description: ""
+
+      - name: animal_id
+        description: ""
+
+      - name: record_date
+        description: ""
+
+      - name: task_cost
+        description: ""
+
+      - name: task_belongs_to
+        description: ""
+
+      - name: task_created_datetime
+        description: ""
+
+      - name: task_source
+        description: ""
+
+      - name: operator_id
+        description: ""
+
+      - name: weight_on_date
+        description: ""
+
+      - name: lifetime_adg
+        description: ""
+
+      - name: sickness_id
+        description: ""
+
+      - name: remedy_id
+        description: ""
+
+      - name: batch_number
+        description: ""
+
+      - name: vet_call_out_flag
+        description: ""
+
+      - name: dose_amount_val
+        description: ""
+
+      - name: dose_unit
+        description: ""
+
+      - name: milk_withdrawal_days
+        description: ""
+
+      - name: meat_withdrawal_days
+        description: ""
+
+      - name: performed_uid
+        description: ""
+
+      - name: prescribed_uid
+        description: ""
+
+      - name: rem_exp_date
+        description: ""
+
+      - name: rem_purch_amnt
+        description: ""
+
+      - name: rem_qty_used
+        description: ""
+
+      - name: rem_qty_returned
+        description: ""
+
+      - name: rem_qty_left
+        description: ""
+
+      - name: treatmentcourse
+        description: ""
+
+      - name: scan_date
+        description: ""
+
+      - name: expected_calving_date
+        description: ""
+
+      - name: stock_bull_id
+        description: ""
+
+      - name: ai_sire_name
+        description: ""
+
+      - name: days_pregnant
+        description: ""
+
+      - name: twins_flag
+        description: ""
+
+      - name: task_result
+        description: ""
+
+      - name: unborn_sex
+        description: ""
+
+      - name: days_with_bull
+        description: ""
+
+      - name: expected_heat_datetime
+        description: ""
+
+      - name: heat_reminder_freq
+        description: ""
+
+      - name: heat_reminder_cycle
+        description: ""
+
+      - name: run_with_bull_flag
+        description: ""
+
+      - name: date_bull_leaves
+        description: ""
+
+      - name: moved_to_herd
+        description: ""
+      
+      - name: move_cert_type
+        description: ""
+
+      - name: move_cert_num
+        description: ""
+
+      - name: cert_per_animal_flag
+        description: ""
+
+      - name: moved_from_feedlot_flag
+        description: ""
+
+      - name: moved_to_feedlot_flag
+        description: ""
+
+      - name: move_apply_success_datetime
+        description: ""
+
+  - name: rds__user_and_farm_base
+    config:
+      tags: 
+        - base_tables
+        - hourly
+      materialized: incremental
+      schema: base
+      table_type: iceberg
+      incremental_strategy: merge
+      format: parquet
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+      on_schema_change: append_new_columns
+      partitioned_by: ["bucket(farm_id, 5)"]
+      unique_key: ["db_name","farm_app_type","farm_id"]
+      columns:
+      - name: db_name
+        description: ""
+
+      - name: farm_id
+        description: ""
+
+      - name: herd_number
+        description: ""
+
+      - name: national_herd_id
+        description: ""
+
+      - name: city
+        description: ""
+
+      - name: county
+        description: ""
+
+      - name: postcode
+        description: ""
+
+      - name: buitelaar_flag
+        description: ""
+
+      - name: farm_type
+        description: ""
+
+      - name: farm_option
+        description: ""
+
+      - name: farm_level
+        description: ""
+
+      - name: farm_band
+        description: ""
+
+      - name: farm_app_type
+        description: ""
+
+      - name: is_pro_flag
+        description: ""
+
+      - name: user_id
+        description: ""
+
+      - name: user_created_at
+        description: ""
+
+      - name: dnr_set_by
+        description: ""
+
+      - name: dnr_clear_by
+        description: ""
+
+      - name: initial_sub_type
+        description: ""
+
+      - name: plan_type
+        description: ""
+
+      - name: user_group
+        description: ""
+
+      - name: user_paid_until_date
+        description: ""
+
+      - name: user_auto_renew_flag
+        description: ""
+
+      - name: user_dnr_flag
+        description: ""
+
+      - name: agent_code
+        description: ""

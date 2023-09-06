@@ -1,0 +1,4 @@
+dbt-athena-community~= 1.6.0
+shandy-sqlfmt[jinjafmt]~= 0.19.1
+sqlfluff-templater-dbt~= 2.1.4
+dbt-coverage~= 0.3.4
