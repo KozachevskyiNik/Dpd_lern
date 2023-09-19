@@ -33,4 +33,4 @@ jobs:
             -e DBT_PROJECT_DIR=${{ vars.DBT_PROJECT_DIR }}
           run: |
             set -e
-            dbt run --target ${{ inputs.tag }}
+            dbt run --target ${{ inputs.target }}
