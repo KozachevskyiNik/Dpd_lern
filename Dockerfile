@@ -38,16 +38,18 @@ ENV LANG=C.UTF-8
 RUN python -m pip install --upgrade pip setuptools wheel --no-cache-dir
 
 # Set docker basics
-WORKDIR /usr/app/dbt/
+WORKDIR /app/dbt/
 
+# build param stage {dev, prod}
+ARG BUILD_STAGE="dev"
 
-# Copy and install requirements 
-COPY requirements-dev.txt .
-RUN python -m pip install --no-cache-dir -r requirements-dev.txt
+# Copy and install requirements
+COPY requirements-${BUILD_STAGE}.txt .
+RUN python -m pip install --no-cache-dir -r requirements-${BUILD_STAGE}.txt
 ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
 ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
 FROM base as hw-transforms
 # Add hw_transforms to the docker image
-
-
+COPY hw_transforms ./hw_transforms
+RUN ["dbt", "deps", "--project-dir", "hw_transforms"]

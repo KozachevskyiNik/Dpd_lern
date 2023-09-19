@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: "3.11"
       - run: |
-          pip install sqlfluff sqlfluff-templater-dbt -r requirements.txt
+          pip install sqlfluff -r requirements-dev.txt
           dbt deps
       - name: Run sqlfluff
         run: >

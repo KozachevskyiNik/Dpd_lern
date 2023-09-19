@@ -1,0 +1,9 @@
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+/.github/       @herdwatch/team-devops
+/.helm/         @herdwatch/team-devops
+/charts/        @herdwatch/team-devops
+
+/.dockerignore              @herdwatch/team-devops
+/Dockerfile                 @herdwatch/team-devops
+/Makefile                   @herdwatch/team-devops

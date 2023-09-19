@@ -20,11 +20,11 @@ jobs:
           python-version: "3.11"
       - name: Install pre-commit and dbt
         run: | 
-          pip install pre-commit -r requirements.txt 
+          pip install pre-commit -r requirements-dev.txt 
           dbt deps
       - name: dbt-checkpoint
         if: inputs.changed-files != '' && always()
-        run: |
+        run: |       
           pre-commit run --files ${{ inputs.changed-files }}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

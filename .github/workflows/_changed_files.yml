@@ -16,7 +16,7 @@ jobs:
         with:
           files_yaml: |
             dbt:
-              - '${{ vars.DBT_PROJECT_DIR }}/**/*.sql'
-              - '${{ vars.DBT_PROJECT_DIR }}/**/*.yml'
+              - '${{ vars.DBT_PROJECT_DIR }}/models/**/*.sql'
+              - '${{ vars.DBT_PROJECT_DIR }}/models/**/*.yml'
     outputs:
       list: ${{ steps.changed-files.outputs.dbt_all_changed_files }}

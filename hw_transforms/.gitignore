@@ -1,4 +1,6 @@
-target/
+target/*
+!target/coverage-doc-before.json
+!target/coverage-test-before.json
 dbt_packages/
 logs/
 ./logs/

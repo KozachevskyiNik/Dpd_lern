@@ -1,8 +1,12 @@
-name: Pre-commit hooks
+name: Pull Request
 
 on:
   pull_request:
-    types: [opened, edited, reopened, synchronize]
+    branches: ['**']
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
 
@@ -23,6 +27,7 @@ jobs:
     name: Get List of Changed Files
     secrets: inherit
     uses: ./.github/workflows/_changed_files.yml
+    needs: [ gitleaks ]
 
   sqlfmt:
     name: SQL Fmt
@@ -40,10 +45,18 @@ jobs:
     with:
       changed-files: ${{ needs.get-changed-files.outputs.list-files }}
 
-  dbtcheckpoint:
-    name: DBT CheckPoint
+  build:
+    name: Build
     secrets: inherit
-    uses: ./.github/workflows/_dbt_checkpoint.yml
-    needs: [ get-changed-files ]
+    uses: ./.github/workflows/_build.yml
+    needs: [ sqlfmt, sqlfluff ]
     with:
-      changed-files: ${{ needs.get-changed-files.outputs.list-files }}
+      build_stage: dev
+
+  coverage:
+    name: DBT Coverage
+    secrets: inherit
+    uses: ./.github/workflows/_dbt_coverage.yml
+    needs: [ build ]
+    with:
+      tag: ${{ needs.build.outputs.tag }}

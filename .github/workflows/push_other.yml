@@ -1,0 +1,47 @@
+name: On Merge (Except Main)
+
+on:
+  pull_request:
+    branches-ignore:
+      - main
+    types:
+      - closed
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  build:
+    if: github.event.pull_request.merged == true
+    name: Build
+    secrets: inherit
+    uses: ./.github/workflows/_build.yml
+    with:
+      build_stage: prod
+
+  test:
+    runs-on: [self-hosted, alpha]
+    steps:
+      - name: Login to Docker Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ vars.DOCKER_REGISTRY }}
+          username: ${{ secrets.GH_ACCESS_KEY_ID }}
+          password: ${{ secrets.GH_SECRET_ACCESS_KEY }}
+      - id: pull-local
+        run: |
+          docker pull ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_REPOSITORY }}:${{ inputs.tag }}
+      - name: DBT Test
+        uses: addnab/docker-run-action@v3
+        with:
+          image: ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_REPOSITORY }}:${{ inputs.tag }}
+          options: |
+            -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+            -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            -e DBT_PROFILES_DIR=${{ vars.DBT_PROJECT_DIR }}
+            -e DBT_PROJECT_DIR=${{ vars.DBT_PROJECT_DIR }}
+          run: |
+            set -e
+            dbt test
