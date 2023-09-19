@@ -28,4 +28,4 @@ jobs:
     needs: [ build ]
     with:
       tag: ${{ needs.build.outputs.tag }}
-      target: ${{ matrix.type }}
+      target: ${{ matrix.target }}
