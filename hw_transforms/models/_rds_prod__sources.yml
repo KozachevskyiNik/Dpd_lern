@@ -1680,3 +1680,24 @@ sources:
           - name: zoho_credit_note_id
             data_type: VARCHAR
             description: ""
+      - name: rds__animal_append_only
+        description: ""
+        columns:
+          - name: partition_date
+            data_type: DATE
+            description: ""
+          - name: upsolver_schema_version
+            data_type: INT
+            description: ""
+          - name: db_name
+            data_type: VARCHAR
+            description: ""
+          - name: animal_id
+            data_type: VARCHAR
+            description: ""
+          - name: stock_bull_flag
+            data_type: DOUBLE
+            description: ""
+          - name: updated_date_time
+            data_type: TIMESTAMP
+            description: ""

@@ -127,3 +127,16 @@ models:
 
       - name: kill_out_percentage
         description: ""
+
+  - name: mart__get_counts_of_stock
+    description: '{{ doc("mart__get_counts_of_stock") }}'
+    config:
+      tags: 
+        - mart_tables
+        - monthly
+      materialized: table
+      schema: marts
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(farm_id, 10)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}

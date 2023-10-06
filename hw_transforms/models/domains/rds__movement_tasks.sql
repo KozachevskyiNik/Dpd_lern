@@ -96,7 +96,6 @@ where
         'CERTAPPLY',
         'EXMOVEON',
         'EXTMOVEOFF', #}
-        'LIVESTOCK_SALES',
-        'LIVESTOCK_PURCHASES'
+        'LIVESTOCK_SALES', 'LIVESTOCK_PURCHASES'
     )
     and t.status_id = 'COMPLETE'

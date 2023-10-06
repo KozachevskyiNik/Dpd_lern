@@ -310,6 +310,18 @@ models:
       format: parquet
       partitioned_by: ["bucket(animal_id, 5)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+  
+  - name: rds__create_animal_categories
+    config:
+      tags: 
+        - domain_tables
+        - daily
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(animal_id, 5)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "20"}
 
   - name: rds__kill_insights_pre_calc
     config:
