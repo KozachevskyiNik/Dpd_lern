@@ -1,10 +1,20 @@
 sources:
   - name: rds_beta
+    loader: upsolver
     description: ""
     database: awsdatacatalog
     schema: beta_raw
     tags:
       - beta
+    freshness:
+      warn_after:
+        count: 24
+        period: hour
+      error_after:
+        count: 7
+        period: day
+      filter: partition_date > date('2022-10-01')
+    loaded_at_field: processing_time
     tables:
       - name: beta__animal_option_factories
         description: ""
@@ -827,6 +837,8 @@ sources:
             description: ""
 
       - name: beta__tasks
+        freshness:
+        loaded_at_field: updated_offline_date_time
         description: ""
         columns:
           - name: partition_date

@@ -38,6 +38,7 @@ jobs:
             -v ${{ github.workspace }}/${{ vars.DBT_PROJECT_DIR }}/target:/reports
           run: |
             set -e
+            dbt run --target beta --select tag:base_tables
             dbt docs generate
             cd ${{ vars.DBT_PROJECT_DIR }}            
             dbt-coverage compute ${{ matrix.type }} --cov-report /reports/coverage-${{ matrix.type }}.json --cov-fail-compare /reports/coverage-${{ matrix.type }}-before.json

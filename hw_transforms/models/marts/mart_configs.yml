@@ -2,141 +2,473 @@ version: 2
 
 models: 
   - name: mart__kill_insights
-    description: '{{ doc("mart__kill_insights") }}'
+    description: >
+     '{{ doc("mart__kill_insights") }}'\
+     '{{ doc("dbt_profiler_results__prod_marts_mart__kill_insights") }}'
+
     config:
       tags: 
         - mart_tables
-        - daily
+        - day
       materialized: table
       schema: marts
       table_type: iceberg
       format: parquet
       partitioned_by: ["bucket(farm_id, 5)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-      columns:
-      - name: db_name
+    tests:
+      - dbt_expectations.expect_table_column_count_to_equal_other_table:
+          compare_model: ref("rds__animals_base")
+    columns:
+      - name: uuid
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_not_be_null:
+              row_condition: "uuid is not null" # (Optional)
+
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: animal_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: in_herd_flag
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: species
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sex
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: tag
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: breed
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: move_in_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: off_herd_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dob
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: calf_reg_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: age_in_days
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: age_in_months
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dam_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dam_tag
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dam_breed
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dam_total_children
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sire_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sire_tag
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sire_breed
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sire_total_children
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sale_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: purchase_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sourced_from
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sourced_from_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sold_to
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sold_to_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: purchase_price
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sale_price
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: fat_str
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: conf_str
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: fat_conf_encoded
+        data_type: int
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: live_weight
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: derived_live_wt
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dead_weight
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: ppkg_live
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: days_in_herd
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: months_in_herd
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: gross_margin
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: gross_margin_dih
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: adg_in_herd
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: kill_out_percentage
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
   - name: mart__get_counts_of_stock
-    description: '{{ doc("mart__get_counts_of_stock") }}'
+    description: '{{ doc("dbt_profiler_results__prod_marts_mart__get_counts_of_stock") }}'
     config:
       tags: 
         - mart_tables
-        - monthly
+        - fortnight
       materialized: table
       schema: marts
       table_type: iceberg
       format: parquet
       partitioned_by: ["bucket(farm_id, 10)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dt
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_born_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_7_12_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_7_12_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_7_12_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_7_12_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_13_18_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_13_18_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_13_18_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_13_18_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_19_24_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_19_24_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_19_24_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_19_24_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: male_over_25_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: male_over_25_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: male_over_25_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: male_over_25_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: female_over_25_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: female_over_25_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: female_over_25_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: female_over_25_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist

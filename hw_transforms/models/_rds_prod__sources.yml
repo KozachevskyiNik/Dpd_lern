@@ -1,10 +1,20 @@
 sources:
   - name: rds_prod
+    loader: upsolver
     description: ""
     database: awsdatacatalog
     schema: production_raw
     tags:
       - prod
+    freshness:
+      warn_after:
+        count: 24
+        period: hour
+      error_after:
+        count: 7
+        period: day
+      filter: partition_date > date('2022-10-01')
+    loaded_at_field: processing_time
     tables:
       - name: rds__animal_option_factories
         columns:
@@ -534,6 +544,8 @@ sources:
             data_type: VARCHAR
 
       - name: rds__tasks
+        freshness:
+        loaded_at_field: updated_offline_date_time
         columns:
           - name: partition_date
             data_type: DATE

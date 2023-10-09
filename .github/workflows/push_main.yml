@@ -26,3 +26,4 @@ jobs:
     with:
       tag: ${{ needs.build.outputs.tag }}
       target: beta
+      dbt_tag: hour

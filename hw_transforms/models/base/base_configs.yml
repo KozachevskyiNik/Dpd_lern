@@ -2,6 +2,7 @@ version: 2
 
 models: 
   - name: rds__animals_base
+    description: '{{ doc("dbt_profiler_results__prod_base_rds__animals_base") }}'
     config:
       tags: 
         - base_tables
@@ -15,110 +16,261 @@ models:
       on_schema_change: append_new_columns
       partitioned_by: ["bucket(animal_id, 5)"]
       unique_key: ["db_name","animal_id"]
-      columns:
+    columns:
       - name: db_name
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: animal_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: species
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sex
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: tag
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: dob
+      - name: dob_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dod_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: breed
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: in_herd_flag
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: moved_in_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: off_herd_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: off_herd_reason
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: stock_bull_flag
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: pedigree
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: freezebrand
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dam_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: genetic_dam_tag
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sire_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: ai_bull_code
+      - name: calf_reg_datetime
+        data_type: timestamp
         description: ""
-
-      - name: purchase_price
-        description: ""
-
-      - name: sale_price
-        description: ""
-
-      - name: calf_reg_date
-        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: size
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: vigor
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: purpose
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: type
+      - name: animal_type_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: dead_weight
+      - name: purchase_price
+        data_type: double
         description: ""
-
-      - name: ppkg
-        description: ""
-
-      - name: mart_weight
-        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: mart_name
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: date_on_mart_image
+      - name: mart_datetime
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: date_on_killsheet
+      - name: sale_weight
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: purchase_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sale_price
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: killsheet_name
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: killsheet_datetime
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: kill_out_grade
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dead_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: price_per_kilo
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: calc_wt_flag
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: supplier_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: buyer_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: buyer_herd
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: buyer_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: seller_herd
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: seller_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
   - name: rds__tasks_base
+    description: '{{ doc("dbt_profiler_results__prod_base_rds__tasks_base") }}'
     config:
       tags: 
         - base_tables
@@ -132,174 +284,325 @@ models:
       on_schema_change: append_new_columns
       partitioned_by: ["bucket(task_id, 5)"]
       unique_key: ["db_name","task_animal_id"]
-      columns:
-      - name: country
+    columns:
+      - name: task_animal_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: country
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: db_name
+        data_type: string
         description: ""
-
-      - name: processing_time
-        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: task_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: status_id
+      - name: task_type_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: task_type
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: status_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: species
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: animal_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: record_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: task_cost
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: task_belongs_to
+      - name: record_belongs_to_app
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: task_created_datetime
+      - name: record_created_datetime
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: task_source
+      - name: source
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: operator_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: weight_on_date
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: lifetime_adg
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sickness_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: remedy_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: batch_number
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: vet_call_out_flag
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dose_amount_val
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dose_unit
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: milk_withdrawal_days
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: meat_withdrawal_days
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: performed_uid
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: prescribed_uid
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: rem_exp_date
+      - name: remedy_expiry_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: rem_purch_amnt
+      - name: remedy_purchased_amount
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: rem_qty_used
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: rem_qty_returned
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: rem_qty_left
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: treatmentcourse
+      - name: treatment_course
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: scan_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: expected_calving_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: stock_bull_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: ai_sire_name
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: days_pregnant
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: twins_flag
+      - name: record_result
+        data_type: double
         description: ""
-
-      - name: task_result
-        description: ""
-
-      - name: unborn_sex
-        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: days_with_bull
+        data_type: double
         description: ""
-
-      - name: expected_heat_datetime
-        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: heat_reminder_freq
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: heat_reminder_cycle
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: run_with_bull_flag
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: date_bull_leaves
+      - name: bull_leaves_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: moved_to_herd
+        data_type: string
         description: ""
-      
-      - name: move_cert_type
-        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: move_cert_num
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: move_cert_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: cert_per_animal_flag
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: moved_from_feedlot_flag
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: moved_to_feedlot_flag
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: move_apply_success_datetime
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
   - name: rds__user_and_farm_base
+    description: '{{ doc("dbt_profiler_results__prod_base_rds__user_and_farm_base") }}'
     config:
       tags: 
         - base_tables
-        - hourly
+        - hour
       materialized: incremental
       schema: base
       table_type: iceberg
@@ -309,78 +612,153 @@ models:
       on_schema_change: append_new_columns
       partitioned_by: ["bucket(farm_id, 5)"]
       unique_key: ["db_name","farm_app_type","farm_id"]
-      columns:
+    columns:
       - name: db_name
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: herd_number
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: national_herd_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: city
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: county
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: postcode
+      - name: post_code
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: buitelaar_flag
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_type
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_option
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_level
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_band
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_app_type
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: is_pro_flag
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: user_id
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: user_created_at
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dnr_set_by
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dnr_clear_by
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: initial_sub_type
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: plan_type
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: user_group
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: user_paid_until_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: user_auto_renew_flag
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: user_dnr_flag
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: agent_code
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist

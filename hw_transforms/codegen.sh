@@ -6,14 +6,19 @@ dbt -q ls --resource-type model | grep marts |cut -d '.' -f3  > codegen/mart/mar
 while read -r line
 do
     dbt run-operation generate_model_yaml --args '{"model_names": ['$line'],"upstream_descriptions":true,"include_data_types":true}' |sed 1,5d > codegen/base/"$line"_codegen.yml
+    ./profile-generator.sh "$line" prod_base
 done  < codegen/base/base_model_list
 
 while read -r line
 do
     dbt run-operation generate_model_yaml --args '{"model_names": ['$line'],"upstream_descriptions":true,"include_data_types":true}' |sed 1,5d > codegen/domain/"$line"_codegen.yml
+    ./profile-generator.sh "$line" prod_domains
 done  < codegen/domain/domain_model_list
 
 while read -r line
 do
     dbt run-operation generate_model_yaml --args '{"model_names": ['$line'],"upstream_descriptions":true,"include_data_types":true}' |sed 1,5d > codegen/mart/"$line"_codegen.yml
+    ./profile-generator.sh "$line" prod_marts
 done  < codegen/mart/mart_model_list
+
+

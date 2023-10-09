@@ -2,389 +2,927 @@ version: 2
 
 models: 
   - name: rds__dam_data
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__dam_data") }}'
     config:
       tags:
         - domain_tables
-        - daily
+        - day
       materialized: table
       schema: domains
       table_type: iceberg
       format: parquet
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-      columns:
+    columns:
       - name: db_name
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: child_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: child_dob
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: species
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: child_sex
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: child_tag
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: child_breed
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: child_reg_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dam_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dam_sex
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dam_tag
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dam_breed
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dam_total_children
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: dam_dob
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
   
   - name: rds__sire_data
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__sire_data") }}'
     config:
       tags: 
         - domain_tables
-        - daily
+        - day
       materialized: table
       schema: domains
       table_type: iceberg
       format: parquet
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-      columns:
+    columns:
       - name: db_name
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: child_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: child_dob
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: species
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: child_sex
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: child_tag
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: child_breed
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: child_reg_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sire_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sire_sex
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sire_tag
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sire_breed
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sire_pedigree
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: stock_bull_flag
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sire_total_children
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sire_dob
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
   - name: rds__weight_tasks
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__weight_tasks") }}'
     config:
       tags: 
         - domain_tables
-        - daily
+        - day
       materialized: table
       schema: domains
       table_type: iceberg
       format: parquet
       partitioned_by: ["bucket(animal_id, 5)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-      columns:
+    columns:
       - name: country
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: db_name
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: task_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: animal_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: task_type
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: record_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: weight_on_date
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: lifetime_adg
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: species
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: live_weight
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dead_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: city
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: herd_number
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_type
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_option
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_band
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_app_type
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: user_id
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: last_weight
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: weight_difference
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: days_btwn_weighings
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: days_lived_till_weighing
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: days_btwn_movement_off
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: derived_live_wt
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: inter_weighing_adg
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: lifetime_adg_at_weighing
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: days_till_200
+        data_type: bigint
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
   - name: rds__movement_tasks
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__movement_tasks") }}'
     config:
       tags: 
         - domain_tables
-        - daily
+        - day
       materialized: table
       schema: domains
       table_type: iceberg
       format: parquet
       partitioned_by: ["bucket(animal_id, 5)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-      columns:
+    columns:
       - name: task_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: db_name
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: country
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: type_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: animal_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: farm_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: record_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: task_belongs_to
+      - name: record_belongs_to_app
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: tag
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: dob
+      - name: dob_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: breed
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: moved_in_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: off_herd_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: off_herd_reason
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sale_price
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: purchase_price
+        data_type: double
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: move_cert_type
+        data_type: string
         description: ""
-
-      - name: operator_hw_herd_number
-        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: operator_herd_number
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: operator_name
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: operator_type
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: move_apply_success_datetime
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: herd_number
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: city
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: county
+        data_type: string
         description: ""
-
-      - name: farm_type
-        description: ""
-
-      - name: farm_option
-        description: ""
-
-      - name: farm_level
-        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
   - name: rds__animal_parentage_data
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__animal_parentage_data") }}'
     config:
       tags: 
         - domain_tables
-        - daily
+        - day
       materialized: table
       schema: domains
       table_type: iceberg
       format: parquet
       partitioned_by: ["bucket(animal_id, 5)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dam_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dam_sex
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dam_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dam_breed
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dam_total_children
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sire_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sire_sex
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sire_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sire_breed
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sire_pedigree
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sire_total_children
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
   
   - name: rds__create_animal_categories
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__create_animal_categories") }}'
     config:
       tags: 
         - domain_tables
-        - daily
+        - fortnight
       materialized: table
       schema: domains
       table_type: iceberg
       format: parquet
       partitioned_by: ["bucket(animal_id, 5)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "20"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dt
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dob_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: moved_in_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: off_herd_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dod_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sex
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_category
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
   - name: rds__kill_insights_pre_calc
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__kill_insights_pre_calc") }}'
     config:
       tags: 
         - domain_tables
-        - daily
+        - day
       materialized: table
       schema: domains
       table_type: iceberg
       format: parquet
       partitioned_by: ["bucket(animal_id, 5)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: purchase_price
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sale_price
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: days_in_herd
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: months_in_herd
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: fat_str
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: conf_str
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: fat_conf_encoded
+        data_type: int
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: live_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: derived_live_wt
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dead_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ppkg_live
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ppkg_dead
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: gross_margin
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: gross_margin_dih
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: adg_in_herd
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: kill_out_percentage
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
   - name: rds__sale_tasks
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__sale_tasks") }}'
     config:
       tags: 
         - domain_tables
-        - daily
+        - day
       materialized: table
       schema: domains
       table_type: iceberg
       format: parquet
       partitioned_by: ["bucket(animal_id, 5)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-      columns:
+    columns:
       - name: db_name
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: animal_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: task_id
+      - name: type_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: sale_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: sold_to
+      - name: sold_to_herd
+        data_type: string
         description: ""
-  
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sold_to_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
   - name: rds__purchase_tasks
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__purchase_tasks") }}'
     config:
       tags: 
         - domain_tables
-        - daily
+        - day
       materialized: table
       schema: domains
       table_type: iceberg
       format: parquet
       partitioned_by: ["bucket(animal_id, 5)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-      columns:
+    columns:
       - name: db_name
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: animal_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: task_id
+      - name: type_id
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: purchase_date
+        data_type: timestamp
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
-      - name: sourced_from
+      - name: sourced_from_herd
+        data_type: string
         description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sourced_from_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist

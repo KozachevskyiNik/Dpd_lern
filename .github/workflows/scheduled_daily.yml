@@ -1,0 +1,76 @@
+name: Scheduled daily
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  build:
+    name: Build
+    secrets: inherit
+    uses: ./.github/workflows/_build.yml
+    with:
+      build_stage: prod
+
+  run:
+    strategy:
+      matrix:
+        target: [ beta, prod ]
+    name: DBT Run
+    secrets: inherit
+    uses: ./.github/workflows/_dbt_run.yml
+    needs: [ build ]
+    with:
+      tag: ${{ needs.build.outputs.tag }}
+      target: ${{ matrix.target }}
+      dbt_tag: day
+
+  sync:
+    runs-on: [ self-hosted, alpha ]
+    strategy:
+      matrix:
+        target: [ test, beta, prod ]
+    needs: [ run ]
+    name: Replicate to the RDS
+    steps:
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install awscli
+        run: |
+          python -m pip install --upgrade pip
+          pip install awscli
+      - name: Run the AWS Glue job
+        run: >
+          aws glue start-job-run
+          --job-name replicate_to_${{ matrix.target }}
+          --arguments='--scriptLocation="${{ vars.GLUE_SCRIPTS_PATH }}/replicate_to_${{ matrix.target }}.py"'
+        env:
+          AWS_DEFAULT_REGION: ${{ vars.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  s3_upload:
+    runs-on:  [ self-hosted, alpha ]
+    name: Upload DT docs to s3
+    steps:
+      - uses: actions/checkout@master
+      - uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete --exclude '*' --include './hw_transforms/target/catalog.json' --include './hw_transforms/target/index.html' --include './hw_transforms/target/manifest.json'
+        env:
+          AWS_S3_BUCKET: 'hw-dbt-docs'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ vars.AWS_REGION }}
+          SOURCE_DIR: './hw_transforms/target/'
+
+
+
+
+     

@@ -1,8 +1,8 @@
 {
   "cov_type": "test",
-  "covered": 0,
+  "covered": 327,
   "total": 1352,
-  "coverage": 0.0,
+  "coverage": 0.24186390532544377,
   "tables": [
     {
       "name": "beta_raw.beta__animal_option_factories",
@@ -6428,2075 +6428,2075 @@
     },
     {
       "name": "prod_base.rds__animals_base",
-      "covered": 0,
+      "covered": 42,
       "total": 42,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "species",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sex",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "tag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dob_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dod_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "breed",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "in_herd_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "moved_in_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "off_herd_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "off_herd_reason",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "stock_bull_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "pedigree",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "freezebrand",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "genetic_dam_tag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "calf_reg_datetime",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "size",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "vigor",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "purpose",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_type_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "purchase_price",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "mart_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "mart_datetime",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sale_weight",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "purchase_weight",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sale_price",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "killsheet_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "killsheet_datetime",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "kill_out_grade",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dead_weight",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "price_per_kilo",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "calc_wt_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "supplier_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "buyer_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "buyer_herd",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "buyer_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "seller_herd",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "seller_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_base.rds__tasks_base",
-      "covered": 0,
+      "covered": 52,
       "total": 52,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "task_animal_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "country",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "task_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "task_type_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "task_type",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "status_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "species",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "record_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "task_cost",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "record_belongs_to_app",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "record_created_datetime",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "source",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "operator_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "weight_on_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "lifetime_adg",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sickness_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "remedy_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "batch_number",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "vet_call_out_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dose_amount_val",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dose_unit",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "milk_withdrawal_days",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "meat_withdrawal_days",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "performed_uid",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "prescribed_uid",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "remedy_expiry_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "remedy_purchased_amount",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "rem_qty_used",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "rem_qty_returned",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "rem_qty_left",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "treatment_course",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "scan_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "expected_calving_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "stock_bull_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "ai_sire_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "days_pregnant",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "record_result",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "days_with_bull",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "heat_reminder_freq",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "heat_reminder_cycle",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "run_with_bull_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "bull_leaves_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "moved_to_herd",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "move_cert_num",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "move_cert_type",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "cert_per_animal_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "moved_from_feedlot_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "moved_to_feedlot_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "move_apply_success_datetime",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_base.rds__user_and_farm_base",
-      "covered": 0,
+      "covered": 25,
       "total": 25,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "herd_number",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "national_herd_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "city",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "county",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "post_code",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "buitelaar_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_type",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_option",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_level",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_band",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_app_type",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "is_pro_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "user_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "user_created_at",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dnr_set_by",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dnr_clear_by",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "initial_sub_type",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "plan_type",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "user_group",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "user_paid_until_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "user_auto_renew_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "user_dnr_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "agent_code",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_domains.rds__animal_parentage_data",
-      "covered": 0,
+      "covered": 13,
       "total": 13,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_sex",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_tag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_breed",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_total_children",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_sex",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_tag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_breed",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_pedigree",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_total_children",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_domains.rds__create_animal_categories",
-      "covered": 0,
+      "covered": 10,
       "total": 10,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dt",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dob_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "moved_in_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "off_herd_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dod_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sex",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_category",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_domains.rds__dam_data",
-      "covered": 0,
+      "covered": 14,
       "total": 14,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "child_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "child_dob",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "species",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "child_sex",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "child_tag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "child_breed",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "child_reg_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_sex",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_tag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_breed",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_total_children",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_dob",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_domains.rds__kill_insights_pre_calc",
-      "covered": 0,
+      "covered": 18,
       "total": 18,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "purchase_price",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sale_price",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "days_in_herd",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "months_in_herd",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "fat_str",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "conf_str",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "fat_conf_encoded",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "live_weight",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "derived_live_wt",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dead_weight",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "ppkg_live",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "ppkg_dead",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "gross_margin",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "gross_margin_dih",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "adg_in_herd",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "kill_out_percentage",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_domains.rds__movement_tasks",
-      "covered": 0,
+      "covered": 24,
       "total": 24,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "task_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "country",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "type_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "record_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "record_belongs_to_app",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "tag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dob_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "breed",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "moved_in_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "off_herd_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "off_herd_reason",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sale_price",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "purchase_price",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "move_cert_type",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "operator_herd_number",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "operator_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "operator_type",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "move_apply_success_datetime",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "herd_number",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "city",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "county",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_domains.rds__purchase_tasks",
-      "covered": 0,
+      "covered": 6,
       "total": 6,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "type_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "purchase_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sourced_from_herd",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sourced_from_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_domains.rds__sale_tasks",
-      "covered": 0,
+      "covered": 6,
       "total": 6,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "type_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sale_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sold_to_herd",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sold_to_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_domains.rds__sire_data",
-      "covered": 0,
+      "covered": 16,
       "total": 16,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "child_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "child_dob",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "species",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "child_sex",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "child_tag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "child_breed",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "child_reg_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_sex",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_tag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_breed",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_pedigree",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "stock_bull_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_total_children",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_dob",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_domains.rds__weight_tasks",
-      "covered": 0,
+      "covered": 28,
       "total": 28,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "country",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "task_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "task_type",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "record_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "weight_on_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "lifetime_adg",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "species",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "live_weight",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dead_weight",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "city",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "herd_number",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_type",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_option",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_band",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_app_type",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "user_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "last_weight",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "weight_difference",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "days_btwn_weighings",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "days_lived_till_weighing",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "days_btwn_movement_off",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "derived_live_wt",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "inter_weighing_adg",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "lifetime_adg_at_weighing",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "days_till_200",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_marts.mart__get_counts_of_stock",
-      "covered": 0,
+      "covered": 28,
       "total": 28,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dt",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "under_6_start_of_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "under_6_born_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "under_6_bought_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "under_6_sold_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "under_6_died_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "between_7_12_start_of_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "between_7_12_bought_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "between_7_12_sold_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "between_7_12_died_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "between_13_18_start_of_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "between_13_18_bought_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "between_13_18_sold_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "between_13_18_died_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "between_19_24_start_of_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "between_19_24_bought_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "between_19_24_sold_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "between_19_24_died_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "male_over_25_start_of_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "male_over_25_bought_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "male_over_25_sold_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "male_over_25_died_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "female_over_25_start_of_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "female_over_25_bought_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "female_over_25_sold_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "female_over_25_died_in_month",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     },
     {
       "name": "prod_marts.mart__kill_insights",
-      "covered": 0,
+      "covered": 45,
       "total": 45,
-      "coverage": 0.0,
+      "coverage": 1.0,
       "columns": [
         {
           "name": "uuid",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "db_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "animal_type",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "farm_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "in_herd_flag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "species",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sex",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "tag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "breed",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "move_in_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "off_herd_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dob",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "calf_reg_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "age_in_days",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "age_in_months",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_tag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_breed",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dam_total_children",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_id",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_tag",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_breed",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sire_total_children",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sale_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "purchase_date",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sourced_from",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sourced_from_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sold_to",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sold_to_name",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "purchase_price",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "sale_price",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "fat_str",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "conf_str",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "fat_conf_encoded",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "live_weight",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "derived_live_wt",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "dead_weight",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "ppkg_live",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "days_in_herd",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "months_in_herd",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "gross_margin",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "gross_margin_dih",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "adg_in_herd",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         },
         {
           "name": "kill_out_percentage",
-          "covered": 0,
+          "covered": 1,
           "total": 1,
-          "coverage": 0.0
+          "coverage": 1.0
         }
       ]
     }
