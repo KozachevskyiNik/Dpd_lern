@@ -6,7 +6,7 @@ models:
     config:
       tags: 
         - base_tables
-        - hourly
+        - hour
       materialized: incremental
       schema: base
       table_type: iceberg
@@ -274,7 +274,7 @@ models:
     config:
       tags: 
         - base_tables
-        - hourly
+        - hour
       materialized: incremental
       schema: base
       table_type: iceberg
