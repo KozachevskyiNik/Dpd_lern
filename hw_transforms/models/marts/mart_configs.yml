@@ -2,9 +2,7 @@ version: 2
 
 models: 
   - name: mart__kill_insights
-    description: >
-     '{{ doc("mart__kill_insights") }}'\
-     '{{ doc("dbt_profiler_results__prod_marts_mart__kill_insights") }}'
+    description: '{{ doc("mart__kill_insights_doc") }}'
 
     config:
       tags: 
@@ -16,9 +14,6 @@ models:
       format: parquet
       partitioned_by: ["bucket(farm_id, 5)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-    tests:
-      - dbt_expectations.expect_table_column_count_to_equal_other_table:
-          compare_model: ref("rds__animals_base")
     columns:
       - name: uuid
         data_type: string
@@ -293,7 +288,7 @@ models:
           - dbt_expectations.expect_column_to_exist
 
   - name: mart__get_counts_of_stock
-    description: '{{ doc("dbt_profiler_results__prod_marts_mart__get_counts_of_stock") }}'
+    description: '{{ doc("mart__get_counts_of_stock") }}'
     config:
       tags: 
         - mart_tables

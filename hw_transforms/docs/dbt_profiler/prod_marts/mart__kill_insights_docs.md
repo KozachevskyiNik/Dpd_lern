@@ -1,4 +1,54 @@
-{% docs mart__kill_insights %}
+{% docs mart__kill_insights_doc %}
+| column_name         | data_type    |  row_count | not_null_proportion | distinct_count | is_unique | profiled_at                 |
+| ------------------- | ------------ | ---------- | ------------------- | -------------- | --------- | --------------------------- |
+| uuid                | varchar      | 10,965,150 |            1.000000 |     10,965,150 |      True | 2023-10-07 12:08:26.767 UTC |
+| db_name             | varchar      | 10,965,150 |            1.000000 |              4 |     False | 2023-10-07 12:08:26.767 UTC |
+| animal_id           | varchar      | 10,965,150 |            1.000000 |     10,965,150 |      True | 2023-10-07 12:08:26.767 UTC |
+| animal_type         | varchar      | 10,965,150 |            1.000000 |              4 |     False | 2023-10-07 12:08:26.767 UTC |
+| farm_id             | varchar      | 10,965,150 |            1.000000 |         25,838 |     False | 2023-10-07 12:08:26.767 UTC |
+| in_herd_flag        | bigint       | 10,965,150 |            1.000000 |              2 |     False | 2023-10-07 12:08:26.767 UTC |
+| species             | varchar      | 10,965,150 |            1.000000 |              2 |     False | 2023-10-07 12:08:26.767 UTC |
+| sex                 | varchar      | 10,965,150 |            1.000000 |              5 |     False | 2023-10-07 12:08:26.767 UTC |
+| tag                 | varchar      | 10,965,150 |            1.000000 |      9,874,195 |     False | 2023-10-07 12:08:26.767 UTC |
+| breed               | varchar      | 10,965,150 |            1.000000 |            294 |     False | 2023-10-07 12:08:26.767 UTC |
+| move_in_date        | timestamp(6) | 10,965,150 |            0.662982 |          8,062 |     False | 2023-10-07 12:08:26.767 UTC |
+| off_herd_date       | timestamp(6) | 10,965,150 |            0.678948 |          4,357 |     False | 2023-10-07 12:08:26.767 UTC |
+| dob                 | timestamp(6) | 10,965,150 |            1.000000 |          9,061 |     False | 2023-10-07 12:08:26.767 UTC |
+| calf_reg_date       | timestamp(6) | 10,965,150 |            0.261307 |      2,761,515 |     False | 2023-10-07 12:08:26.767 UTC |
+| age_in_days         | bigint       | 10,965,150 |            0.678948 |          7,845 |     False | 2023-10-07 12:08:26.767 UTC |
+| age_in_months       | bigint       | 10,965,150 |            0.678948 |            425 |     False | 2023-10-07 12:08:26.767 UTC |
+| dam_id              | varchar      | 10,965,150 |            0.571772 |      3,107,829 |     False | 2023-10-07 12:08:26.767 UTC |
+| dam_tag             | varchar      | 10,965,150 |            0.641246 |      3,387,822 |     False | 2023-10-07 12:08:26.767 UTC |
+| dam_breed           | varchar      | 10,965,150 |            0.571772 |            252 |     False | 2023-10-07 12:08:26.767 UTC |
+| dam_total_children  | bigint       | 10,965,150 |            0.571772 |             29 |     False | 2023-10-07 12:08:26.767 UTC |
+| sire_id             | varchar      | 10,965,150 |            0.389324 |        648,382 |     False | 2023-10-07 12:08:26.767 UTC |
+| sire_tag            | varchar      | 10,965,150 |            0.389324 |        145,152 |     False | 2023-10-07 12:08:26.767 UTC |
+| sire_breed          | varchar      | 10,965,150 |            0.389324 |            190 |     False | 2023-10-07 12:08:26.767 UTC |
+| sire_total_children | bigint       | 10,965,150 |            0.389324 |            342 |     False | 2023-10-07 12:08:26.767 UTC |
+| sale_date           | timestamp(6) | 10,965,150 |            0.678948 |          4,357 |     False | 2023-10-07 12:08:26.767 UTC |
+| purchase_date       | timestamp(6) | 10,965,150 |            0.662982 |          8,062 |     False | 2023-10-07 12:08:26.767 UTC |
+| sourced_from        | varchar      | 10,965,150 |            0.082585 |         72,903 |     False | 2023-10-07 12:08:26.767 UTC |
+| sourced_from_name   | varchar      | 10,965,150 |            0.100877 |         80,739 |     False | 2023-10-07 12:08:26.767 UTC |
+| sold_to             | varchar      | 10,965,150 |            0.440216 |         53,624 |     False | 2023-10-07 12:08:26.767 UTC |
+| sold_to_name        | varchar      | 10,965,150 |            0.461305 |         74,456 |     False | 2023-10-07 12:08:26.767 UTC |
+| purchase_price      | double       | 10,965,150 |            0.010807 |          2,174 |     False | 2023-10-07 12:08:26.767 UTC |
+| sale_price          | double       | 10,965,150 |            0.028167 |         12,343 |     False | 2023-10-07 12:08:26.767 UTC |
+| fat_str             | varchar      | 10,965,150 |            0.000464 |             60 |     False | 2023-10-07 12:08:26.767 UTC |
+| conf_str            | varchar      | 10,965,150 |            0.000464 |             44 |     False | 2023-10-07 12:08:26.767 UTC |
+| fat_conf_encoded    | integer      | 10,965,150 |            0.000417 |             84 |     False | 2023-10-07 12:08:26.767 UTC |
+| live_weight         | double       | 10,965,150 |            0.000021 |            133 |     False | 2023-10-07 12:08:26.767 UTC |
+| derived_live_wt     | double       | 10,965,150 |            0.012917 |          1,840 |     False | 2023-10-07 12:08:26.767 UTC |
+| dead_weight         | double       | 10,965,150 |            0.000500 |          2,347 |     False | 2023-10-07 12:08:26.767 UTC |
+| ppkg_live           | double       | 10,965,150 |            0.003407 |          1,578 |     False | 2023-10-07 12:08:26.767 UTC |
+| days_in_herd        | bigint       | 10,965,150 |            0.672854 |          7,086 |     False | 2023-10-07 12:08:26.767 UTC |
+| months_in_herd      | bigint       | 10,965,150 |            0.672854 |            308 |     False | 2023-10-07 12:08:26.767 UTC |
+| gross_margin        | double       | 10,965,150 |            0.017023 |          9,021 |     False | 2023-10-07 12:08:26.767 UTC |
+| gross_margin_dih    | double       | 10,965,150 |            0.017023 |          3,265 |     False | 2023-10-07 12:08:26.767 UTC |
+| adg_in_herd         | double       | 10,965,150 |            0.012934 |          1,965 |     False | 2023-10-07 12:08:26.767 UTC |
+| kill_out_percentage | double       | 10,965,150 |            0.000091 |            988 |     False | 2023-10-07 12:08:26.767 UTC |
+
+
+
 # **Killsheet Insights Documentation**
 This mart table is created for serving Killsheet insights to the online only insights service in the herdwatch application.   
 The final Athena table is synced to the postgres databases that the application uses to connect and query.   

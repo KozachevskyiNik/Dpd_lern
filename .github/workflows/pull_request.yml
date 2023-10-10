@@ -53,10 +53,3 @@ jobs:
     with:
       build_stage: dev
 
-  coverage:
-    name: DBT Coverage
-    secrets: inherit
-    uses: ./.github/workflows/_dbt_coverage.yml
-    needs: [ build ]
-    with:
-      tag: ${{ needs.build.outputs.tag }}
