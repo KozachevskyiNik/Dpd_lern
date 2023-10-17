@@ -55,17 +55,3 @@ jobs:
           AWS_DEFAULT_REGION: ${{ vars.AWS_REGION }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  s3_upload:
-    runs-on:  [ self-hosted, alpha ]
-    name: Upload DT docs to s3
-    steps:
-      - uses: actions/checkout@master
-      - uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --follow-symlinks --delete --exclude '*' --include './hw_transforms/target/catalog.json' --include './hw_transforms/target/index.html' --include './hw_transforms/target/manifest.json'
-        env:
-          AWS_S3_BUCKET: 'hw-dbt-docs'
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ vars.AWS_REGION }}
-          SOURCE_DIR: './hw_transforms/target/'

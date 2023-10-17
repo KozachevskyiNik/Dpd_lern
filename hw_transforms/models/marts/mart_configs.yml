@@ -306,7 +306,7 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
-      - name: dt
+      - name: reconciliation_month
         data_type: timestamp
         description: ""
         tests:
@@ -348,6 +348,18 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: under_6_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_net_transfer
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: between_7_12_start_of_month
         data_type: bigint
         description: ""
@@ -367,6 +379,18 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: between_7_12_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_7_12_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_7_12_net_transfer
         data_type: bigint
         description: ""
         tests:
@@ -396,6 +420,18 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: between_13_18_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_13_18_net_transfer
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: between_19_24_start_of_month
         data_type: bigint
         description: ""
@@ -415,6 +451,18 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: between_19_24_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_19_24_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_19_24_net_transfer
         data_type: bigint
         description: ""
         tests:
@@ -444,6 +492,18 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: male_over_25_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: male_over_25_net_transfer
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: female_over_25_start_of_month
         data_type: bigint
         description: ""
@@ -463,6 +523,18 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: female_over_25_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: female_over_25_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: female_over_25_net_transfer
         data_type: bigint
         description: ""
         tests:
