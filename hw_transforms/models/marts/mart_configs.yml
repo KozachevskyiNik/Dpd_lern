@@ -12,7 +12,7 @@ models:
       schema: marts
       table_type: iceberg
       format: parquet
-      partitioned_by: ["bucket(farm_id, 5)"]
+      partitioned_by: ["bucket(farm_id, 10)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
     columns:
       - name: uuid

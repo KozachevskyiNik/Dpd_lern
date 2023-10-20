@@ -31,6 +31,7 @@ jobs:
   s3_upload:
     runs-on:  [ self-hosted, alpha ]
     name: Upload DT docs to s3
+    needs: [ run ]
     steps:
       - uses: actions/checkout@master
       - uses: jakejarvis/s3-sync-action@master
@@ -41,4 +42,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ vars.AWS_REGION }}
-          SOURCE_DIR: './hw_transforms/target/'
+          SOURCE_DIR: './hw_transforms/target/'   

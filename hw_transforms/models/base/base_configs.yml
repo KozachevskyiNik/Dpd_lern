@@ -14,7 +14,7 @@ models:
       format: parquet
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
       on_schema_change: append_new_columns
-      partitioned_by: ["bucket(animal_id, 5)"]
+      partitioned_by: ["bucket(animal_id, 50)"]
       unique_key: ["db_name","animal_id"]
     columns:
       - name: db_name
@@ -282,7 +282,7 @@ models:
       format: parquet
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
       on_schema_change: append_new_columns
-      partitioned_by: ["bucket(task_id, 5)"]
+      partitioned_by: ["bucket(task_id, 50)"]
       unique_key: ["db_name","task_animal_id"]
     columns:
       - name: task_animal_id
@@ -610,7 +610,7 @@ models:
       format: parquet
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
       on_schema_change: append_new_columns
-      partitioned_by: ["bucket(farm_id, 5)"]
+      partitioned_by: ["bucket(farm_id, 10)"]
       unique_key: ["db_name","farm_app_type","farm_id"]
     columns:
       - name: db_name

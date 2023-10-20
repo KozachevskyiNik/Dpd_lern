@@ -11,6 +11,7 @@ models:
       schema: domains
       table_type: iceberg
       format: parquet
+      partitioned_by: ["bucket(animal_id, 50)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
     columns:
       - name: db_name
@@ -216,7 +217,7 @@ models:
       schema: domains
       table_type: iceberg
       format: parquet
-      partitioned_by: ["bucket(animal_id, 5)"]
+      partitioned_by: ["bucket(task_id, 70)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
     columns:
       - name: country
@@ -397,7 +398,7 @@ models:
       schema: domains
       table_type: iceberg
       format: parquet
-      partitioned_by: ["bucket(animal_id, 5)"]
+      partitioned_by: ["bucket(task_id, 50)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
     columns:
       - name: task_id
@@ -554,7 +555,7 @@ models:
       schema: domains
       table_type: iceberg
       format: parquet
-      partitioned_by: ["bucket(animal_id, 5)"]
+      partitioned_by: ["bucket(animal_id, 50)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
     columns:
       - name: db_name
@@ -645,7 +646,7 @@ models:
       schema: domains
       table_type: iceberg
       format: parquet
-      partitioned_by: ["bucket(animal_id, 5)"]
+      partitioned_by: ["bucket(farm_id, 10)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "20"}
     columns:
       - name: db_name
@@ -718,7 +719,7 @@ models:
       schema: domains
       table_type: iceberg
       format: parquet
-      partitioned_by: ["bucket(animal_id, 5)"]
+      partitioned_by: ["bucket(animal_id, 50)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
     columns:
       - name: db_name
@@ -839,7 +840,7 @@ models:
       schema: domains
       table_type: iceberg
       format: parquet
-      partitioned_by: ["bucket(animal_id, 5)"]
+      partitioned_by: ["bucket(animal_id, 50)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
     columns:
       - name: db_name
@@ -888,7 +889,7 @@ models:
       schema: domains
       table_type: iceberg
       format: parquet
-      partitioned_by: ["bucket(animal_id, 5)"]
+      partitioned_by: ["bucket(animal_id, 50)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
     columns:
       - name: db_name

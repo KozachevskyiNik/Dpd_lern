@@ -36,7 +36,7 @@ with
                     (
                         date_diff('month', a.dob_date, aca.dt) between 0 and 6
                         and (
-                            aca.dt > date_trunc('month', a.moved_in_date)
+                            aca.dt >= date_trunc('month', a.moved_in_date)
                             or a.moved_in_date is null
                             or a.dob_date = a.moved_in_date
                         )
@@ -47,44 +47,44 @@ with
                     (
                         date_diff('month', a.dob_date, aca.dt) between 7 and 12
                         and (
-                            aca.dt > date_trunc('month', a.moved_in_date)
+                            aca.dt >= date_trunc('month', a.moved_in_date)
                             or a.moved_in_date is null
                             or a.dob_date = a.moved_in_date
                         )
-                        and (a.off_herd_date > aca.dt or a.off_herd_date is null)
+                        and (a.off_herd_date >= aca.dt or a.off_herd_date is null)
                     )
                 then '7-12'
                 when
                     (
                         date_diff('month', a.dob_date, aca.dt) between 13 and 18
                         and (
-                            aca.dt > date_trunc('month', a.moved_in_date)
+                            aca.dt >= date_trunc('month', a.moved_in_date)
                             or a.moved_in_date is null
                             or a.dob_date = a.moved_in_date
                         )
-                        and (a.off_herd_date > aca.dt or a.off_herd_date is null)
+                        and (a.off_herd_date >= aca.dt or a.off_herd_date is null)
                     )
                 then '13-18'
                 when
                     (
                         date_diff('month', a.dob_date, aca.dt) between 19 and 24
                         and (
-                            aca.dt > date_trunc('month', a.moved_in_date)
+                            aca.dt >= date_trunc('month', a.moved_in_date)
                             or a.moved_in_date is null
                             or a.dob_date = a.moved_in_date
                         )
-                        and (a.off_herd_date > aca.dt or a.off_herd_date is null)
+                        and (a.off_herd_date >= aca.dt or a.off_herd_date is null)
                     )
                 then '19-24'
                 when
                     (
                         date_diff('month', a.dob_date, aca.dt) >= 25
                         and (
-                            aca.dt > date_trunc('month', a.moved_in_date)
+                            aca.dt >= date_trunc('month', a.moved_in_date)
                             or a.moved_in_date is null
                             or a.dob_date = a.moved_in_date
                         )
-                        and (a.off_herd_date > aca.dt or a.off_herd_date is null)
+                        and (a.off_herd_date >= aca.dt or a.off_herd_date is null)
                     )
                 then '25+'
                 else 'NA'

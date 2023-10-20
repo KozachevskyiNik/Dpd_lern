@@ -7,6 +7,10 @@ with
             count_if(
                 (cac.animal_category = '0-6')
                 and (cac.dt > date_trunc('month', cac.dob_date))
+                and (
+                    cac.dt > date_trunc('month', cac.moved_in_date)
+                    or cac.moved_in_date is null
+                )
             ) over partition_by_month as under_6_start_of_month,
             count_if(
                 (cac.animal_category = '0-6')
@@ -31,6 +35,10 @@ with
             count_if(
                 (cac.animal_category = '7-12')
                 and (cac.dt > date_trunc('month', cac.dob_date))
+                and (
+                    cac.dt > date_trunc('month', cac.moved_in_date)
+                    or cac.moved_in_date is null
+                )
             ) over partition_by_month as between_7_12_start_of_month,
             count_if(
                 (cac.animal_category = '7-12')
@@ -53,6 +61,10 @@ with
             count_if(
                 (cac.animal_category = '13-18')
                 and (cac.dt > date_trunc('month', cac.dob_date))
+                and (
+                    cac.dt > date_trunc('month', cac.moved_in_date)
+                    or cac.moved_in_date is null
+                )
             ) over partition_by_month as between_13_18_start_of_month,
             count_if(
                 (cac.animal_category = '13-18')
@@ -75,6 +87,10 @@ with
             count_if(
                 (cac.animal_category = '19-24')
                 and (cac.dt > date_trunc('month', cac.dob_date))
+                and (
+                    cac.dt > date_trunc('month', cac.moved_in_date)
+                    or cac.moved_in_date is null
+                )
             ) over partition_by_month as between_19_24_start_of_month,
             count_if(
                 (cac.animal_category = '19-24')
@@ -98,6 +114,10 @@ with
                 (cac.animal_category = '25+')
                 and (cac.sex = 'M')
                 and (cac.dt > date_trunc('month', cac.dob_date))
+                and (
+                    cac.dt > date_trunc('month', cac.moved_in_date)
+                    or cac.moved_in_date is null
+                )
             ) over partition_by_month as male_over_25_start_of_month,
             count_if(
                 (cac.animal_category = '25+')
@@ -122,6 +142,10 @@ with
                 (cac.animal_category = '25+')
                 and (cac.sex = 'F')
                 and (cac.dt > date_trunc('month', cac.dob_date))
+                and (
+                    cac.dt > date_trunc('month', cac.moved_in_date)
+                    or cac.moved_in_date is null
+                )
             ) over partition_by_month as female_over_25_start_of_month,
             count_if(
                 (cac.animal_category = '25+')
