@@ -1,51 +1,51 @@
 {% docs mart__kill_insights_doc %}
 | column_name         | data_type    |  row_count | not_null_proportion | distinct_count | is_unique | profiled_at                 |
 | ------------------- | ------------ | ---------- | ------------------- | -------------- | --------- | --------------------------- |
-| uuid                | varchar      | 11,024,468 |            1.000000 |       11024468 |      True | 2023-10-17 14:50:06.492 UTC |
-| db_name             | varchar      | 11,024,468 |            1.000000 |              4 |     False | 2023-10-17 14:50:06.492 UTC |
-| animal_id           | varchar      | 11,024,468 |            1.000000 |       11024468 |      True | 2023-10-17 14:50:06.492 UTC |
-| animal_type         | varchar      | 11,024,468 |            1.000000 |              4 |     False | 2023-10-17 14:50:06.492 UTC |
-| farm_id             | varchar      | 11,024,468 |            1.000000 |          25984 |     False | 2023-10-17 14:50:06.492 UTC |
-| in_herd_flag        | bigint       | 11,024,468 |            1.000000 |              2 |     False | 2023-10-17 14:50:06.492 UTC |
-| species             | varchar      | 11,024,468 |            1.000000 |              2 |     False | 2023-10-17 14:50:06.492 UTC |
-| sex                 | varchar      | 11,024,468 |            1.000000 |              5 |     False | 2023-10-17 14:50:06.492 UTC |
-| tag                 | varchar      | 11,024,468 |            1.000000 |        9925232 |     False | 2023-10-17 14:50:06.492 UTC |
-| breed               | varchar      | 11,024,468 |            1.000000 |            297 |     False | 2023-10-17 14:50:06.492 UTC |
-| move_in_date        | timestamp(6) | 11,024,468 |            0.664697 |           8070 |     False | 2023-10-17 14:50:06.492 UTC |
-| off_herd_date       | timestamp(6) | 11,024,468 |            0.678951 |           4368 |     False | 2023-10-17 14:50:06.492 UTC |
-| dob                 | timestamp(6) | 11,024,468 |            1.000000 |           9072 |     False | 2023-10-17 14:50:06.492 UTC |
-| calf_reg_date       | timestamp(6) | 11,024,468 |            0.260329 |        2766083 |     False | 2023-10-17 14:50:06.492 UTC |
-| age_in_days         | bigint       | 11,024,468 |            0.678951 |           7852 |     False | 2023-10-17 14:50:06.492 UTC |
-| age_in_months       | bigint       | 11,024,468 |            0.678951 |            426 |     False | 2023-10-17 14:50:06.492 UTC |
-| dam_id              | varchar      | 11,024,468 |            0.571582 |        3128984 |     False | 2023-10-17 14:50:06.492 UTC |
-| dam_tag             | varchar      | 11,024,468 |            0.641214 |        3408940 |     False | 2023-10-17 14:50:06.492 UTC |
-| dam_breed           | varchar      | 11,024,468 |            0.571582 |            252 |     False | 2023-10-17 14:50:06.492 UTC |
-| dam_total_children  | bigint       | 11,024,468 |            0.571582 |             31 |     False | 2023-10-17 14:50:06.492 UTC |
-| sire_id             | varchar      | 11,024,468 |            0.389103 |         652205 |     False | 2023-10-17 14:50:06.492 UTC |
-| sire_tag            | varchar      | 11,024,468 |            0.389103 |         145960 |     False | 2023-10-17 14:50:06.492 UTC |
-| sire_breed          | varchar      | 11,024,468 |            0.389103 |            190 |     False | 2023-10-17 14:50:06.492 UTC |
-| sire_total_children | bigint       | 11,024,468 |            0.389103 |            343 |     False | 2023-10-17 14:50:06.492 UTC |
-| sale_date           | timestamp(6) | 11,024,468 |            0.678951 |           4368 |     False | 2023-10-17 14:50:06.492 UTC |
-| purchase_date       | timestamp(6) | 11,024,468 |            0.664697 |           8070 |     False | 2023-10-17 14:50:06.492 UTC |
-| sourced_from        | varchar      | 11,024,468 |            0.080893 |          72747 |     False | 2023-10-17 14:50:06.492 UTC |
-| sourced_from_name   | varchar      | 11,024,468 |            0.098797 |          80434 |     False | 2023-10-17 14:50:06.492 UTC |
-| sold_to             | varchar      | 11,024,468 |            0.437365 |          53632 |     False | 2023-10-17 14:50:06.492 UTC |
-| sold_to_name        | varchar      | 11,024,468 |            0.458275 |          74498 |     False | 2023-10-17 14:50:06.492 UTC |
-| purchase_price      | double       | 11,024,468 |            0.010858 |           2179 |     False | 2023-10-17 14:50:06.492 UTC |
-| sale_price          | double       | 11,024,468 |            0.028499 |          12609 |     False | 2023-10-17 14:50:06.492 UTC |
-| fat_str             | varchar      | 11,024,468 |            0.000466 |             62 |     False | 2023-10-17 14:50:06.492 UTC |
-| conf_str            | varchar      | 11,024,468 |            0.000466 |             44 |     False | 2023-10-17 14:50:06.492 UTC |
-| fat_conf_encoded    | integer      | 11,024,468 |            0.000421 |             84 |     False | 2023-10-17 14:50:06.492 UTC |
-| live_weight         | double       | 11,024,468 |            0.000021 |            133 |     False | 2023-10-17 14:50:06.492 UTC |
-| derived_live_wt     | double       | 11,024,468 |            0.013053 |           1856 |     False | 2023-10-17 14:50:06.492 UTC |
-| dead_weight         | double       | 11,024,468 |            0.000503 |           2382 |     False | 2023-10-17 14:50:06.492 UTC |
-| ppkg_live           | double       | 11,024,468 |            0.003454 |           1601 |     False | 2023-10-17 14:50:06.492 UTC |
-| days_in_herd        | bigint       | 11,024,468 |            0.672887 |           7093 |     False | 2023-10-17 14:50:06.492 UTC |
-| months_in_herd      | bigint       | 11,024,468 |            0.672887 |            309 |     False | 2023-10-17 14:50:06.492 UTC |
-| gross_margin        | double       | 11,024,468 |            0.017101 |           9155 |     False | 2023-10-17 14:50:06.492 UTC |
-| gross_margin_dih    | double       | 11,024,468 |            0.017101 |           3274 |     False | 2023-10-17 14:50:06.492 UTC |
-| adg_in_herd         | double       | 11,024,468 |            0.013070 |           1987 |     False | 2023-10-17 14:50:06.492 UTC |
-| kill_out_percentage | double       | 11,024,468 |            0.000094 |           1017 |     False | 2023-10-17 14:50:06.492 UTC |
+| uuid                | varchar      | 10,740,419 |            1.000000 |       10740419 |      True | 2023-10-26 15:22:25.445 UTC |
+| db_name             | varchar      | 10,740,419 |            1.000000 |              3 |     False | 2023-10-26 15:22:25.445 UTC |
+| animal_id           | varchar      | 10,740,419 |            1.000000 |       10740419 |      True | 2023-10-26 15:22:25.445 UTC |
+| animal_type         | varchar      | 10,740,419 |            1.000000 |              2 |     False | 2023-10-26 15:22:25.445 UTC |
+| farm_id             | varchar      | 10,740,419 |            1.000000 |          23972 |     False | 2023-10-26 15:22:25.445 UTC |
+| in_herd_flag        | bigint       | 10,740,419 |            1.000000 |              2 |     False | 2023-10-26 15:22:25.445 UTC |
+| species             | varchar      | 10,740,419 |            1.000000 |              1 |     False | 2023-10-26 15:22:25.445 UTC |
+| sex                 | varchar      | 10,740,419 |            1.000000 |              4 |     False | 2023-10-26 15:22:25.445 UTC |
+| tag                 | varchar      | 10,740,419 |            1.000000 |        9696048 |     False | 2023-10-26 15:22:25.445 UTC |
+| breed               | varchar      | 10,740,419 |            1.000000 |            299 |     False | 2023-10-26 15:22:25.445 UTC |
+| move_in_date        | timestamp(6) | 10,740,419 |            0.665219 |           8012 |     False | 2023-10-26 15:22:25.445 UTC |
+| off_herd_date       | timestamp(6) | 10,740,419 |            0.697111 |           3780 |     False | 2023-10-26 15:22:25.445 UTC |
+| dob                 | timestamp(6) | 10,740,419 |            1.000000 |           9024 |     False | 2023-10-26 15:22:25.445 UTC |
+| calf_reg_date       | timestamp(6) | 10,740,419 |            0.267765 |        2771879 |     False | 2023-10-26 15:22:25.445 UTC |
+| age_in_days         | bigint       | 10,740,419 |            0.697111 |           7808 |     False | 2023-10-26 15:22:25.445 UTC |
+| age_in_months       | bigint       | 10,740,419 |            0.697111 |            404 |     False | 2023-10-26 15:22:25.445 UTC |
+| dam_id              | varchar      | 10,740,419 |            0.583442 |        3117640 |     False | 2023-10-26 15:22:25.445 UTC |
+| dam_tag             | varchar      | 10,740,419 |            0.655470 |        3396137 |     False | 2023-10-26 15:22:25.445 UTC |
+| dam_breed           | varchar      | 10,740,419 |            0.583442 |            254 |     False | 2023-10-26 15:22:25.445 UTC |
+| dam_total_children  | bigint       | 10,740,419 |            0.583442 |             33 |     False | 2023-10-26 15:22:25.445 UTC |
+| sire_id             | varchar      | 10,740,419 |            0.382303 |         624436 |     False | 2023-10-26 15:22:25.445 UTC |
+| sire_tag            | varchar      | 10,740,419 |            0.382303 |         128344 |     False | 2023-10-26 15:22:25.445 UTC |
+| sire_breed          | varchar      | 10,740,419 |            0.382303 |            189 |     False | 2023-10-26 15:22:25.445 UTC |
+| sire_total_children | bigint       | 10,740,419 |            0.382303 |            344 |     False | 2023-10-26 15:22:25.445 UTC |
+| sale_date           | timestamp(6) | 10,740,419 |            0.697111 |           3780 |     False | 2023-10-26 15:22:25.445 UTC |
+| purchase_date       | timestamp(6) | 10,740,419 |            0.665219 |           8012 |     False | 2023-10-26 15:22:25.445 UTC |
+| sourced_from        | varchar      | 10,740,419 |            0.087437 |          73027 |     False | 2023-10-26 15:22:25.445 UTC |
+| sourced_from_name   | varchar      | 10,740,419 |            0.106334 |          80133 |     False | 2023-10-26 15:22:25.445 UTC |
+| sold_to             | varchar      | 10,740,419 |            0.461312 |          53873 |     False | 2023-10-26 15:22:25.445 UTC |
+| sold_to_name        | varchar      | 10,740,419 |            0.483284 |          74791 |     False | 2023-10-26 15:22:25.445 UTC |
+| purchase_price      | double       | 10,740,419 |            0.011199 |           2184 |     False | 2023-10-26 15:22:25.445 UTC |
+| sale_price          | double       | 10,740,419 |            0.023421 |          12487 |     False | 2023-10-26 15:22:25.445 UTC |
+| fat_str             | varchar      | 10,740,419 |            0.000576 |             61 |     False | 2023-10-26 15:22:25.445 UTC |
+| conf_str            | varchar      | 10,740,419 |            0.000576 |             46 |     False | 2023-10-26 15:22:25.445 UTC |
+| fat_conf_encoded    | integer      | 10,740,419 |            0.000499 |             85 |     False | 2023-10-26 15:22:25.445 UTC |
+| live_weight         | double       | 10,740,419 |            0.000055 |            182 |     False | 2023-10-26 15:22:25.445 UTC |
+| derived_live_wt     | double       | 10,740,419 |            0.012624 |           1213 |     False | 2023-10-26 15:22:25.445 UTC |
+| dead_weight         | double       | 10,740,419 |            0.000619 |           2634 |     False | 2023-10-26 15:22:25.445 UTC |
+| ppkg_live           | double       | 10,740,419 |            0.002493 |           1274 |     False | 2023-10-26 15:22:25.445 UTC |
+| days_in_herd        | bigint       | 10,740,419 |            0.691337 |           7123 |     False | 2023-10-26 15:22:25.445 UTC |
+| months_in_herd      | bigint       | 10,740,419 |            0.691337 |            312 |     False | 2023-10-26 15:22:25.445 UTC |
+| gross_margin        | double       | 10,740,419 |            0.017787 |           9305 |     False | 2023-10-26 15:22:25.445 UTC |
+| gross_margin_dih    | double       | 10,740,419 |            0.017787 |           3273 |     False | 2023-10-26 15:22:25.445 UTC |
+| adg_in_herd         | double       | 10,740,419 |            0.012664 |           1779 |     False | 2023-10-26 15:22:25.445 UTC |
+| kill_out_percentage | double       | 10,740,419 |            0.000113 |           1199 |     False | 2023-10-26 15:22:25.445 UTC |
 
 
 
@@ -61,4 +61,5 @@ The animal :
 -  offherd date must **NOT** be equal to ```1970-01-01```
 -  moved in date must **NOT** be equal to ```1970-01-01```
 -  date of death must **NOT** be equal to ```1970-01-01```
+-  type of Species **MUST BE** equal to ```BOVINE```
 {% enddocs %}

@@ -4,44 +4,42 @@ with
             t.db_name as db_name,
             t.task_id as task_id,
             'tls' as source_type,
-            o.operator_id as operator_id,
-            o.herd_number as operator_herd_number,
+            o.id as operator_id,
+            o.herdnumber as operator_herd_number,
             o.name as operator_name,
             o.type as operator_type
 
         from {{ ref("rds__tasks_base") }} as t
         inner join
             {% if target.name == "beta" %}
-                {{ source("rds_beta", "beta__livestock_sales") }}
-            {% else %} {{ source("rds_prod", "rds__task_livestock_sales") }}
-            {% endif %} as tls on t.db_name = tls.db_name and t.task_id = tls.task_id
+                {{ source("rds_beta", "beta_task_livestock_sales") }}
+            {% else %} {{ source("rds_prod", "task_livestock_sales") }}
+            {% endif %} as tls on t.db_name = tls.db and t.task_id = tls.id
         inner join
-            {% if target.name == "beta" %} {{ source("rds_beta", "beta__operators") }}
-            {% else %} {{ source("rds_prod", "rds__operators") }}
-            {% endif %} as o on tls.db_name = o.db_name and tls.buyer_id = o.operator_id
+            {% if target.name == "beta" %} {{ source("rds_beta", "beta_operator") }}
+            {% else %} {{ source("rds_prod", "operator") }}
+            {% endif %} as o on tls.db = o.db and tls.buyer_id = o.id
         where o.type is not null
         union
         select
             t.db_name as db_name,
             t.task_id as task_id,
             'tlp' as source_type,
-            o.operator_id as operator_id,
-            o.herd_number as operator_herd_number,
+            o.id as operator_id,
+            o.herdnumber as operator_herd_number,
             o.name as operator_name,
             o.type as operator_type
         from {{ ref("rds__tasks_base") }} as t
         inner join
 
             {% if target.name == "beta" %}
-                {{ source("rds_beta", "beta__livestock_purchases") }}
-            {% else %} {{ source("rds_prod", "rds__task_livestock_purchases") }}
-            {% endif %} as tlp on t.db_name = tlp.db_name and t.task_id = tlp.task_id
+                {{ source("rds_beta", "beta_task_livestock_purchases") }}
+            {% else %} {{ source("rds_prod", "task_livestock_purchases") }}
+            {% endif %} as tlp on t.db_name = tlp.db and t.task_id = tlp.id
         inner join
-            {% if target.name == "beta" %} {{ source("rds_beta", "beta__operators") }}
-            {% else %} {{ source("rds_prod", "rds__operators") }}
-            {% endif %} as o
-            on tlp.db_name = o.db_name
-            and tlp.seller_id = o.operator_id
+            {% if target.name == "beta" %} {{ source("rds_beta", "beta_operator") }}
+            {% else %} {{ source("rds_prod", "operator") }}
+            {% endif %} as o on tlp.db = o.db and tlp.seller_id = o.id
         where o.type is not null
     )
 select

@@ -31,6 +31,7 @@ with
             a.off_herd_date,
             a.dod_date,
             a.sex,
+            a.animal_type_id,
             case
                 when
                     (
@@ -99,21 +100,24 @@ with
                 or a.off_herd_reason is null
             )
             and (
-                a.dob_date != date_trunc('year', date('1970-01-01'))
+                date_trunc('year', a.dob_date) != date_trunc('year', date('1970-01-01'))
                 or a.dob_date is null
             )
             and (
-                a.off_herd_date != date_trunc('year', date('1970-01-01'))
+                date_trunc('year', a.off_herd_date)
+                != date_trunc('year', date('1970-01-01'))
                 or a.off_herd_date is null
             )
             and (
-                a.moved_in_date != date_trunc('year', date('1970-01-01'))
+                date_trunc('year', a.moved_in_date)
+                != date_trunc('year', date('1970-01-01'))
                 or a.moved_in_date is null
             )
             and (
-                a.dod_date != date_trunc('year', date('1970-01-01'))
+                date_trunc('year', a.dod_date) != date_trunc('year', date('1970-01-01'))
                 or a.dod_date is null
             )
+            and (a.species = 'BOVINE')
 
     )
 select *

@@ -14,12 +14,15 @@ with
             ) over partition_by_month as under_6_start_of_month,
             count_if(
                 (cac.animal_category = '0-6')
-                and (cac.dt = date_trunc('month', cac.dob_date))
+                and (
+                    cac.dt = date_trunc('month', cac.dob_date)
+                    and (cac.dob_date = cac.moved_in_date or cac.moved_in_date is null)
+                )
             ) over partition_by_month as under_6_born_in_month,
             count_if(
                 (cac.animal_category = '0-6')
                 and (cac.dt = date_trunc('month', cac.moved_in_date))
-                and (cac.dob_date != cac.moved_in_date)
+                and (cac.dob_date != cac.moved_in_date or cac.moved_in_date is null)
             ) over partition_by_month as under_6_bought_in_month,
             count_if(
                 (cac.animal_category = '0-6')

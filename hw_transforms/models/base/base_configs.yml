@@ -161,25 +161,19 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: source
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: purchase_price
         data_type: double
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
 
-      - name: mart_name
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: mart_datetime
-        data_type: bigint
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: sale_weight
+      - name: sale_price
         data_type: double
         description: ""
         tests:
@@ -191,7 +185,25 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
-      - name: sale_price
+      - name: sale_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dead_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: kill_out_grade
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: price_per_kilo
         data_type: double
         description: ""
         tests:
@@ -204,25 +216,19 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: killsheet_datetime
-        data_type: bigint
+        data_type: timestamp
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
 
-      - name: kill_out_grade
+      - name: mart_name
         data_type: string
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
 
-      - name: dead_weight
-        data_type: double
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: price_per_kilo
-        data_type: double
+      - name: mart_datetime
+        data_type: timestamp
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
@@ -285,7 +291,7 @@ models:
       partitioned_by: ["bucket(task_id, 50)"]
       unique_key: ["db_name","task_animal_id"]
     columns:
-      - name: task_animal_id
+      - name: id
         data_type: string
         description: ""
         tests:
@@ -412,7 +418,7 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: vet_call_out_flag
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
@@ -430,13 +436,13 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: milk_withdrawal_days
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
 
       - name: meat_withdrawal_days
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
@@ -484,7 +490,7 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: treatment_course
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
@@ -514,37 +520,37 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: days_pregnant
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
 
       - name: record_result
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
 
       - name: days_with_bull
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
 
       - name: heat_reminder_freq
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
 
       - name: heat_reminder_cycle
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
 
       - name: run_with_bull_flag
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
@@ -574,19 +580,19 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: cert_per_animal_flag
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
 
       - name: moved_from_feedlot_flag
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
 
       - name: moved_to_feedlot_flag
-        data_type: double
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
@@ -596,6 +602,7 @@ models:
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
+
 
   - name: rds__user_and_farm_base
     description: '{{ doc("dbt_profiler_results__prod_base_rds__user_and_farm_base") }}'

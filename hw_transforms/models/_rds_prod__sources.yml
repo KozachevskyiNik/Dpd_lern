@@ -13,1703 +13,3390 @@ sources:
       error_after:
         count: 7
         period: day
-      filter: partition_date > date('2022-10-01')
-    loaded_at_field: processing_time
+      filter: processing_datetime > date('2022-10-24')
+    loaded_at_field: processing_datetime
+    schema: hw_replicate
     tables:
-      - name: rds__animal_option_factories
-        columns:
-          - name: partition_date
-            data_type: DATE
-          - name: upsolver_schema_version
-            data_type: INT
-          - name: animal_option_id
-            data_type: BIGINT
-          - name: db_name
-            data_type: VARCHAR
-          - name: processing_time
-            data_type: TIMESTAMP
-          - name: kill_out_grade
-            data_type: VARCHAR
-          - name: mart_weight
-            data_type: DOUBLE
-          - name: price_per_kilo
-            data_type: DOUBLE
-          - name: dead_weight
-            data_type: DOUBLE
-          - name: killsheet_datetime
-            data_type: BIGINT
-          - name: killsheet_name
-            data_type: VARCHAR
-          - name: mart_datetime
-            data_type: BIGINT
-          - name: mart_name
-            data_type: VARCHAR
-          - name: is_animal_weight_calculated
-            data_type: BIGINT
-
-      - name: rds__animal_options
-        columns:
-          - name: partition_date
-            data_type: DATE
-          - name: upsolver_schema_version
-            data_type: INT
-          - name: db_name
-            data_type: VARCHAR
-          - name: animal_option_id
-            data_type: BIGINT
-          - name: processing_time
-            data_type: TIMESTAMP
-          - name: table_name
-            data_type: VARCHAR
-          - name: animal_id
-            data_type: VARCHAR
-
-      - name: rds__animals
-        columns:
-          - name: partition_date
-            data_type: DATE
-          - name: upsolver_schema_version
-            data_type: INT
-          - name: animal_id
-            data_type: VARCHAR
-          - name: db_name
-            data_type: VARCHAR
-          - name: processing_time
-            data_type: TIMESTAMP
-          - name: tag
-            data_type: VARCHAR
-          - name: farm_id
-            data_type: VARCHAR
-          - name: species_id
-            data_type: VARCHAR
-          - name: animal_type_id
-            data_type: VARCHAR
-          - name: breed_id
-            data_type: VARCHAR
-          - name: add_to_auditlog
-            data_type: BIGINT
-          - name: age_flag
-            data_type: VARCHAR
-          - name: sex
-            data_type: VARCHAR
-          - name: dob_date
-            data_type: TIMESTAMP
-          - name: dod_date
-            data_type: TIMESTAMP
-          - name: date_moved_in
-            data_type: TIMESTAMP
-          - name: off_herd_date
-            data_type: TIMESTAMP
-          - name: dam
-            data_type: VARCHAR
-          - name: genetic_dam_tag
-            data_type: VARCHAR
-          - name: sire
-            data_type: VARCHAR
-          - name: calf_reg_datetime
-            data_type: TIMESTAMP
-          - name: b_loc
-            data_type: VARCHAR
-          - name: b_subloc
-            data_type: VARCHAR
-          - name: buyer_id
-            data_type: VARCHAR
-          - name: calf_weight
-            data_type: DOUBLE
-          - name: calving_difficulty
-            data_type: VARCHAR
-          - name: changes_source
-            data_type: VARCHAR
-          - name: changes_ipsource
-            data_type: VARCHAR
-          - name: colour_id
-            data_type: VARCHAR
-          - name: device_id
-            data_type: BIGINT
-          - name: display_description
-            data_type: VARCHAR
-          - name: disposal_manner
-            data_type: VARCHAR
-          - name: disposal_place
-            data_type: VARCHAR
-          - name: eid
-            data_type: VARCHAR
-          - name: freezebrand
-            data_type: VARCHAR
-          - name: herd_book_number
-            data_type: VARCHAR
-          - name: in_herd
-            data_type: BIGINT
-          - name: lactation
-            data_type: BIGINT
-          - name: last_adg_weight
-            data_type: DOUBLE
-          - name: last_weight
-            data_type: DOUBLE
-          - name: notes
-            data_type: VARCHAR
-          - name: off_herd_reason
-            data_type: VARCHAR
-          - name: pedigree
-            data_type: VARCHAR
-          - name: purpose_id
-            data_type: VARCHAR
-          - name: purchase_price
-            data_type: DOUBLE
-          - name: saleprice
-            data_type: DOUBLE
-          - name: sire_breed_id
-            data_type: VARCHAR
-          - name: size
-            data_type: VARCHAR
-          - name: source
-            data_type: VARCHAR
-          - name: status
-            data_type: VARCHAR
-          - name: still_born
-            data_type: VARCHAR
-          - name: stock_bull
-            data_type: BIGINT
-          - name: supplier_id
-            data_type: VARCHAR
-          - name: vigor
-            data_type: VARCHAR
-          - name: weight
-            data_type: DOUBLE
-          - name: created_date_time
-            data_type: TIMESTAMP
-          - name: updated_date_time
-            data_type: TIMESTAMP
-          - name: meat_withdrawal_date_time
-            data_type: TIMESTAMP
-          - name: milk_withdrawal_date_time
-            data_type: TIMESTAMP
-          - name: br_test_date
-            data_type: TIMESTAMP
-          - name: expected_calving_date
-            data_type: TIMESTAMP
-          - name: last_weigh_date
-            data_type: TIMESTAMP
-          - name: weight_date
-            data_type: TIMESTAMP
-          - name: tb_test_date
-            data_type: TIMESTAMP
-          - name: until_date
-            data_type: TIMESTAMP
-
-      - name: rds__farms
-        columns:
-          - name: partition_date
-            data_type: DATE
-          - name: upsolver_schema_version
-            data_type: INT
-          - name: farm_id
-            data_type: VARCHAR
-          - name: db_name
-            data_type: VARCHAR
-          - name: processing_time
-            data_type: TIMESTAMP
-          - name: herd_number
-            data_type: VARCHAR
-          - name: national_herd_id
-            data_type: VARCHAR
-          - name: farm_type_id
-            data_type: VARCHAR
-          - name: owner_user_id
-            data_type: DOUBLE
-          - name: herd_first_name
-            data_type: VARCHAR
-          - name: herd_last_name
-            data_type: VARCHAR
-          - name: herd_email
-            data_type: VARCHAR
-          - name: address_line_1
-            data_type: VARCHAR
-          - name: address_line_2
-            data_type: VARCHAR
-          - name: city
-            data_type: VARCHAR
-          - name: county
-            data_type: VARCHAR
-          - name: post_code
-            data_type: VARCHAR
-          - name: data_sync_enabled
-            data_type: DOUBLE
-          - name: data_auto_export_enabled
-            data_type: DOUBLE
-          - name: created_date_time
-            data_type: TIMESTAMP
-          - name: updated_date_time
-            data_type: TIMESTAMP
-          - name: active
-            data_type: BIGINT
-          - name: bb_lamb_expiry_date
-            data_type: TIMESTAMP
-          - name: bb_dairy_expiry_date
-            data_type: TIMESTAMP
-          - name: bb_beef_expiry_date
-            data_type: TIMESTAMP
-          - name: bb_last_check_date_time
-            data_type: TIMESTAMP
-          - name: calf_reg_count
-            data_type: BIGINT
-          - name: country
-            data_type: VARCHAR
-          - name: hwfarmtype_id
-            data_type: VARCHAR
-          - name: hwfarmtype_selectedoption
-            data_type: VARCHAR
-          - name: changes_ipsource
-            data_type: VARCHAR
-          - name: total_calf_reg_count
-            data_type: BIGINT
-          - name: plan_addition_type
-            data_type: VARCHAR
-          - name: level
-            data_type: VARCHAR
-          - name: band
-            data_type: VARCHAR
-          - name: for_free
-            data_type: DOUBLE
-          - name: is_pro
-            data_type: BIGINT
-          - name: renewal_band
-            data_type: VARCHAR
-          - name: is_buitelaar
-            data_type: BIGINT
-          - name: use_dna_pilot_program
-            data_type: BIGINT
-          - name: timezone
-            data_type: VARCHAR
-
-      - name: rds__farms_metadata
-        columns:
-          - name: partition_date
-            data_type: DATE
-          - name: upsolver_schema_version
-            data_type: INT
-          - name: farmtype_id
-            data_type: VARCHAR
-          - name: db_name
-            data_type: VARCHAR
-          - name: processing_time
-            data_type: TIMESTAMP
-          - name: farm_id
-            data_type: VARCHAR
-          - name: created_date_time
-            data_type: TIMESTAMP
-          - name: updated_date_time
-            data_type: TIMESTAMP
-          - name: farm_type_id
-            data_type: VARCHAR
-          - name: option_id
-            data_type: VARCHAR
-          - name: level_id
-            data_type: VARCHAR
-          - name: band_id
-            data_type: VARCHAR
-          - name: type_farm
-            data_type: DOUBLE
-          - name: pro_flag
-            data_type: BIGINT
-          - name: changes_ipsource
-            data_type: VARCHAR
-          - name: active
-            data_type: BIGINT
-          - name: plan_id
-            data_type: VARCHAR
-
-      - name: rds__fos_users
-        columns:
-          - name: partition_date
-            data_type: DATE
-          - name: upsolver_schema_version
-            data_type: INT
-          - name: user_id
-            data_type: DOUBLE
-          - name: db_name
-            data_type: VARCHAR
-          - name: processing_time
-            data_type: TIMESTAMP
-          - name: external_id
-            data_type: VARCHAR
-          - name: subscription_id
-            data_type: VARCHAR
-          - name: username
-            data_type: VARCHAR
-          - name: username_canonical
-            data_type: VARCHAR
-          - name: email
-            data_type: VARCHAR
-          - name: milkprocessor_id
-            data_type: VARCHAR
-          - name: meatprocessor_id
-            data_type: VARCHAR
-          - name: email_canonical
-            data_type: VARCHAR
-          - name: enabled
-            data_type: DOUBLE
-          - name: salt
-            data_type: VARCHAR
-          - name: password
-            data_type: VARCHAR
-          - name: locked
-            data_type: DOUBLE
-          - name: expired
-            data_type: BIGINT
-          - name: expires_at_date_time
-            data_type: TIMESTAMP
-          - name: created_date_time
-            data_type: TIMESTAMP
-          - name: updated_date_time
-            data_type: TIMESTAMP
-          - name: first_name
-            data_type: VARCHAR
-          - name: last_name
-            data_type: VARCHAR
-          - name: website
-            data_type: VARCHAR
-          - name: address_line_1
-            data_type: VARCHAR
-          - name: address_line_2
-            data_type: VARCHAR
-          - name: city
-            data_type: VARCHAR
-          - name: county
-            data_type: VARCHAR
-          - name: post_code
-            data_type: VARCHAR
-          - name: plan_type_id
-            data_type: VARCHAR
-          - name: group_id
-            data_type: VARCHAR
-          - name: auto_renew
-            data_type: DOUBLE
-          - name: billing_num_herds
-            data_type: DOUBLE
-          - name: charge_amount
-            data_type: DOUBLE
-          - name: payer_reference
-            data_type: VARCHAR
-          - name: card_reference
-            data_type: VARCHAR
-          - name: do_not_renew
-            data_type: DOUBLE
-          - name: last_renewal_notification
-            data_type: DOUBLE
-          - name: initial_sub_type_id
-            data_type: VARCHAR
-          - name: notes
-            data_type: VARCHAR
-          - name: new_payment_system
-            data_type: DOUBLE
-          - name: card_id
-            data_type: VARCHAR
-          - name: payment_attempts
-            data_type: DOUBLE
-          - name: paid_until_date
-            data_type: TIMESTAMP
-          - name: vip
-            data_type: DOUBLE
-          - name: dnr_set_date_time
-            data_type: TIMESTAMP
-          - name: dnr_clear_date_time
-            data_type: TIMESTAMP
-          - name: dnr_date_time
-            data_type: TIMESTAMP
-          - name: free_register
-            data_type: DOUBLE
-          - name: status
-            data_type: VARCHAR
-          - name: last_called
-            data_type: DOUBLE
-          - name: dnr_reason
-            data_type: VARCHAR
-          - name: last_amount
-            data_type: DOUBLE
-          - name: last_renewal
-            data_type: DOUBLE
-          - name: hub_spot_id
-            data_type: VARCHAR
-          - name: usage_summary_id
-            data_type: VARCHAR
-          - name: dnr_clear_by_id
-            data_type: DOUBLE
-          - name: dnr_set_by_id
-            data_type: DOUBLE
-          - name: expired_remember_me
-            data_type: BIGINT
-          - name: failed_payments
-            data_type: DOUBLE
-          - name: country
-            data_type: VARCHAR
-          - name: do_not_contact
-            data_type: DOUBLE
-          - name: last_call_attempt_date_time
-            data_type: TIMESTAMP
-          - name: changes_ipsource
-            data_type: VARCHAR
-          - name: icbf_status
-            data_type: DOUBLE
-          - name: agent_id
-            data_type: VARCHAR
-          - name: support_involved
-            data_type: DOUBLE
-          - name: price_set_date_time
-            data_type: TIMESTAMP
-          - name: dnr_return_reason
-            data_type: VARCHAR
-          - name: pre_audit
-            data_type: BIGINT
-          - name: creation_source
-            data_type: BIGINT
-          - name: payment_customer
-            data_type: BIGINT
-          - name: payment_system
-            data_type: BIGINT
-          - name: billing_first_name
-            data_type: VARCHAR
-          - name: billing_last_name
-            data_type: VARCHAR
-          - name: billing_company_name
-            data_type: VARCHAR
-          - name: billing_email
-            data_type: VARCHAR
-          - name: is_mobile
-            data_type: BIGINT
-
-      - name: rds__operators
-        columns:
-          - name: partition_date
-            data_type: DATE
-          - name: upsolver_schema_version
-            data_type: INT
-          - name: operator_id
-            data_type: VARCHAR
-          - name: db_name
-            data_type: VARCHAR
-          - name: processing_time
-            data_type: TIMESTAMP
-          - name: name
-            data_type: VARCHAR
-          - name: phone
-            data_type: VARCHAR
-          - name: farm_id
-            data_type: VARCHAR
-          - name: type
-            data_type: VARCHAR
-          - name: herd_number
-            data_type: VARCHAR
-          - name: created_date_time
-            data_type: TIMESTAMP
-          - name: updated_date_time
-            data_type: TIMESTAMP
-          - name: country
-            data_type: VARCHAR
-          - name: common_id
-            data_type: VARCHAR
-          - name: changes_ipsource
-            data_type: VARCHAR
-          - name: is_default
-            data_type: BIGINT
-
-      - name: rds__task_livestock_purchases
-        columns:
-          - name: partition_date
-            data_type: DATE
-          - name: upsolver_schema_version
-            data_type: INT
-          - name: task_id
-            data_type: VARCHAR
-          - name: db_name
-            data_type: VARCHAR
-          - name: processing_time
-            data_type: TIMESTAMP
-          - name: seller_id
-            data_type: VARCHAR
-
-      - name: rds__task_livestock_sales
-        columns:
-          - name: partition_date
-            data_type: DATE
-          - name: upsolver_schema_version
-            data_type: INT
-          - name: task_id
-            data_type: VARCHAR
-          - name: db_name
-            data_type: VARCHAR
-          - name: processing_time
-            data_type: TIMESTAMP
-          - name: buyer_id
-            data_type: VARCHAR
-
-      - name: rds__tasks
-        freshness:
-        loaded_at_field: updated_offline_date_time
-        columns:
-          - name: partition_date
-            data_type: DATE
-          - name: upsolver_schema_version
-            data_type: INT
-          - name: task_id
-            data_type: VARCHAR
-          - name: db_name
-            data_type: VARCHAR
-          - name: animal_type_id
-            data_type: VARCHAR
-          - name: task_group_id
-            data_type: VARCHAR
-          - name: parent_task_id
-            data_type: VARCHAR
-          - name: farm_id
-            data_type: VARCHAR
-          - name: display_description
-            data_type: VARCHAR
-          - name: description
-            data_type: VARCHAR
-          - name: task_date
-            data_type: TIMESTAMP
-            description: "This is the due_date field from tasks table"
-          - name: status_id
-            data_type: VARCHAR
-          - name: type_id
-            data_type: VARCHAR
-          - name: sickness_id
-            data_type: VARCHAR
-          - name: remedy_id
-            data_type: VARCHAR
-          - name: batch_number
-            data_type: VARCHAR
-          - name: supplier_id
-            data_type: VARCHAR
-          - name: vet_call_out
-            data_type: DOUBLE
-          - name: dose_amount
-            data_type: DOUBLE
-          - name: dose_type
-            data_type: VARCHAR
-          - name: milk_withdrawal_period
-            data_type: DOUBLE
-          - name: meat_withdrawal_period
-            data_type: DOUBLE
-          - name: scan_date
-            data_type: TIMESTAMP
-          - name: expected_calving_date
-            data_type: TIMESTAMP
-          - name: stock_bull
-            data_type: VARCHAR
-          - name: ai_sire
-            data_type: VARCHAR
-          - name: unknown_sire
-            data_type: DOUBLE
-          - name: sexed_semen_used
-            data_type: VARCHAR
-          - name: genetic_dam_tag
-            data_type: VARCHAR
-          - name: days_pregnant
-            data_type: DOUBLE
-          - name: multi_pregnancy
-            data_type: DOUBLE
-          - name: weight
-            data_type: DOUBLE
-          - name: weight_gain
-            data_type: DOUBLE
-          - name: performed_by_id
-            data_type: VARCHAR
-          - name: prescribed_by_id
-            data_type: VARCHAR
-          - name: remedy_expiry_date
-            data_type: TIMESTAMP
-          - name: purchased_amount
-            data_type: DOUBLE
-          - name: remedy_qty_used
-            data_type: DOUBLE
-          - name: remedy_qty_returned
-            data_type: DOUBLE
-          - name: remedy_qty_left
-            data_type: DOUBLE
-          - name: result
-            data_type: DOUBLE
-          - name: scan_sex
-            data_type: VARCHAR
-          - name: cost
-            data_type: DOUBLE
-          - name: feed_type_id
-            data_type: VARCHAR
-          - name: move_to_herd_no
-            data_type: VARCHAR
-          - name: move_third_party_herd_no
-            data_type: VARCHAR
-          - name: mover_cert_type
-            data_type: VARCHAR
-          - name: move_cert_no
-            data_type: VARCHAR
-          - name: move_separate_cert_per_animal
-            data_type: DOUBLE
-          - name: move_to_feedlot
-            data_type: DOUBLE
-          - name: move_to_feed_lot
-            data_type: DOUBLE
-          - name: move_apply_success_date_time
-            data_type: TIMESTAMP
-          - name: created_date_time
-            data_type: TIMESTAMP
-          - name: updated_date_time
-            data_type: TIMESTAMP
-          - name: source
-            data_type: VARCHAR
-          - name: country
-            data_type: VARCHAR
-          - name: processed
-            data_type: DOUBLE
-          - name: send_seller_confirmation
-            data_type: DOUBLE
-          - name: status_mov_doc_number_to_buyer
-            data_type: DOUBLE
-          - name: manner_id
-            data_type: VARCHAR
-          - name: location_id
-            data_type: VARCHAR
-          - name: changes_owner
-            data_type: VARCHAR
-          - name: changes_ipsource
-            data_type: VARCHAR
-          - name: tag_supplier_id
-            data_type: VARCHAR
-          - name: tag_type_id
-            data_type: VARCHAR
-          - name: crop_id
-            data_type: VARCHAR
-          - name: title
-            data_type: VARCHAR
-          - name: spray_number
-            data_type: VARCHAR
-          - name: spray_rate
-            data_type: DOUBLE
-          - name: body_condition_score
-            data_type: DOUBLE
-          - name: spray_water_volume
-            data_type: DOUBLE
-          - name: days_with_bull
-            data_type: DOUBLE
-          - name: treatment_course
-            data_type: DOUBLE
-          - name: area_treated
-            data_type: DOUBLE
-          - name: animals_treated
-            data_type: DOUBLE
-          - name: is_spray_returned
-            data_type: DOUBLE
-          - name: is_stripe
-            data_type: DOUBLE
-          - name: returned_date
-            data_type: TIMESTAMP
-          - name: last_test_date
-            data_type: TIMESTAMP
-          - name: growth_stage
-            data_type: VARCHAR
-          - name: pu_number
-            data_type: VARCHAR
-          - name: sprayer_id
-            data_type: VARCHAR
-          - name: spray_reason
-            data_type: VARCHAR
-          - name: not_from_own_stock
-            data_type: DOUBLE
-          - name: move_to_mart_abbatoir
-            data_type: DOUBLE
-          - name: read_only
-            data_type: DOUBLE
-          - name: sent_to_supplier
-            data_type: DOUBLE
-          - name: rate_ha
-            data_type: DOUBLE
-          - name: score
-            data_type: DOUBLE
-          - name: unit_type_id
-            data_type: VARCHAR
-          - name: cost_type
-            data_type: DOUBLE
-          - name: heat_date
-            data_type: TIMESTAMP
-          - name: heat_reminder_for
-            data_type: DOUBLE
-          - name: expected_heat_date
-            data_type: TIMESTAMP
-          - name: reminder_cycles
-            data_type: DOUBLE
-          - name: running_with_bull
-            data_type: DOUBLE
-          - name: bull_leaves_date
-            data_type: TIMESTAMP
-          - name: treated_animals_desc
-            data_type: VARCHAR
-          - name: disposal_route
-            data_type: VARCHAR
-          - name: confirmation_stickers
-            data_type: VARCHAR
-          - name: task_type
-            data_type: VARCHAR
-          - name: belongs_to_app
-            data_type: VARCHAR
-          - name: created_offline_date_time
-            data_type: TIMESTAMP
-          - name: updated_offline_date_time
-            data_type: TIMESTAMP
-      - name: rds__task_animals
-        columns:
-          - name: partition_date
-            data_type: DATE
-          - name: upsolver_schema_version
-            data_type: INT
-          - name: task_animal_id
-            data_type: VARCHAR
-          - name: db_name
-            data_type: VARCHAR
-          - name: processing_time
-            data_type: TIMESTAMP
-          - name: task_id
-            data_type: VARCHAR
-          - name: animal_id
-            data_type: VARCHAR
-          - name: complete
-            data_type: BIGINT
-          - name: active
-            data_type: BIGINT
-          - name: error
-            data_type: VARCHAR
-      - name: rds__acv_hist_by_herd
+      - name: acv_hist_by_herd
         description: ""
         columns:
-          - name: partition_date
-            data_type: DATE
+          - name: _commit_time
+            data_type: timestamp
             description: ""
-          - name: upsolver_schema_version
-            data_type: INT
+          - name: _event_time
+            data_type: timestamp
             description: ""
-          - name: acv_hist_herd_id
-            data_type: VARCHAR
+          - name: db
+            data_type: string
             description: ""
-          - name: db_name
-            data_type: VARCHAR
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
             description: ""
           - name: active
-            data_type: DOUBLE
-            description: ""
-          - name: acv_change_fcy
-            data_type: DECIMAL(18,2)
-            description: ""
-          - name: acv_ex_vat_fcy
-            data_type: DECIMAL(18,2)
+            data_type: bigint
             description: ""
           - name: attributed_to_person
-            data_type: VARCHAR
+            data_type: string
             description: ""
           - name: attributed_to_team
-            data_type: VARCHAR
-            description: ""
-          - name: auto_renew
-            data_type: DOUBLE
+            data_type: string
             description: ""
           - name: band
-            data_type: VARCHAR
-            description: ""
-          - name: band_ex_vat_fcy
-            data_type: DECIMAL(18,5)
-            description: ""
-          - name: base_fee_ex_vat_fcy
-            data_type: DECIMAL(18,5)
+            data_type: string
             description: ""
           - name: country
-            data_type: VARCHAR
+            data_type: string
             description: ""
           - name: creation_source
-            data_type: VARCHAR
+            data_type: string
             description: ""
           - name: currency
-            data_type: VARCHAR
+            data_type: string
             description: ""
-          - name: dnr_clear_date_time
-            data_type: TIMESTAMP
+          - name: dnr_clear
+            data_type: timestamp
             description: ""
-          - name: dnr_date_time
-            data_type: TIMESTAMP
+          - name: dnr_date
+            data_type: timestamp
             description: ""
-          - name: dnr_set_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: do_not_renew
-            data_type: DOUBLE
-            description: ""
-          - name: exchange_rate
-            data_type: DECIMAL(18,2)
+          - name: dnr_set
+            data_type: timestamp
             description: ""
           - name: exchange_rate_latest
-            data_type: DOUBLE
-            description: ""
-          - name: farm_farmtype_id
-            data_type: VARCHAR
-            description: ""
-          - name: farm_id
-            data_type: VARCHAR
-            description: ""
-          - name: farm_ranking
-            data_type: DECIMAL(18,2)
-            description: ""
-          - name: farm_type_fee_ex_vat_fcy
-            data_type: DECIMAL(18,2)
-            description: ""
-          - name: first_payment_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: group_id
-            data_type: VARCHAR
-            description: ""
-          - name: herd_id_calc
-            data_type: VARCHAR
-            description: ""
-          - name: herds_user_id_country
-            data_type: VARCHAR
-            description: ""
-          - name: hwfarmtype_selectedoption
-            data_type: VARCHAR
-            description: ""
-          - name: is_buitelaar
-            data_type: DOUBLE
-            description: ""
-          - name: is_live_paid_herd
-            data_type: DOUBLE
-            description: ""
-          - name: is_pro_herd
-            data_type: DOUBLE
-            description: ""
-          - name: last_payment_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: last_payment_id
-            data_type: VARCHAR
-            description: ""
-          - name: last_payment_plan_code
-            data_type: VARCHAR
-            description: ""
-          - name: last_payment_salesperson
-            data_type: VARCHAR
-            description: ""
-          - name: last_payment_software_amount_ex_vat_fcy
-            data_type: DECIMAL(18,2)
-            description: ""
-          - name: last_payment_type_calc
-            data_type: VARCHAR
-            description: ""
-          - name: level
-            data_type: VARCHAR
-            description: ""
-          - name: level_multiplier
-            data_type: DOUBLE
-            description: ""
-          - name: on_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: paid_until
-            data_type: DATE
-            description: ""
-          - name: plan_type_id
-            data_type: VARCHAR
-            description: ""
-          - name: stats_date
-            data_type: DATE
-            description: ""
-          - name: user_id
-            data_type: BIGINT
-            description: ""
-          - name: user_id_country
-            data_type: VARCHAR
-            description: ""
-
-      - name: rds__farm_extra_data
-        description: ""
-        columns:
-          - name: partition_date
-            data_type: DATE
-            description: ""
-          - name: upsolver_schema_version
-            data_type: INT
-            description: ""
-          - name: id
-            data_type: BIGINT
-            description: ""
-          - name: db_name
-            data_type: VARCHAR
-            description: ""
-          - name: animals_enquiry_period
-            data_type: BIGINT
-            description: ""
-          - name: cleared_audit
-            data_type: BIGINT
-            description: ""
-          - name: created_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: deleted
-            data_type: DOUBLE
-            description: ""
-          - name: deleted_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: farm_id
-            data_type: VARCHAR
-            description: ""
-          - name: farm_name
-            data_type: VARCHAR
-            description: ""
-          - name: first_department_herd_sync_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: is_pre_cache
-            data_type: DOUBLE
-            description: ""
-          - name: last_cis_sync_sync_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: last_dept_data_processed_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: last_dept_herd_sync_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: last_dept_interaction_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: last_dept_pin_success_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: last_icbf_sync_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: last_pre_cache_date
-            data_type: TIMESTAMP
-            description: ""
-          - name: last_tag_sync_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: potential_flockwatch
-            data_type: DOUBLE
-            description: ""
-          - name: updated_date_time
-            data_type: TIMESTAMP
-            description: ""
-
-      - name: rds__farm_rank_metrics
-        description: ""
-        columns:
-          - name: partition_date
-            data_type: DATE
-            description: ""
-          - name: upsolver_schema_version
-            data_type: INT
-            description: ""
-          - name: farm_rank_metrics_id
-            data_type: BIGINT
-            description: ""
-          - name: db_name
-            data_type: VARCHAR
-            description: ""
-          - name: calculated_up_to
-            data_type: DATE
-            description: ""
-          - name: created_at_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: farm_id
-            data_type: VARCHAR
-            description: ""
-          - name: fw_overall_star_value
-            data_type: DOUBLE
-            description: ""
-          - name: fw_report_metric_avg_value
-            data_type: DOUBLE
-            description: ""
-          - name: fw_report_metric_star_value
-            data_type: DOUBLE
-            description: ""
-          - name: fw_report_metric_tasks_count
-            data_type: DOUBLE
-            description: ""
-          - name: fw_task_per_animal_star_value
-            data_type: DOUBLE
-            description: ""
-          - name: fw_task_per_avg_value
-            data_type: DOUBLE
-            description: ""
-          - name: login_frequency_avg_value
-            data_type: DOUBLE
-            description: ""
-          - name: login_frequency_star_value
-            data_type: DOUBLE
-            description: ""
-          - name: overall_star_value
-            data_type: DOUBLE
-            description: ""
-          - name: report_metric_avg_value
-            data_type: DOUBLE
-            description: ""
-          - name: report_metric_star_value
-            data_type: DOUBLE
-            description: ""
-          - name: report_metric_tasks_count
-            data_type: DOUBLE
-            description: ""
-          - name: task_per_animal_star_value
-            data_type: DOUBLE
-            description: ""
-          - name: task_per_avg_value
-            data_type: DOUBLE
-            description: ""
-          - name: updated_at_date_time
-            data_type: TIMESTAMP
-
-      - name: rds__payment
-        description: ""
-        columns:
-          - name: partition_date
-            data_type: DATE
-            description: ""
-          - name: upsolver_schema_version
-            data_type: INT
-            description: ""
-          - name: payment_id
-            data_type: VARCHAR
-            description: ""
-          - name: db_name
-            data_type: VARCHAR
-            description: ""
-          - name: amount
-            data_type: DECIMAL(18,2)
-            description: ""
-          - name: changes_ipsource
-            data_type: VARCHAR
-            description: ""
-          - name: changes_logs
-            data_type: VARCHAR
-            description: ""
-          - name: changes_owner
-            data_type: VARCHAR
-            description: ""
-          - name: changes_source
-            data_type: VARCHAR
-            description: ""
-          - name: changes_tracker_id
-            data_type: VARCHAR
-            description: ""
-          - name: country
-            data_type: VARCHAR
-            description: ""
-          - name: coupon_code
-            data_type: VARCHAR
-            description: ""
-          - name: created_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: currency
-            data_type: VARCHAR
-            description: ""
-          - name: deleted
-            data_type: BIGINT
-            description: ""
-          - name: deleted_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: discount
-            data_type: DOUBLE
+            data_type: double
             description: ""
           - name: exchange_rate
-            data_type: DOUBLE
+            data_type: double
             description: ""
-          - name: fee
-            data_type: DOUBLE
+          - name: farm_farmtype_id
+            data_type: string
             description: ""
-          - name: fee_stripe
-            data_type: DOUBLE
+          - name: farm_id
+            data_type: string
             description: ""
-          - name: fee_tax
-            data_type: DOUBLE
+          - name: farm_ranking
+            data_type: double
             description: ""
-          - name: invoice_id
-            data_type: VARCHAR
+          - name: first_payment_date
+            data_type: timestamp
             description: ""
-          - name: last_event_date
-            data_type: DOUBLE
+          - name: herd_id_calc
+            data_type: string
             description: ""
-          - name: moto
-            data_type: DOUBLE
+          - name: herds_user_id_country
+            data_type: string
             description: ""
-          - name: notes
-            data_type: VARCHAR
+          - name: hwfarmtype_selectedoption
+            data_type: string
             description: ""
-          - name: number_of_herds
-            data_type: DOUBLE
+          - name: id
+            data_type: string
             description: ""
-          - name: order_id
-            data_type: VARCHAR
+          - name: is_buitelaar
+            data_type: bigint
             description: ""
-          - name: payment_intent
-            data_type: VARCHAR
+          - name: is_live_paid_herd
+            data_type: bigint
             description: ""
-          - name: payment_system
-            data_type: VARCHAR
+          - name: is_pro_herd
+            data_type: bigint
             description: ""
-          - name: payment_date_time
-            data_type: TIMESTAMP
+          - name: last_payment_date
+            data_type: timestamp
             description: ""
-          - name: plan_code
-            data_type: VARCHAR
+          - name: last_payment_id
+            data_type: string
             description: ""
-          - name: realex_payer_ref
-            data_type: VARCHAR
+          - name: last_payment_plan_code
+            data_type: string
             description: ""
-          - name: realex_pmt_ref
-            data_type: VARCHAR
+          - name: last_payment_salesperson
+            data_type: string
             description: ""
-          - name: risk_level
-            data_type: VARCHAR
+          - name: last_payment_type_calc
+            data_type: string
             description: ""
-          - name: risk_score
-            data_type: DOUBLE
+          - name: level_multiplier
+            data_type: double
             description: ""
-          - name: sales_person
-            data_type: VARCHAR
+          - name: level
+            data_type: string
             description: ""
-          - name: source
-            data_type: VARCHAR
+          - name: on_date
+            data_type: timestamp
             description: ""
-          - name: status
-            data_type: VARCHAR
+          - name: paid_until
+            data_type: date
             description: ""
-          - name: stripe_charge_id
-            data_type: VARCHAR
+          - name: stats_date
+            data_type: date
             description: ""
-          - name: tax_amount
-            data_type: DOUBLE
-            description: ""
-          - name: three_d_secure
-            data_type: DOUBLE
-            description: ""
-          - name: type
-            data_type: VARCHAR
-            description: ""
-          - name: updated_date_time
-            data_type: TIMESTAMP
+          - name: user_id_country
+            data_type: string
             description: ""
           - name: user_id
-            data_type: BIGINT
+            data_type: bigint
             description: ""
-          - name: voucher_id
-            data_type: BIGINT
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: acv_change_fcy
+            data_type: double
+            description: ""
+          - name: acv_ex_vat_fcy
+            data_type: double
+            description: ""
+          - name: autorenew
+            data_type: bigint
+            description: ""
+          - name: band_ex_vat_fcy
+            data_type: double
+            description: ""
+          - name: base_fee_ex_vat_fcy
+            data_type: double
+            description: ""
+          - name: donotrenew
+            data_type: bigint
+            description: ""
+          - name: farm_type_fee_ex_vat_fcy
+            data_type: double
+            description: ""
+          - name: groupid
+            data_type: string
+            description: ""
+          - name: last_payment_software_amount_ex_vat_fcy
+            data_type: double
+            description: ""
+          - name: plantypeid
+            data_type: string
+            description: ""
+          - name: yr
+            data_type: bigint
             description: ""
 
-      - name: rds__payment_credit_note
+      - name: animal
         description: ""
         columns:
-          - name: partition_date
-            data_type: DATE
+          - name: _commit_time
+            data_type: timestamp
             description: ""
-          - name: upsolver_schema_version
-            data_type: INT
+          - name: _event_time
+            data_type: timestamp
             description: ""
-          - name: payment_credit_note_id
-            data_type: BIGINT
+          - name: db
+            data_type: string
             description: ""
-          - name: db_name
-            data_type: VARCHAR
+          - name: primary_key
+            data_type: string
             description: ""
-          - name: can_use_for_goods
-            data_type: DOUBLE
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: animal_type_id
+            data_type: string
+            description: ""
+          - name: breed_id
+            data_type: string
+            description: ""
+          - name: buyer_id
+            data_type: string
+            description: ""
+          - name: calf_pedigree_name
+            data_type: string
             description: ""
           - name: changes_ipsource
-            data_type: VARCHAR
+            data_type: string
             description: ""
           - name: changes_logs
-            data_type: VARCHAR
+            data_type: string
             description: ""
           - name: changes_owner
-            data_type: VARCHAR
+            data_type: string
             description: ""
           - name: changes_source
-            data_type: VARCHAR
+            data_type: string
             description: ""
           - name: changes_tracker_id
-            data_type: VARCHAR
+            data_type: string
             description: ""
-          - name: cn_status
-            data_type: VARCHAR
+          - name: colour_id
+            data_type: string
             description: ""
-          - name: cn_type
-            data_type: VARCHAR
+          - name: created
+            data_type: timestamp
             description: ""
-          - name: created_date_time
-            data_type: TIMESTAMP
+          - name: dam
+            data_type: string
             description: ""
           - name: deleted
-            data_type: BIGINT
+            data_type: bigint
             description: ""
-          - name: deleted_date_time
-            data_type: TIMESTAMP
+          - name: device_id
+            data_type: bigint
             description: ""
-          - name: done
-            data_type: BIGINT
+          - name: disposal_manner
+            data_type: string
             description: ""
-          - name: due_date
-            data_type: TIMESTAMP
+          - name: disposal_place
+            data_type: string
             description: ""
-          - name: full_sum
-            data_type: DECIMAL(18,2)
+          - name: dob
+            data_type: date
             description: ""
-          - name: order_id
-            data_type: VARCHAR
+          - name: dod
+            data_type: date
             description: ""
-          - name: payment_customer_id
-            data_type: BIGINT
+          - name: farm_id
+            data_type: string
             description: ""
-          - name: payment_invoice_id
-            data_type: BIGINT
-            description: ""
-          - name: special
-            data_type: DOUBLE
-            description: ""
-          - name: src
-            data_type: DOUBLE
-            description: ""
-          - name: updated_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: used_sum
-            data_type: DOUBLE
-            description: ""
-          - name: vat
-            data_type: DOUBLE
-            description: ""
-          - name: vat_sum
-            data_type: DOUBLE
-            description: ""
-
-      - name: rds__payment_customer_goods
-        description: ""
-        columns:
-          - name: partition_date
-            data_type: DATE
-            description: ""
-          - name: upsolver_schema_version
-            data_type: INT
+          - name: freezebrand
+            data_type: string
             description: ""
           - name: id
-            data_type: BIGINT
+            data_type: string
             description: ""
-          - name: db_name
-            data_type: VARCHAR
+          - name: lactation
+            data_type: bigint
             description: ""
-          - name: changes_ipsource
-            data_type: VARCHAR
+          - name: last_adg_weight
+            data_type: double
             description: ""
-          - name: changes_logs
-            data_type: VARCHAR
+          - name: last_weight
+            data_type: double
             description: ""
-          - name: changes_owner
-            data_type: VARCHAR
+          - name: meat_withdrawal_period_end
+            data_type: timestamp
             description: ""
-          - name: changes_source
-            data_type: VARCHAR
-            description: ""
-          - name: changes_tracker_id
-            data_type: VARCHAR
-            description: ""
-          - name: cod
-            data_type: VARCHAR
-            description: ""
-          - name: count
-            data_type: BIGINT
-            description: ""
-          - name: created_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: deleted
-            data_type: BIGINT
-            description: ""
-          - name: deleted_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: delivered
-            data_type: DOUBLE
-            description: ""
-          - name: full_sum
-            data_type: DOUBLE
-            description: ""
-          - name: name
-            data_type: VARCHAR
-            description: ""
-          - name: payment_customer_id
-            data_type: BIGINT
-            description: ""
-          - name: payment_invoice_id
-            data_type: BIGINT
-            description: ""
-          - name: price
-            data_type: DECIMAL(18,2)
-            description: ""
-          - name: summ
-            data_type: DECIMAL(18,2)
-            description: ""
-          - name: updated_date_time
-            data_type: TIMESTAMP
-            description: ""
-
-      - name: rds__payment_invoice
-        description: ""
-        columns:
-          - name: partition_date
-            data_type: DATE
-            description: ""
-          - name: upsolver_schema_version
-            data_type: INT
-            description: ""
-          - name: payment_credit_note_id
-            data_type: BIGINT
-            description: ""
-          - name: db_name
-            data_type: VARCHAR
-            description: ""
-          - name: billing_company_name
-            data_type: VARCHAR
-            description: ""
-          - name: billing_email
-            data_type: VARCHAR
-            description: ""
-          - name: billing_first_name
-            data_type: VARCHAR
-            description: ""
-          - name: billing_last_name
-            data_type: VARCHAR
-            description: ""
-          - name: changes_ipsource
-            data_type: VARCHAR
-            description: ""
-          - name: changes_logs
-            data_type: VARCHAR
-            description: ""
-          - name: changes_owner
-            data_type: VARCHAR
-            description: ""
-          - name: changes_source
-            data_type: VARCHAR
-            description: ""
-          - name: changes_tracker_id
-            data_type: VARCHAR
-            description: ""
-          - name: created_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: currency
-            data_type: VARCHAR
-            description: ""
-          - name: date
-            data_type: TIMESTAMP
-            description: ""
-          - name: deleted
-            data_type: DOUBLE
-            description: ""
-          - name: deleted_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: discount
-            data_type: DOUBLE
-            description: ""
-          - name: full_sum
-            data_type: DOUBLE
-            description: ""
-          - name: goods_discount
-            data_type: DOUBLE
-            description: ""
-          - name: hash
-            data_type: VARCHAR
-            description: ""
-          - name: invoice
-            data_type: VARCHAR
-            description: ""
-          - name: invoice_date
-            data_type: TIMESTAMP
-            description: ""
-          - name: invoice_period
-            data_type: VARCHAR
-            description: ""
-          - name: invoice_source
-            data_type: VARCHAR
-            description: ""
-          - name: invoice_status
-            data_type: VARCHAR
-            description: ""
-          - name: max_price
-            data_type: DOUBLE
-            description: ""
-          - name: metadata
-            data_type: VARCHAR
+          - name: milk_withdrawal_period_end
+            data_type: timestamp
             description: ""
           - name: notes
-            data_type: VARCHAR
+            data_type: string
             description: ""
-          - name: paid_until_date
-            data_type: TIMESTAMP
+          - name: pedigree
+            data_type: string
             description: ""
-          - name: part
-            data_type: DOUBLE
+          - name: purpose_id
+            data_type: string
             description: ""
-          - name: payment_customer_id
-            data_type: BIGINT
+          - name: sex
+            data_type: string
             description: ""
-          - name: payment_intent
-            data_type: VARCHAR
+          - name: sire
+            data_type: string
             description: ""
-          - name: payment_intent_version
-            data_type: DOUBLE
+          - name: source
+            data_type: string
             description: ""
-          - name: payment_subscription_id
-            data_type: BIGINT
-            description: ""
-          - name: payment_url
-            data_type: VARCHAR
-            description: ""
-          - name: plan
-            data_type: VARCHAR
-            description: ""
-          - name: price_invoice
-            data_type: VARCHAR
-            description: ""
-          - name: renewal_date
-            data_type: TIMESTAMP
-            description: ""
-          - name: sales_code
-            data_type: VARCHAR
-            description: ""
-          - name: scheduled_max_price
-            data_type: DECIMAL(18,2)
-            description: ""
-          - name: scheduled_plan
-            data_type: VARCHAR
+          - name: species_id
+            data_type: string
             description: ""
           - name: status
-            data_type: VARCHAR
+            data_type: string
             description: ""
-          - name: sum
-            data_type: DOUBLE
+          - name: still_burn_success_date
+            data_type: timestamp
             description: ""
-          - name: tax
-            data_type: DOUBLE
+          - name: supplier_id
+            data_type: string
             description: ""
-          - name: total_discount
-            data_type: DOUBLE
+          - name: tag
+            data_type: string
             description: ""
-          - name: trial
-            data_type: DOUBLE
+          - name: updated
+            data_type: timestamp
             description: ""
-          - name: type_invoice
-            data_type: DOUBLE
+          - name: weight
+            data_type: double
             description: ""
-          - name: unic_link
-            data_type: VARCHAR
+          - name: _row_number
+            data_type: bigint
             description: ""
-          - name: updated_date_time
-            data_type: TIMESTAMP
+          - name: addtoauditlog
+            data_type: bigint
             description: ""
-          - name: vat
-            data_type: DOUBLE
+          - name: ageflag
+            data_type: string
             description: ""
-          - name: version
-            data_type: DOUBLE
+          - name: aibullcode
+            data_type: string
+            description: ""
+          - name: bloc
+            data_type: string
+            description: ""
+          - name: bsubloc
+            data_type: string
+            description: ""
+          - name: brtestdate
+            data_type: date
+            description: ""
+          - name: calfregsuccessdate
+            data_type: timestamp
+            description: ""
+          - name: calfweight
+            data_type: double
+            description: ""
+          - name: calvingdifficulty
+            data_type: string
+            description: ""
+          - name: datemovedin
+            data_type: date
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: displaydescription
+            data_type: string
+            description: ""
+          - name: eid
+            data_type: string
+            description: ""
+          - name: expectedcalvingdate
+            data_type: date
+            description: ""
+          - name: geneticdamtag
+            data_type: string
+            description: ""
+          - name: herdbooknumber
+            data_type: string
+            description: ""
+          - name: iwarn
+            data_type: string
+            description: ""
+          - name: inherd
+            data_type: bigint
+            description: ""
+          - name: lastweightdate
+            data_type: date
+            description: ""
+          - name: offherddate
+            data_type: date
+            description: ""
+          - name: offherdreason
+            data_type: string
+            description: ""
+          - name: ploc
+            data_type: string
+            description: ""
+          - name: psubloc
+            data_type: string
+            description: ""
+          - name: purchaseprice
+            data_type: double
+            description: ""
+          - name: saleprice
+            data_type: double
+            description: ""
+          - name: sirebreedid
+            data_type: string
+            description: ""
+          - name: stillborn
+            data_type: string
+            description: ""
+          - name: stockbull
+            data_type: bigint
+            description: ""
+          - name: tbtestdate
+            data_type: date
+            description: ""
+          - name: weightdate
+            data_type: date
+            description: ""
+          - name: size
+            data_type: string
+            description: ""
+          - name: until_date
+            data_type: date
+            description: ""
+          - name: vigor
+            data_type: string
+            description: ""
+          - name: yr
+            data_type: bigint
             description: ""
 
-      - name: rds__payment_invoice_credit_note_used
+      - name: animal_ap_doc
         description: ""
         columns:
-          - name: partition_date
-            data_type: DATE
+          - name: _commit_time
+            data_type: timestamp
             description: ""
-          - name: upsolver_schema_version
-            data_type: INT
+          - name: _event_time
+            data_type: timestamp
             description: ""
-          - name: payment_credit_note_used_id
-            data_type: BIGINT
+          - name: db
+            data_type: string
             description: ""
-          - name: db_name
-            data_type: VARCHAR
+          - name: primary_key
+            data_type: string
             description: ""
-          - name: created_date_time
-            data_type: TIMESTAMP
+          - name: processing_datetime
+            data_type: timestamp
             description: ""
-          - name: deleted
-            data_type: DOUBLE
+          - name: _shard_number
+            data_type: bigint
             description: ""
-          - name: deleted_date_time
-            data_type: DOUBLE
+          - name: _source_id
+            data_type: string
             description: ""
-          - name: done
-            data_type: DOUBLE
-            description: ""
-          - name: full_sum
-            data_type: DOUBLE
-            description: ""
-          - name: payment_credit_note_id
-            data_type: DOUBLE
-            description: ""
-          - name: payment_invoice_id
-            data_type: DOUBLE
-            description: ""
-          - name: updated_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: used_sum
-            data_type: DOUBLE
-            description: ""
-          - name: vat
-            data_type: DOUBLE
-            description: ""
-          - name: vat_sum
-            data_type: DOUBLE
-            description: ""
-
-      - name: rds__payment_invoice_number
-        description: ""
-        columns:
-          - name: partition_date
-            data_type: DATE
-            description: ""
-          - name: upsolver_schema_version
-            data_type: INT
-            description: ""
-          - name: id
-            data_type: BIGINT
-            description: ""
-          - name: db_name
-            data_type: VARCHAR
-            description: ""
-          - name: created_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: deleted
-            data_type: DOUBLE
-            description: ""
-          - name: deleted_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: payment_invoice_id
-            data_type: BIGINT
-            description: ""
-          - name: sum
-            data_type: DOUBLE
-            description: ""
-          - name: updated_date_time
-            data_type: TIMESTAMP
-            description: ""
-
-      - name: rds__price_lookup
-        description: ""
-        columns:
-          - name: partition_date
-            data_type: DATE
-            description: ""
-          - name: upsolver_schema_version
-            data_type: INT
-            description: ""
-          - name: price_lookup_id
-            data_type: DOUBLE
-            description: ""
-          - name: db_name
-            data_type: VARCHAR
-            description: ""
-          - name: country
-            data_type: VARCHAR
-            description: ""
-          - name: currency
-            data_type: VARCHAR
-            description: ""
-          - name: farmtype_option_id
-            data_type: VARCHAR
-            description: ""
-          - name: pricing_sub_type
-            data_type: VARCHAR
-            description: ""
-          - name: pricing_type
-            data_type: VARCHAR
-            description: ""
-          - name: value
-            data_type: DOUBLE
-            description: ""
-      - name: rds__zoho_credit_note_invoice
-        description: ""
-        columns:
-          - name: partition_date
-            data_type: DATE
-            description: ""
-          - name: upsolver_schema_version
-            data_type: INT
-            description: ""
-          - name: id
-            data_type: VARCHAR
-            description: ""
-          - name: db_name
-            data_type: VARCHAR
-            description: ""
-          - name: credit_note_id
-            data_type: VARCHAR
-            description: ""
-          - name: credit_note_number
-            data_type: VARCHAR
-            description: ""
-          - name: credited_amount
-            data_type: DECIMAL(18,2)
-            description: ""
-          - name: credited_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: deleted
-            data_type: DOUBLE
-            description: ""
-          - name: deleted_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: invoice
-            data_type: VARCHAR
-            description: ""
-          - name: invoice_id
-            data_type: VARCHAR
-            description: ""
-          - name: invoice_number
-            data_type: VARCHAR
-            description: ""
-          - name: created_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: updated_date_time
-            data_type: TIMESTAMP
-            description: ""
-          - name: zoho_credit_note_id
-            data_type: VARCHAR
-            description: ""
-      - name: rds__animal_append_only
-        description: ""
-        columns:
-          - name: partition_date
-            data_type: DATE
-            description: ""
-          - name: upsolver_schema_version
-            data_type: INT
-            description: ""
-          - name: db_name
-            data_type: VARCHAR
+          - name: _event_date
+            data_type: date
             description: ""
           - name: animal_id
-            data_type: VARCHAR
+            data_type: string
             description: ""
-          - name: stock_bull_flag
-            data_type: DOUBLE
+          - name: changes_ipsource
+            data_type: string
             description: ""
-          - name: updated_date_time
-            data_type: TIMESTAMP
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: created_at
+            data_type: timestamp
+            description: ""
+          - name: est_calving_date
+            data_type: date
+            description: ""
+          - name: highest_scc
+            data_type: bigint
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: lactation
+            data_type: bigint
+            description: ""
+          - name: last_calving_date
+            data_type: date
+            description: ""
+          - name: latest_due_date_by_ecd
+            data_type: date
+            description: ""
+          - name: lk_dry_off_date
+            data_type: date
+            description: ""
+          - name: updated_at
+            data_type: timestamp
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: animal_option
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: animal_id
+            data_type: string
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: discr
+            data_type: string
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: createdat
+            data_type: timestamp
+            description: ""
+          - name: updatedat
+            data_type: timestamp
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: animal_option_factory
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: is_animal_weight_calculated
+            data_type: bigint
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: dead_weight
+            data_type: double
+            description: ""
+          - name: kill_out_grade
+            data_type: string
+            description: ""
+          - name: killsheet_date
+            data_type: timestamp
+            description: ""
+          - name: killsheet_name
+            data_type: string
+            description: ""
+          - name: mart_date
+            data_type: timestamp
+            description: ""
+          - name: mart_name
+            data_type: string
+            description: ""
+          - name: mart_weight
+            data_type: double
+            description: ""
+          - name: price_per_kilo
+            data_type: double
+            description: ""
+          - name: purchase_weight
+            data_type: double
+            description: ""
+          - name: sale_weight
+            data_type: double
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: animal_option_sheep
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: brand
+            data_type: string
+            description: ""
+          - name: expected_lambing_date
+            data_type: timestamp
+            description: ""
+          - name: foster_ewe_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: is_alive
+            data_type: bigint
+            description: ""
+          - name: is_stock_ram
+            data_type: bigint
+            description: ""
+          - name: lambing_difficulty_id
+            data_type: string
+            description: ""
+          - name: lambing_number
+            data_type: string
+            description: ""
+          - name: last_lambed_date
+            data_type: timestamp
+            description: ""
+          - name: milkiness_id
+            data_type: string
+            description: ""
+          - name: ram_id
+            data_type: string
+            description: ""
+          - name: ram_let_to_ewe_date
+            data_type: timestamp
+            description: ""
+          - name: ram_used_id
+            data_type: string
+            description: ""
+          - name: rearing_id
+            data_type: string
+            description: ""
+          - name: season_of_birth_date
+            data_type: timestamp
+            description: ""
+          - name: season_of_birth
+            data_type: bigint
+            description: ""
+          - name: status_notes
+            data_type: string
+            description: ""
+          - name: vigour_id
+            data_type: string
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: scrapie_tag
+            data_type: string
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: farm
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: active
+            data_type: bigint
+            description: ""
+          - name: address1
+            data_type: string
+            description: ""
+          - name: address2
+            data_type: string
+            description: ""
+          - name: address_id
+            data_type: bigint
+            description: ""
+          - name: band
+            data_type: string
+            description: ""
+          - name: calf_reg_count
+            data_type: bigint
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: clevertap_error
+            data_type: bigint
+            description: ""
+          - name: country
+            data_type: string
+            description: ""
+          - name: county
+            data_type: string
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: hwfarmtype_id
+            data_type: string
+            description: ""
+          - name: hwfarmtype_selectedoption
+            data_type: string
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: is_buitelaar
+            data_type: bigint
+            description: ""
+          - name: is_pro
+            data_type: bigint
+            description: ""
+          - name: level
+            data_type: string
+            description: ""
+          - name: pin
+            data_type: string
+            description: ""
+          - name: plan_addition_type
+            data_type: string
+            description: ""
+          - name: renewal_band
+            data_type: string
+            description: ""
+          - name: timezone
+            data_type: string
+            description: ""
+          - name: total_calf_reg_count
+            data_type: bigint
+            description: ""
+          - name: update_clevertap
+            data_type: bigint
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: version
+            data_type: bigint
+            description: ""
+          - name: web_service_customer_id
+            data_type: string
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: bb_beef_expiry
+            data_type: date
+            description: ""
+          - name: bb_dairy_expiry
+            data_type: date
+            description: ""
+          - name: bb_lamb_expiry
+            data_type: date
+            description: ""
+          - name: bb_last_check_date
+            data_type: timestamp
+            description: ""
+          - name: dataautoexportenabled
+            data_type: bigint
+            description: ""
+          - name: datasyncenabled
+            data_type: bigint
+            description: ""
+          - name: farmtypeid
+            data_type: string
+            description: ""
+          - name: forfree
+            data_type: bigint
+            description: ""
+          - name: herdemail
+            data_type: string
+            description: ""
+          - name: herdfirstname
+            data_type: string
+            description: ""
+          - name: herdlastname
+            data_type: string
+            description: ""
+          - name: herdnumber
+            data_type: string
+            description: ""
+          - name: nationalherdid
+            data_type: string
+            description: ""
+          - name: owneruserid
+            data_type: bigint
+            description: ""
+          - name: pinresetcount
+            data_type: bigint
+            description: ""
+          - name: postcode
+            data_type: string
+            description: ""
+          - name: towncity
+            data_type: string
+            description: ""
+          - name: usednapilotprogram
+            data_type: bigint
+            description: ""
+          - name: webserviceid
+            data_type: string
+            description: ""
+          - name: webservicepw
+            data_type: string
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: farm_extra_data
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: animals_enquiry_period
+            data_type: bigint
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: cleared_audit
+            data_type: bigint
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: farm_id
+            data_type: string
+            description: ""
+          - name: farm_name
+            data_type: string
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: is_pre_cache
+            data_type: bigint
+            description: ""
+          - name: potential_flockwatch
+            data_type: bigint
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: first_dept_herd_sync
+            data_type: timestamp
+            description: ""
+          - name: last_dept_data_processed
+            data_type: timestamp
+            description: ""
+          - name: last_dept_herd_sync
+            data_type: timestamp
+            description: ""
+          - name: last_dept_interaction
+            data_type: timestamp
+            description: ""
+          - name: last_dept_pin_success
+            data_type: timestamp
+            description: ""
+          - name: last_icbf_sync
+            data_type: timestamp
+            description: ""
+          - name: last_pre_cache
+            data_type: date
+            description: ""
+          - name: last_tag_sync
+            data_type: timestamp
+            description: ""
+          - name: last_cis_sync
+            data_type: timestamp
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: farm_farmtype
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: active
+            data_type: bigint
+            description: ""
+          - name: band_id
+            data_type: string
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: farm_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: level_id
+            data_type: string
+            description: ""
+          - name: option_id
+            data_type: string
+            description: ""
+          - name: plan_id
+            data_type: string
+            description: ""
+          - name: pro
+            data_type: bigint
+            description: ""
+          - name: type_farm
+            data_type: bigint
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: farmtypeid
+            data_type: string
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: farm_rank_metrics
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: calculated_up_to
+            data_type: date
+            description: ""
+          - name: farm_id
+            data_type: string
+            description: ""
+          - name: fw_overall_star_value
+            data_type: double
+            description: ""
+          - name: fw_report_metric_avg_value
+            data_type: double
+            description: ""
+          - name: fw_report_metric_star_value
+            data_type: bigint
+            description: ""
+          - name: fw_report_metric_tasks_count
+            data_type: bigint
+            description: ""
+          - name: fw_task_per_animal_star_value
+            data_type: bigint
+            description: ""
+          - name: fw_task_per_avg_value
+            data_type: double
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: login_frequency_avg_value
+            data_type: double
+            description: ""
+          - name: login_frequency_star_value
+            data_type: bigint
+            description: ""
+          - name: overall_star_value
+            data_type: double
+            description: ""
+          - name: report_metric_avg_value
+            data_type: double
+            description: ""
+          - name: report_metric_star_value
+            data_type: bigint
+            description: ""
+          - name: report_metric_tasks_count
+            data_type: bigint
+            description: ""
+          - name: task_per_animal_star_value
+            data_type: bigint
+            description: ""
+          - name: task_per_avg_value
+            data_type: double
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: createdat
+            data_type: timestamp
+            description: ""
+          - name: updatedat
+            data_type: timestamp
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: fos_user
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: address1
+            data_type: string
+            description: ""
+          - name: address2
+            data_type: string
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: country
+            data_type: string
+            description: ""
+          - name: created_at
+            data_type: timestamp
+            description: ""
+          - name: creation_source
+            data_type: bigint
+            description: ""
+          - name: credentials_expired
+            data_type: bigint
+            description: ""
+          - name: dnr_clear_by_id
+            data_type: bigint
+            description: ""
+          - name: dnr_clear
+            data_type: timestamp
+            description: ""
+          - name: dnr_date
+            data_type: timestamp
+            description: ""
+          - name: dnr_reason
+            data_type: string
+            description: ""
+          - name: dnr_set_by_id
+            data_type: bigint
+            description: ""
+          - name: dnr_set
+            data_type: timestamp
+            description: ""
+          - name: do_not_contact
+            data_type: bigint
+            description: ""
+          - name: email_canonical
+            data_type: string
+            description: ""
+          - name: email_verified
+            data_type: bigint
+            description: ""
+          - name: email
+            data_type: string
+            description: ""
+          - name: enabled
+            data_type: bigint
+            description: ""
+          - name: expired_remember_me
+            data_type: bigint
+            description: ""
+          - name: expired
+            data_type: bigint
+            description: ""
+          - name: expires_at
+            data_type: timestamp
+            description: ""
+          - name: failed_payments
+            data_type: bigint
+            description: ""
+          - name: firstname
+            data_type: string
+            description: ""
+          - name: free_register
+            data_type: bigint
+            description: ""
+          - name: icbf_status
+            data_type: bigint
+            description: ""
+          - name: id_old
+            data_type: bigint
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: intercom_id
+            data_type: string
+            description: ""
+          - name: intercom_type
+            data_type: string
+            description: ""
+          - name: is_mobile
+            data_type: bigint
+            description: ""
+          - name: last_call_attempt
+            data_type: timestamp
+            description: ""
+          - name: last_called
+            data_type: timestamp
+            description: ""
+          - name: last_password_reset
+            data_type: timestamp
+            description: ""
+          - name: lastname
+            data_type: string
+            description: ""
+          - name: locked
+            data_type: bigint
+            description: ""
+          - name: notes
+            data_type: string
+            description: ""
+          - name: paid_until
+            data_type: date
+            description: ""
+          - name: password
+            data_type: string
+            description: ""
+          - name: payment_attempts
+            data_type: bigint
+            description: ""
+          - name: payment_customer
+            data_type: bigint
+            description: ""
+          - name: payment_system
+            data_type: bigint
+            description: ""
+          - name: phone
+            data_type: string
+            description: ""
+          - name: pre_audit
+            data_type: bigint
+            description: ""
+          - name: price_set
+            data_type: timestamp
+            description: ""
+          - name: referred_by
+            data_type: bigint
+            description: ""
+          - name: roles
+            data_type: string
+            description: ""
+          - name: salt
+            data_type: string
+            description: ""
+          - name: status
+            data_type: string
+            description: ""
+          - name: temp_user
+            data_type: bigint
+            description: ""
+          - name: update_intercom_at
+            data_type: timestamp
+            description: ""
+          - name: update_intercom
+            data_type: bigint
+            description: ""
+          - name: updated_at
+            data_type: timestamp
+            description: ""
+          - name: usage_summary_id
+            data_type: string
+            description: ""
+          - name: usage_summary_updated
+            data_type: timestamp
+            description: ""
+          - name: username_canonical
+            data_type: string
+            description: ""
+          - name: username
+            data_type: string
+            description: ""
+          - name: uuid
+            data_type: string
+            description: ""
+          - name: vat_checked
+            data_type: string
+            description: ""
+          - name: vat_validated
+            data_type: string
+            description: ""
+          - name: version
+            data_type: bigint
+            description: ""
+          - name: vip
+            data_type: bigint
+            description: ""
+          - name: web_service_customer_id
+            data_type: string
+            description: ""
+          - name: web_service_read_only
+            data_type: bigint
+            description: ""
+          - name: web_service_user_id
+            data_type: string
+            description: ""
+          - name: web_service_user_password
+            data_type: string
+            description: ""
+          - name: website
+            data_type: string
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: autorenew
+            data_type: bigint
+            description: ""
+          - name: billingnumherds
+            data_type: bigint
+            description: ""
+          - name: donotrenew
+            data_type: bigint
+            description: ""
+          - name: externalid
+            data_type: string
+            description: ""
+          - name: groupid
+            data_type: string
+            description: ""
+          - name: initialsubtypeid
+            data_type: string
+            description: ""
+          - name: lastrenewalnotification
+            data_type: timestamp
+            description: ""
+          - name: plantypeid
+            data_type: string
+            description: ""
+          - name: postcode
+            data_type: string
+            description: ""
+          - name: pwresetcount
+            data_type: bigint
+            description: ""
+          - name: subscriptionid
+            data_type: string
+            description: ""
+          - name: supportinvolved
+            data_type: bigint
+            description: ""
+          - name: towncity
+            data_type: string
+            description: ""
+          - name: vatnumber
+            data_type: string
+            description: ""
+          - name: zohoname
+            data_type: string
+            description: ""
+          - name: agent_id
+            data_type: string
+            description: ""
+          - name: billing_company_name
+            data_type: string
+            description: ""
+          - name: billing_email
+            data_type: string
+            description: ""
+          - name: billing_first_name
+            data_type: string
+            description: ""
+          - name: billing_last_name
+            data_type: string
+            description: ""
+          - name: county
+            data_type: string
+            description: ""
+          - name: dnr_return_reason
+            data_type: string
+            description: ""
+          - name: hub_spot_error
+            data_type: string
+            description: ""
+          - name: hub_spot_id
+            data_type: string
+            description: ""
+          - name: last_amount
+            data_type: double
+            description: ""
+          - name: last_renewal
+            data_type: date
+            description: ""
+          - name: last_zoho_payment
+            data_type: date
+            description: ""
+          - name: milkprocessor_id
+            data_type: string
+            description: ""
+          - name: cardid
+            data_type: string
+            description: ""
+          - name: cardreference
+            data_type: string
+            description: ""
+          - name: payerreference
+            data_type: string
+            description: ""
+          - name: promocode
+            data_type: string
+            description: ""
+          - name: referralcode
+            data_type: string
+            description: ""
+          - name: business_id
+            data_type: string
+            description: ""
+          - name: confirmation_token
+            data_type: string
+            description: ""
+          - name: subscriptioncheckdate
+            data_type: date
+            description: ""
+          - name: vatcheckdate
+            data_type: date
+            description: ""
+          - name: vatnotify
+            data_type: timestamp
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: milk_rec_agg
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: days_in_milk
+            data_type: bigint
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: fat305
+            data_type: double
+            description: ""
+          - name: fat_qty_test_day
+            data_type: double
+            description: ""
+          - name: fat_ytd
+            data_type: double
+            description: ""
+          - name: herd_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: lactose305
+            data_type: double
+            description: ""
+          - name: lactose_qty_test_day
+            data_type: double
+            description: ""
+          - name: lactose_ytd
+            data_type: double
+            description: ""
+          - name: last_test_date
+            data_type: date
+            description: ""
+          - name: milk305
+            data_type: double
+            description: ""
+          - name: milk_qty_test_day
+            data_type: double
+            description: ""
+          - name: milk_ytd
+            data_type: double
+            description: ""
+          - name: no_of_cows
+            data_type: bigint
+            description: ""
+          - name: protein305
+            data_type: double
+            description: ""
+          - name: protein_qty_test_day
+            data_type: double
+            description: ""
+          - name: protein_ytd
+            data_type: double
+            description: ""
+          - name: scc_qty_test_day
+            data_type: bigint
+            description: ""
+          - name: scc_ytd
+            data_type: bigint
+            description: ""
+          - name: solids305
+            data_type: double
+            description: ""
+          - name: solids_qty_test_day
+            data_type: double
+            description: ""
+          - name: solids_ytd
+            data_type: double
+            description: ""
+          - name: source_update
+            data_type: timestamp
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: milk_rec_indv
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: animal_id
+            data_type: string
+            description: ""
+          - name: calving_date
+            data_type: date
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: days_in_milk
+            data_type: bigint
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: fat_qty305
+            data_type: double
+            description: ""
+          - name: fat_qty_test_day
+            data_type: double
+            description: ""
+          - name: fat_qty
+            data_type: double
+            description: ""
+          - name: herd_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: lactation_no
+            data_type: bigint
+            description: ""
+          - name: lactose_qty_test_day
+            data_type: double
+            description: ""
+          - name: last_test_date
+            data_type: date
+            description: ""
+          - name: milk_qty305
+            data_type: double
+            description: ""
+          - name: milk_qty_test_day
+            data_type: double
+            description: ""
+          - name: milk_qty
+            data_type: double
+            description: ""
+          - name: milk_solids305
+            data_type: double
+            description: ""
+          - name: milk_solids_test_day
+            data_type: double
+            description: ""
+          - name: milk_solids
+            data_type: double
+            description: ""
+          - name: no_of_test
+            data_type: bigint
+            description: ""
+          - name: protein_qty305
+            data_type: double
+            description: ""
+          - name: protein_qty_test_day
+            data_type: double
+            description: ""
+          - name: protein_qty
+            data_type: double
+            description: ""
+          - name: recording_one
+            data_type: double
+            description: ""
+          - name: recording_three
+            data_type: double
+            description: ""
+          - name: recording_two
+            data_type: double
+            description: ""
+          - name: scc_average
+            data_type: bigint
+            description: ""
+          - name: scc_test_day
+            data_type: bigint
+            description: ""
+          - name: source_id
+            data_type: string
+            description: ""
+          - name: source_update
+            data_type: timestamp
+            description: ""
+          - name: source
+            data_type: string
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: urea
+            data_type: double
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: estimatedcalvingdate
+            data_type: date
+            description: ""
+          - name: dry_date
+            data_type: date
+            description: ""
+          - name: lactose_qty305
+            data_type: double
+            description: ""
+          - name: lactose_qty
+            data_type: double
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: operator
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: country
+            data_type: string
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: device_id
+            data_type: bigint
+            description: ""
+          - name: farm_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: is_default
+            data_type: bigint
+            description: ""
+          - name: name
+            data_type: string
+            description: ""
+          - name: phone
+            data_type: string
+            description: ""
+          - name: type
+            data_type: string
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: addtoauditlog
+            data_type: bigint
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: herdnumber
+            data_type: string
+            description: ""
+          - name: common_id
+            data_type: string
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: payment
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: amount
+            data_type: double
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: country
+            data_type: string
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: currency
+            data_type: string
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: discount
+            data_type: double
+            description: ""
+          - name: exchange_rate
+            data_type: double
+            description: ""
+          - name: fee_stripe
+            data_type: double
+            description: ""
+          - name: fee_tax
+            data_type: double
+            description: ""
+          - name: fee
+            data_type: double
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: last_event_date
+            data_type: bigint
+            description: ""
+          - name: moto
+            data_type: bigint
+            description: ""
+          - name: notes
+            data_type: string
+            description: ""
+          - name: number_of_herds
+            data_type: bigint
+            description: ""
+          - name: payment_intent
+            data_type: string
+            description: ""
+          - name: payment_system
+            data_type: string
+            description: ""
+          - name: plan_code
+            data_type: string
+            description: ""
+          - name: risk_level
+            data_type: string
+            description: ""
+          - name: salesperson
+            data_type: string
+            description: ""
+          - name: source
+            data_type: string
+            description: ""
+          - name: status
+            data_type: string
+            description: ""
+          - name: tax_amount
+            data_type: double
+            description: ""
+          - name: three_d_secure
+            data_type: bigint
+            description: ""
+          - name: type
+            data_type: string
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: user_id
+            data_type: bigint
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: invoiceid
+            data_type: string
+            description: ""
+          - name: orderid
+            data_type: string
+            description: ""
+          - name: paymentdate
+            data_type: timestamp
+            description: ""
+          - name: realex_payerref
+            data_type: string
+            description: ""
+          - name: realex_pmtref
+            data_type: string
+            description: ""
+          - name: coupon_code
+            data_type: string
+            description: ""
+          - name: stripe_charge_id
+            data_type: string
+            description: ""
+          - name: voucher_id
+            data_type: bigint
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: payment_credit_note
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: can_use_for_goods
+            data_type: bigint
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: cn_status
+            data_type: string
+            description: ""
+          - name: cn_type
+            data_type: string
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: done
+            data_type: bigint
+            description: ""
+          - name: due_date
+            data_type: date
+            description: ""
+          - name: full_sum
+            data_type: double
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: order_id
+            data_type: string
+            description: ""
+          - name: payment_customer_id
+            data_type: bigint
+            description: ""
+          - name: payment_invoice_id
+            data_type: bigint
+            description: ""
+          - name: special
+            data_type: bigint
+            description: ""
+          - name: src
+            data_type: bigint
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: used_sum
+            data_type: double
+            description: ""
+          - name: vat_sum
+            data_type: double
+            description: ""
+          - name: vat
+            data_type: double
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: notes
+            data_type: string
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: payment_customer_goods
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: cod
+            data_type: string
+            description: ""
+          - name: count
+            data_type: bigint
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: delivered
+            data_type: bigint
+            description: ""
+          - name: full_sum
+            data_type: double
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: name
+            data_type: string
+            description: ""
+          - name: payment_customer_id
+            data_type: bigint
+            description: ""
+          - name: payment_invoice_id
+            data_type: bigint
+            description: ""
+          - name: price
+            data_type: double
+            description: ""
+          - name: summ
+            data_type: double
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: payment_invoice
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: date
+            data_type: date
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: discount
+            data_type: double
+            description: ""
+          - name: full_sum
+            data_type: double
+            description: ""
+          - name: goods_discount
+            data_type: double
+            description: ""
+          - name: hash
+            data_type: string
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: invoice_period
+            data_type: string
+            description: ""
+          - name: invoice_source
+            data_type: string
+            description: ""
+          - name: invoice_status
+            data_type: string
+            description: ""
+          - name: metadata
+            data_type: string
+            description: ""
+          - name: notes
+            data_type: string
+            description: ""
+          - name: paid_until
+            data_type: date
+            description: ""
+          - name: part
+            data_type: double
+            description: ""
+          - name: payment_customer_id
+            data_type: bigint
+            description: ""
+          - name: payment_intent_version
+            data_type: bigint
+            description: ""
+          - name: payment_intent
+            data_type: string
+            description: ""
+          - name: payment_subscription_id
+            data_type: bigint
+            description: ""
+          - name: plan
+            data_type: string
+            description: ""
+          - name: price_invoice
+            data_type: string
+            description: ""
+          - name: renewal_date
+            data_type: date
+            description: ""
+          - name: sales_code
+            data_type: string
+            description: ""
+          - name: status
+            data_type: string
+            description: ""
+          - name: sum
+            data_type: double
+            description: ""
+          - name: tax
+            data_type: double
+            description: ""
+          - name: total_discount
+            data_type: double
+            description: ""
+          - name: trial
+            data_type: bigint
+            description: ""
+          - name: type_invoice
+            data_type: bigint
+            description: ""
+          - name: unic_link
+            data_type: string
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: vat
+            data_type: double
+            description: ""
+          - name: version
+            data_type: bigint
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: max_price
+            data_type: double
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: payment_invoice_credit_note_used
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: done
+            data_type: bigint
+            description: ""
+          - name: full_sum
+            data_type: double
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: payment_credit_note_id
+            data_type: bigint
+            description: ""
+          - name: payment_invoice_id
+            data_type: bigint
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: used_sum
+            data_type: double
+            description: ""
+          - name: vat_sum
+            data_type: double
+            description: ""
+          - name: vat
+            data_type: double
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: payment_invoice_number
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: payment_invoice_id
+            data_type: bigint
+            description: ""
+          - name: sum
+            data_type: double
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: price_lookup
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: country
+            data_type: string
+            description: ""
+          - name: currency
+            data_type: string
+            description: ""
+          - name: farmtype_option_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: pricing_sub_type
+            data_type: string
+            description: ""
+          - name: pricing_type
+            data_type: string
+            description: ""
+          - name: value
+            data_type: double
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: task
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: belongs_to_app
+            data_type: string
+            description: ""
+          - name: body_condition_score
+            data_type: double
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: cost_type
+            data_type: bigint
+            description: ""
+          - name: cost
+            data_type: double
+            description: ""
+          - name: country
+            data_type: string
+            description: ""
+          - name: created_offline
+            data_type: timestamp
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: crop_id
+            data_type: string
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: description
+            data_type: string
+            description: ""
+          - name: device_id
+            data_type: bigint
+            description: ""
+          - name: farm_id
+            data_type: string
+            description: ""
+          - name: group_to_treat
+            data_type: string
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: invited
+            data_type: bigint
+            description: ""
+          - name: invite
+            data_type: bigint
+            description: ""
+          - name: processed
+            data_type: bigint
+            description: ""
+          - name: rate_ha
+            data_type: double
+            description: ""
+          - name: remedy_id
+            data_type: string
+            description: ""
+          - name: result
+            data_type: bigint
+            description: ""
+          - name: running_with_bull
+            data_type: bigint
+            description: ""
+          - name: send_seller_confirmation
+            data_type: bigint
+            description: ""
+          - name: sickness_id
+            data_type: string
+            description: ""
+          - name: spray_id
+            data_type: string
+            description: ""
+          - name: spray_number
+            data_type: string
+            description: ""
+          - name: spray_rate
+            data_type: double
+            description: ""
+          - name: sprayer_id
+            data_type: string
+            description: ""
+          - name: status_id
+            data_type: string
+            description: ""
+          - name: status_mov_doc_number_to_buyer
+            data_type: bigint
+            description: ""
+          - name: supplier_id
+            data_type: string
+            description: ""
+          - name: tag_supplier_id
+            data_type: string
+            description: ""
+          - name: tag_type_id
+            data_type: string
+            description: ""
+          - name: task_groups
+            data_type: string
+            description: ""
+          - name: task_type
+            data_type: string
+            description: ""
+          - name: title
+            data_type: string
+            description: ""
+          - name: type_id
+            data_type: string
+            description: ""
+          - name: unit_type_id
+            data_type: string
+            description: ""
+          - name: updated_offline
+            data_type: timestamp
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: weight
+            data_type: double
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: addtoauditlog
+            data_type: bigint
+            description: ""
+          - name: animaltypeid
+            data_type: string
+            description: ""
+          - name: animalstreated
+            data_type: double
+            description: ""
+          - name: areatreated
+            data_type: double
+            description: ""
+          - name: backleft
+            data_type: bigint
+            description: ""
+          - name: backright
+            data_type: bigint
+            description: ""
+          - name: batchnumber
+            data_type: string
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: displaydescription
+            data_type: string
+            description: ""
+          - name: disposalroute
+            data_type: string
+            description: ""
+          - name: doseamount
+            data_type: double
+            description: ""
+          - name: dosetype
+            data_type: string
+            description: ""
+          - name: drugqtyreturned
+            data_type: double
+            description: ""
+          - name: duedate
+            data_type: date
+            description: ""
+          - name: feedtypeid
+            data_type: string
+            description: ""
+          - name: frontleft
+            data_type: bigint
+            description: ""
+          - name: frontright
+            data_type: bigint
+            description: ""
+          - name: issprayreturned
+            data_type: bigint
+            description: ""
+          - name: isstripe
+            data_type: bigint
+            description: ""
+          - name: meatwithdrawalperiod
+            data_type: bigint
+            description: ""
+          - name: milkwithdrawalperiod
+            data_type: bigint
+            description: ""
+          - name: movefromfeedlot
+            data_type: bigint
+            description: ""
+          - name: moveseparatecertperanimal
+            data_type: bigint
+            description: ""
+          - name: movetofeedlot
+            data_type: bigint
+            description: ""
+          - name: movetoherdnumber
+            data_type: string
+            description: ""
+          - name: movetomartabattoir
+            data_type: bigint
+            description: ""
+          - name: multipregnancy
+            data_type: bigint
+            description: ""
+          - name: notfromownstock
+            data_type: bigint
+            description: ""
+          - name: parenttaskid
+            data_type: string
+            description: ""
+          - name: performedby_id
+            data_type: string
+            description: ""
+          - name: prescribedby_id
+            data_type: string
+            description: ""
+          - name: punumber
+            data_type: string
+            description: ""
+          - name: purchasedamount
+            data_type: double
+            description: ""
+          - name: readonly
+            data_type: bigint
+            description: ""
+          - name: remedyexpirydate
+            data_type: date
+            description: ""
+          - name: remedyqtyleft
+            data_type: double
+            description: ""
+          - name: remedyqtyused
+            data_type: double
+            description: ""
+          - name: scandate
+            data_type: date
+            description: ""
+          - name: sprayendtime
+            data_type: timestamp
+            description: ""
+          - name: spraypurchaseqty
+            data_type: double
+            description: ""
+          - name: sprayqtyleft
+            data_type: double
+            description: ""
+          - name: sprayqtyused
+            data_type: double
+            description: ""
+          - name: sprayreason
+            data_type: string
+            description: ""
+          - name: spraystarttime
+            data_type: timestamp
+            description: ""
+          - name: spraytreatmentreason
+            data_type: string
+            description: ""
+          - name: sprayunit
+            data_type: string
+            description: ""
+          - name: spraywatervolume
+            data_type: bigint
+            description: ""
+          - name: taskgroupid
+            data_type: string
+            description: ""
+          - name: totalsprayqtyused
+            data_type: double
+            description: ""
+          - name: treatedanimalsdesc
+            data_type: string
+            description: ""
+          - name: treatmentcourse
+            data_type: bigint
+            description: ""
+          - name: unknownsire
+            data_type: bigint
+            description: ""
+          - name: usetotalquantity
+            data_type: bigint
+            description: ""
+          - name: vetcallout
+            data_type: bigint
+            description: ""
+          - name: weightgain
+            data_type: double
+            description: ""
+          - name: winddirection
+            data_type: string
+            description: ""
+          - name: windspeed
+            data_type: string
+            description: ""
+          - name: date_bull_leaves
+            data_type: date
+            description: ""
+          - name: source
+            data_type: string
+            description: ""
+          - name: dayspregnant
+            data_type: bigint
+            description: ""
+          - name: expectedcalvingdate
+            data_type: date
+            description: ""
+          - name: expectedheatdate
+            data_type: timestamp
+            description: ""
+          - name: geneticdamtag
+            data_type: string
+            description: ""
+          - name: heatreminderfor
+            data_type: bigint
+            description: ""
+          - name: movecerttype
+            data_type: string
+            description: ""
+          - name: remindercycles
+            data_type: bigint
+            description: ""
+          - name: sexedsemenused
+            data_type: string
+            description: ""
+          - name: sprayexpirydate
+            data_type: date
+            description: ""
+          - name: sprayqtyreturned
+            data_type: double
+            description: ""
+          - name: sprayreturndate
+            data_type: date
+            description: ""
+          - name: stockbull
+            data_type: string
+            description: ""
+          - name: lerap_id
+            data_type: string
+            description: ""
+          - name: location_id
+            data_type: string
+            description: ""
+          - name: manner_id
+            data_type: string
+            description: ""
+          - name: score
+            data_type: double
+            description: ""
+          - name: activeingredient
+            data_type: string
+            description: ""
+          - name: aisire
+            data_type: string
+            description: ""
+          - name: confirmationstickers
+            data_type: string
+            description: ""
+          - name: dayswithbull
+            data_type: bigint
+            description: ""
+          - name: firstharvestdate
+            data_type: date
+            description: ""
+          - name: growthstage
+            data_type: string
+            description: ""
+          - name: harvestinterval
+            data_type: bigint
+            description: ""
+          - name: lasttestdate
+            data_type: date
+            description: ""
+          - name: moveapplysuccessdate
+            data_type: timestamp
+            description: ""
+          - name: movecertnumber
+            data_type: string
+            description: ""
+          - name: movethirdpartyherdnumber
+            data_type: string
+            description: ""
+          - name: scansex
+            data_type: string
+            description: ""
+          - name: senttosupplier
+            data_type: timestamp
+            description: ""
+          - name: returneddate
+            data_type: date
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: task_animal
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: active
+            data_type: bigint
+            description: ""
+          - name: animal_id
+            data_type: string
+            description: ""
+          - name: complete
+            data_type: bigint
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: error
+            data_type: string
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: task_id
+            data_type: string
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: task_lambing
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: all_lambs_aborted
+            data_type: bigint
+            description: ""
+          - name: birth_difficulty_id
+            data_type: string
+            description: ""
+          - name: dam_breed_id
+            data_type: string
+            description: ""
+          - name: dam_id
+            data_type: string
+            description: ""
+          - name: genetic_dam_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: lambing_number
+            data_type: bigint
+            description: ""
+          - name: lambs_count
+            data_type: bigint
+            description: ""
+          - name: milkiness_id
+            data_type: string
+            description: ""
+          - name: mothering_ability_id
+            data_type: string
+            description: ""
+          - name: notes
+            data_type: string
+            description: ""
+          - name: season_born_date
+            data_type: timestamp
+            description: ""
+          - name: season_born
+            data_type: bigint
+            description: ""
+          - name: sire_breed_id
+            data_type: string
+            description: ""
+          - name: sire_id
+            data_type: string
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: task_livestock_purchases
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: seller_id
+            data_type: string
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: task_livestock_sales
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: buyer_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: zoho_credit_note_invoice
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: credit_note_id
+            data_type: string
+            description: ""
+          - name: credit_note_number
+            data_type: string
+            description: ""
+          - name: credited_amount
+            data_type: double
+            description: ""
+          - name: credited_date
+            data_type: date
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: invoice_id
+            data_type: string
+            description: ""
+          - name: invoice_number
+            data_type: string
+            description: ""
+          - name: invoice
+            data_type: string
+            description: ""
+          - name: record_created
+            data_type: timestamp
+            description: ""
+          - name: record_updated
+            data_type: timestamp
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: zoho_credit_note_id
+            data_type: string
+            description: ""
+          - name: yr
+            data_type: bigint
             description: ""

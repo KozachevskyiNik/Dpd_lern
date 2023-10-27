@@ -11,7 +11,7 @@ models:
       schema: domains
       table_type: iceberg
       format: parquet
-      partitioned_by: ["bucket(animal_id, 50)"]
+      partitioned_by: ["bucket(child_id, 50)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
     columns:
       - name: db_name
@@ -698,6 +698,12 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: sex
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+      
+      - name: animal_type_id
         data_type: string
         description: ""
         tests:

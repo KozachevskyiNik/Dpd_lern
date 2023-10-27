@@ -38,3 +38,4 @@ jobs:
             set -e
             dbt run --target ${{ inputs.target }} --select tag:${{ inputs.dbt_tag}}
             dbt test --target ${{ inputs.target }} --select tag:${{ inputs.dbt_tag}}
+            dbt docs generate

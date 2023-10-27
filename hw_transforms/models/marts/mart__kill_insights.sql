@@ -71,3 +71,4 @@ where
     and (a.off_herd_date != date('1970-01-01') or a.off_herd_date is null)
     and (a.moved_in_date != date('1970-01-01') or a.moved_in_date is null)
     and (a.dod_date != date('1970-01-01') or a.dod_date is null)
+    and (a.species = 'BOVINE')
