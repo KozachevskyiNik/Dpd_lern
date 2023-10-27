@@ -289,7 +289,7 @@ models:
       table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
       on_schema_change: append_new_columns
       partitioned_by: ["bucket(task_id, 50)"]
-      unique_key: ["db_name","task_animal_id"]
+      unique_key: ["db_name","id"]
     columns:
       - name: id
         data_type: string
