@@ -11,6 +11,7 @@ select
     t.farm_id as farm_id,
     ta.animal_id as animal_id,
     {{ cast_timestamp("t.duedate ") }} as record_date,
+    t.displaydescription as task_name,
     t.cost as task_cost,
     t.belongs_to_app as record_belongs_to_app,
     {{ cast_timestamp("t.created") }} as record_created_datetime,

@@ -933,3 +933,25 @@ models:
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
+  - name: rds__bovine_weights
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__dam_data") }}'
+    config:
+      tags:
+        - in_progress
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(task_id, 50)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+  - name: rds__all_weight_tasks
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__dam_data") }}'
+    config:
+      tags:
+        - in_progress
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(task_id, 50)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}

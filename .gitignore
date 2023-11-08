@@ -1,6 +1,5 @@
 .env
 .dbtenv/
 .vscode/
-.devcontainer/
 logs/
 .idea/
