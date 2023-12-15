@@ -128,7 +128,7 @@ with
             max(derived_live_wt) over (
                 partition by wt.db_name, wt.animal_id
             ) as derived_live_wt
-        from {{ ref("rds__weight_tasks") }} as wt
+        from {{ ref("rds__all_weight_tasks") }} as wt
     )
 
 select

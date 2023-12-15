@@ -1,3 +1,4 @@
+
 {% docs dbt_profiler_results__prod_domains_rds__kill_insights_pre_calc  %}
 | column_name         | data_type | row_count | not_null_proportion | distinct_count | is_unique | profiled_at                 |
 | ------------------- | --------- | --------- | ------------------- | -------------- | --------- | --------------------------- |
@@ -19,4 +20,4 @@
 | gross_margin_dih    | double    | 7,872,422 |            0.024452 |           3297 |     False | 2023-10-26 15:20:06.805 UTC |
 | adg_in_herd         | double    | 7,872,422 |            0.019301 |           2228 |     False | 2023-10-26 15:20:06.805 UTC |
 | kill_out_percentage | double    | 7,872,422 |            0.000154 |           1199 |     False | 2023-10-26 15:20:06.805 UTC |
-{% enddocs %}
+{% enddocs%}

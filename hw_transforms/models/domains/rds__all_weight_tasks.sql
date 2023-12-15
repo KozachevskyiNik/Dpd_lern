@@ -38,7 +38,6 @@ with
                 )
                 or t.task_type = 'WEIGHTRECORDING'
             )
-            and t.farm_id = '8F6BDBEB-AD12-21E5-82F1-5FF6BB811272'
         window
             weights_by_animal as (
                 partition by t.db_name, t.animal_id order by record_date
@@ -83,17 +82,23 @@ select
     if(
         wa.days_btwn_movement_off < 7, weight_on_date, wa.last_weight
     ) as derived_live_wt,
-    round((wa.weight_difference / wa.days_btwn_weighings), 2) as inter_weighing_adg,
+    round(
+        (
+            wa.weight_difference
+            / if(wa.days_btwn_weighings > 0, wa.days_btwn_weighings, 1)
+        ),
+        2
+    ) as inter_weighing_adg,
     -- use defaults for male and female when bovine species can be extended to
     -- different defaults for other species
     case
-        when a.sex = 'M' and a.species = 'BOVINE'
+        when a.sex = 'M' and a.species = 'BOVINE' and wa.days_lived_till_weighing > 0
         then round(((weight_on_date - 45.00) / wa.days_lived_till_weighing), 2)
-        when a.sex = 'F' and a.species = 'BOVINE'
+        when a.sex = 'F' and a.species = 'BOVINE' and wa.days_lived_till_weighing > 0
         then round(((weight_on_date - 40.00) / wa.days_lived_till_weighing), 2)
-        when a.sex = 'M' and a.species = 'OVINE'
+        when a.sex = 'M' and a.species = 'OVINE' and wa.days_lived_till_weighing > 0
         then round(((weight_on_date - 6.00) / wa.days_lived_till_weighing), 2)
-        when a.sex = 'F' and a.species = 'OVINE'
+        when a.sex = 'F' and a.species = 'OVINE' and wa.days_lived_till_weighing > 0
         then round(((weight_on_date - 6.00) / wa.days_lived_till_weighing), 2)
     end as lifetime_adg_at_weighing,
     -- this will be used to calculate 200day weight by checking closest valid adg to
@@ -120,4 +125,3 @@ where
         )
         or t.task_type = 'WEIGHTRECORDING'
     )
-    and t.farm_id = '8F6BDBEB-AD12-21E5-82F1-5FF6BB811272'

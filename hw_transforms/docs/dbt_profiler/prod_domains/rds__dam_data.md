@@ -1,3 +1,4 @@
+
 {% docs dbt_profiler_results__prod_domains_rds__dam_data  %}
 | column_name        | data_type    | row_count | not_null_proportion | distinct_count | is_unique | profiled_at                 |
 | ------------------ | ------------ | --------- | ------------------- | -------------- | --------- | --------------------------- |
@@ -15,4 +16,4 @@
 | dam_breed          | varchar      | 6,578,505 |              1.0000 |            256 |     False | 2023-10-26 15:19:48.527 UTC |
 | dam_total_children | bigint       | 6,578,505 |              1.0000 |             33 |     False | 2023-10-26 15:19:48.527 UTC |
 | dam_dob            | timestamp(6) | 6,578,505 |              1.0000 |          13369 |     False | 2023-10-26 15:19:48.527 UTC |
-{% enddocs %}
+{% enddocs%}

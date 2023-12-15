@@ -207,187 +207,6 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
-  - name: rds__weight_tasks
-    description: '{{ doc("dbt_profiler_results__prod_domains_rds__weight_tasks") }}'
-    config:
-      tags: 
-        - domain_tables
-        - day
-      materialized: table
-      schema: domains
-      table_type: iceberg
-      format: parquet
-      partitioned_by: ["bucket(task_id, 70)"]
-      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-    columns:
-      - name: country
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: db_name
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: task_id
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: animal_id
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: task_type
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: farm_id
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: record_date
-        data_type: timestamp
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: weight_on_date
-        data_type: double
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: lifetime_adg
-        data_type: double
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: species
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: live_weight
-        data_type: double
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: dead_weight
-        data_type: double
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: city
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: herd_number
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: farm_type
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: farm_option
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: farm_band
-        data_type: string
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: farm_app_type
-        data_type: double
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: user_id
-        data_type: double
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: last_weight
-        data_type: double
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: weight_difference
-        data_type: double
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: days_btwn_weighings
-        data_type: bigint
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: days_lived_till_weighing
-        data_type: bigint
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: days_btwn_movement_off
-        data_type: bigint
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: derived_live_wt
-        data_type: double
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: inter_weighing_adg
-        data_type: double
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: lifetime_adg_at_weighing
-        data_type: double
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
-      - name: days_till_200
-        data_type: bigint
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
   - name: rds__movement_tasks
     description: '{{ doc("dbt_profiler_results__prod_domains_rds__movement_tasks") }}'
     config:
@@ -934,24 +753,297 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
   - name: rds__bovine_weights
-    description: '{{ doc("dbt_profiler_results__prod_domains_rds__dam_data") }}'
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__bovine_weights") }}'
     config:
       tags:
-        - in_progress
+        - domain_tables
+        - day
       materialized: table
       schema: domains
       table_type: iceberg
       format: parquet
-      partitioned_by: ["bucket(task_id, 50)"]
-      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+      partitioned_by: ["bucket(farm_id, 50)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: origin_app
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: species
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: task_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: country
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: task_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: group_created_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: weigh_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: weight_on_date
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: record_adg
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: last_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: prev_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: weight_difference
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: days_btwn_weighings
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: days_lived_till_weighing
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: days_btwn_movement_off
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: adg
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: lifetime_adg
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: avg_offherd_age
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: avg_offherd_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: group_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
   - name: rds__all_weight_tasks
-    description: '{{ doc("dbt_profiler_results__prod_domains_rds__dam_data") }}'
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__all_weight_tasks") }}'
     config:
       tags:
-        - in_progress
+        - domain_tables
+        - day
       materialized: table
       schema: domains
       table_type: iceberg
       format: parquet
-      partitioned_by: ["bucket(task_id, 50)"]
-      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
+      partitioned_by: ["bucket(farm_id, 50)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: country
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: task_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: task_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: origin_app
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: record_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: weight_on_date
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: record_adg
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: species
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: last_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: prev_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: weight_difference
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: days_btwn_weighings
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: days_lived_till_weighing
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: days_btwn_movement_off
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: derived_live_wt
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: inter_weighing_adg
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: lifetime_adg_at_weighing
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: days_till_200
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: days_till_40
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist

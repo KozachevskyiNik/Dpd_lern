@@ -1,3 +1,4 @@
+
 {% docs dbt_profiler_results__prod_domains_rds__movement_tasks  %}
 | column_name                 | data_type    | row_count | not_null_proportion | distinct_count | is_unique | profiled_at                 |
 | --------------------------- | ------------ | --------- | ------------------- | -------------- | --------- | --------------------------- |
@@ -25,4 +26,4 @@
 | herd_number                 | varchar      | 6,892,016 |            1.000000 |          17755 |     False | 2023-10-26 15:20:28.761 UTC |
 | city                        | varchar      | 6,892,016 |            1.000000 |           1388 |     False | 2023-10-26 15:20:28.761 UTC |
 | county                      | varchar      | 6,892,016 |            0.911326 |            119 |     False | 2023-10-26 15:20:28.761 UTC |
-{% enddocs %}
+{% enddocs%}

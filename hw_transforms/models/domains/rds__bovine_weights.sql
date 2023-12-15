@@ -15,14 +15,17 @@ with
             t.animal_id
 
         from {{ ref("rds__tasks_base") }} as t
-        where
-            t.species = 'BOVINE'
+        inner join
+            {{ ref("rds__animals_base") }} as a
+            on t.db_name = a.db_name
+            and t.animal_id = a.animal_id
+            and a.in_herd_flag = 1
+            and t.species = 'BOVINE'
             and (
                 t.task_type_id
                 in ('GROUP-IE', 'GROUP-UK', 'GROUP-SC', 'GROUP-NI', 'GROUP-SC')
                 or t.task_type = 'GROUP'
             )
-            and t.farm_id = '8F6BDBEB-AD12-21E5-82F1-5FF6BB811272'
     ),
     get_avg_age_offherd as (
         select distinct
@@ -37,7 +40,6 @@ with
                 date_trunc('year', a.off_herd_date)
                 != date_trunc('year', date('1970-01-01'))
             )
-            and a.farm_id = '8F6BDBEB-AD12-21E5-82F1-5FF6BB811272'
         window group_by_herd as (partition by a.db_name, a.farm_id)
     ),
     get_avg_weight_offherd as (
@@ -56,7 +58,6 @@ with
                 != date_trunc('year', date('1970-01-01'))
             )
             and wt.species = 'BOVINE'
-        where a.farm_id = '8F6BDBEB-AD12-21E5-82F1-5FF6BB811272'
         window group_by_herd as (partition by wt.db_name, wt.farm_id)
     )
 
@@ -69,8 +70,6 @@ select
     wt.farm_id,
     wt.country,
     wt.task_type,
-    gbgn.task_id as group_task_id,
-    gbgn.group_name,
     {{ cast_timestamp("gbgn.group_created_date") }} as group_created_date,
     {{ cast_timestamp("wt.record_date") }} as weigh_date,
     wt.weight_on_date,
@@ -81,11 +80,11 @@ select
     wt.days_btwn_weighings,
     wt.days_lived_till_weighing,
     wt.days_btwn_movement_off,
-    wt.inter_weighing_adg,
-    wt.lifetime_adg_at_weighing,
-    wt.days_till_200,
+    wt.inter_weighing_adg as adg,
+    wt.lifetime_adg_at_weighing as lifetime_adg,
     gaao.avg_offherd_age,
-    round(gawo.avg_offherd_weight, 2) as avg_offherd_weight
+    round(gawo.avg_offherd_weight, 2) as avg_offherd_weight,
+    if((wt.record_date > gbgn.group_created_date), gbgn.group_name, null) as group_name
 
 from {{ ref("rds__all_weight_tasks") }} as wt
 left join
