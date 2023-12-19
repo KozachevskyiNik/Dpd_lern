@@ -62,7 +62,9 @@ select
     ************************************/
     cac.animal_category,
     a.sex,
+    a.tag,
     {{ cast_timestamp("a.dob_date") }} as dob_date,
+    date_diff('month', a.dob_date, a.off_herd_date) as age_in_months,
     a.breed,
     {{ cast_timestamp("a.moved_in_date") }} as moved_in_date,
     {{ cast_timestamp("a.off_herd_date") }} as off_herd_date,
