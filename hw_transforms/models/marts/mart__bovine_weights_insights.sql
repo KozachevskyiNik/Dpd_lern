@@ -49,6 +49,11 @@ with
             )
     )
 select
+    {{
+        dbt_utils.generate_surrogate_key(
+            ["bw.db_name", "bw.task_id", "bw.animal_id", "bw.farm_id"]
+        )
+    }} as uuid,
     bw.db_name,
     bw.origin_app,
     bw.species,
@@ -66,7 +71,7 @@ select
     {{ cast_timestamp("a.dob_date") }} as dob_date,
     date_diff('month', a.dob_date, a.off_herd_date) as age_in_months,
     a.breed,
-    {{ cast_timestamp("a.moved_in_date") }} as moved_in_date,
+    {{ cast_timestamp("a.moved_in_date") }} as move_in_date,
     {{ cast_timestamp("a.off_herd_date") }} as off_herd_date,
     a.pedigree,
     a.freezebrand,
