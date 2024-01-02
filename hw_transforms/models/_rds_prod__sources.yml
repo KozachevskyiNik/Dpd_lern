@@ -3,7 +3,6 @@ sources:
     loader: upsolver
     description: ""
     database: awsdatacatalog
-    schema: production_raw
     tags:
       - prod
     freshness:
@@ -16,6 +15,7 @@ sources:
       filter: processing_datetime > date('2022-10-24')
     loaded_at_field: processing_datetime
     schema: hw_replicate
+    tables:
     tables:
       - name: acv_hist_by_herd
         description: ""
@@ -508,6 +508,7 @@ sources:
           - name: yr
             data_type: bigint
             description: ""
+
 
       - name: animal_option
         description: ""
@@ -1030,6 +1031,7 @@ sources:
             data_type: bigint
             description: ""
 
+
       - name: farm_farmtype
         description: ""
         columns:
@@ -1121,6 +1123,7 @@ sources:
             data_type: bigint
             description: ""
 
+
       - name: farm_rank_metrics
         description: ""
         columns:
@@ -1211,6 +1214,7 @@ sources:
           - name: yr
             data_type: bigint
             description: ""
+
 
       - name: fos_user
         description: ""
@@ -1566,9 +1570,17 @@ sources:
           - name: vatnotify
             data_type: timestamp
             description: ""
+          - name: only_other_product
+            data_type: bigint
+            description: ""
+          - name: app_language
+            data_type: string
+            description: ""
           - name: yr
             data_type: bigint
             description: ""
+
+
 
       - name: milk_rec_agg
         description: ""
@@ -1699,6 +1711,8 @@ sources:
           - name: yr
             data_type: bigint
             description: ""
+
+
 
       - name: milk_rec_indv
         description: ""
@@ -1863,6 +1877,7 @@ sources:
             data_type: bigint
             description: ""
 
+
       - name: operator
         description: ""
         columns:
@@ -1956,6 +1971,7 @@ sources:
           - name: yr
             data_type: bigint
             description: ""
+
 
       - name: payment
         description: ""
@@ -2223,6 +2239,8 @@ sources:
             data_type: bigint
             description: ""
 
+
+
       - name: payment_customer_goods
         description: ""
         columns:
@@ -2310,6 +2328,8 @@ sources:
           - name: yr
             data_type: bigint
             description: ""
+
+
 
       - name: payment_invoice
         description: ""
@@ -2461,6 +2481,18 @@ sources:
           - name: max_price
             data_type: double
             description: ""
+          - name: enable_notification
+            data_type: bigint
+            description: ""
+          - name: plan_period
+            data_type: bigint
+            description: ""
+          - name: user_request_id
+            data_type: string
+            description: ""
+          - name: paid_until_old
+            data_type: date
+            description: ""
           - name: yr
             data_type: bigint
             description: ""
@@ -2550,6 +2582,8 @@ sources:
             data_type: bigint
             description: ""
 
+
+
       - name: payment_invoice_number
         description: ""
         columns:
@@ -2617,6 +2651,8 @@ sources:
             data_type: bigint
             description: ""
 
+
+
       - name: price_lookup
         description: ""
         columns:
@@ -2671,6 +2707,7 @@ sources:
           - name: yr
             data_type: bigint
             description: ""
+
 
       - name: task
         description: ""
@@ -3172,6 +3209,94 @@ sources:
             data_type: bigint
             description: ""
 
+
+
+      - name: task_bulk_tank
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: coop
+            data_type: string
+            description: ""
+          - name: fat
+            data_type: double
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: kg_of_concentrate_fed_per_cow_per_day
+            data_type: double
+            description: ""
+          - name: lactose
+            data_type: double
+            description: ""
+          - name: litres
+            data_type: bigint
+            description: ""
+          - name: number_of_milking_cows
+            data_type: bigint
+            description: ""
+          - name: number_of_milkings_per_day
+            data_type: bigint
+            description: ""
+          - name: protein
+            data_type: double
+            description: ""
+          - name: solids
+            data_type: double
+            description: ""
+          - name: somatic_cell_count
+            data_type: bigint
+            description: ""
+          - name: supplier_number
+            data_type: bigint
+            description: ""
+          - name: temperature
+            data_type: double
+            description: ""
+          - name: thermoduric_count
+            data_type: bigint
+            description: ""
+          - name: total_bacteria_count
+            data_type: bigint
+            description: ""
+          - name: urea
+            data_type: double
+            description: ""
+          - name: water
+            data_type: double
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+
       - name: task_lambing
         description: ""
         columns:
@@ -3250,6 +3375,7 @@ sources:
           - name: yr
             data_type: bigint
             description: ""
+
 
       - name: task_livestock_purchases
         description: ""
@@ -3330,6 +3456,7 @@ sources:
           - name: yr
             data_type: bigint
             description: ""
+
 
       - name: zoho_credit_note_invoice
         description: ""

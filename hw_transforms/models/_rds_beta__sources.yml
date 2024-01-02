@@ -2470,3 +2470,88 @@ sources:
           - name: yr
             data_type: bigint
             description: ""
+  
+      - name: beta_task_bulk_tank
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: coop
+            data_type: string
+            description: ""
+          - name: fat
+            data_type: double
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: kg_of_concentrate_fed_per_cow_per_day
+            data_type: double
+            description: ""
+          - name: lactose
+            data_type: double
+            description: ""
+          - name: litres
+            data_type: bigint
+            description: ""
+          - name: number_of_milking_cows
+            data_type: bigint
+            description: ""
+          - name: number_of_milkings_per_day
+            data_type: bigint
+            description: ""
+          - name: protein
+            data_type: double
+            description: ""
+          - name: solids
+            data_type: double
+            description: ""
+          - name: somatic_cell_count
+            data_type: bigint
+            description: ""
+          - name: supplier_number
+            data_type: bigint
+            description: ""
+          - name: temperature
+            data_type: double
+            description: ""
+          - name: thermoduric_count
+            data_type: bigint
+            description: ""
+          - name: total_bacteria_count
+            data_type: bigint
+            description: ""
+          - name: urea
+            data_type: double
+            description: ""
+          - name: water
+            data_type: double
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""

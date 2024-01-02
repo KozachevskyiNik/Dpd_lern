@@ -27,8 +27,10 @@ select
     apd.sire_breed as sire_breed,
     apd.sire_total_children as sire_total_children,
     -- movement related columns
-    {{ cast_timestamp("a.off_herd_date") }} as sale_date,
-    {{ cast_timestamp("a.moved_in_date") }} as purchase_date,
+    if(a.dod is not null, null,{{ cast_timestamp("a.off_herd_date") }}) as sale_date,
+    if(
+        a.animal_type_id = 'BORNONFARM', null,{{ cast_timestamp("a.moved_in_date") }}
+    ) as purchase_date,
     a.buyer_herd as sourced_from,
     a.buyer_name as sourced_from_name,
     a.seller_herd as sold_to,

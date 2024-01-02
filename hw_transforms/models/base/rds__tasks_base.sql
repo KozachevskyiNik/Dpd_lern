@@ -57,10 +57,10 @@ select
     t.movefromfeedlot as moved_from_feedlot_flag,
     t.movetofeedlot as moved_to_feedlot_flag,
     {{ cast_timestamp("t.moveapplysuccessdate") }} as move_apply_success_datetime
-{% if target.name == "beta" %} from {{ source("rds_beta", "beta_task_animal") }}
-{% else %} from {{ source("rds_prod", "task_animal") }}
-{% endif %} as ta
-inner join
-    {% if target.name == "beta" %} {{ source("rds_beta", "beta_task") }}
-    {% else %} {{ source("rds_prod", "task") }}
-    {% endif %} as t on ta.task_id = t.id and ta.db = t.db
+{% if target.name == "beta" %} from {{ source("rds_beta", "beta_task") }}
+{% else %} from {{ source("rds_prod", "task") }}
+{% endif %} as t
+left join
+    {% if target.name == "beta" %} {{ source("rds_beta", "beta_task_animal") }}
+    {% else %} {{ source("rds_prod", "task_animal") }}
+    {% endif %} as ta on ta.task_id = t.id and ta.db = t.db
