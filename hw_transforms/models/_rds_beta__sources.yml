@@ -536,9 +536,9 @@ sources:
           - name: mart_weight
             data_type: double
             description: ""
-          # - name: purchase_weight
-          #   data_type: double
-          #   description: ""
+          - name: purchase_weight
+            data_type: double
+            description: ""
           - name: sale_weight
             data_type: double
             description: ""
@@ -1420,6 +1420,9 @@ sources:
             description: ""
           - name: vatnotify
             data_type: timestamp
+            description: ""
+          - name: app_language
+            data_type: string
             description: ""
           - name: yr
             data_type: bigint
