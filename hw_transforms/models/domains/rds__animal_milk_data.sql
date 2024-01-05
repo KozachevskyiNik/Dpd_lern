@@ -19,7 +19,13 @@ select
     tbt.total_bacteria_count as bulk_tank_tbc,
     tbt.number_of_milking_cows as bulk_tank_no_of_milking_cows,
     tbt.number_of_milkings_per_day as bulk_tank_number_of_milkings_per_day,
-    tbt.kg_of_concentrate_fed_per_cow_per_day
+    {% if target.name == "beta" %}
+        cast(null as double) as kg_of_concentrate_fed_per_cow_per_day
+    {% else %}
+        tbt.kg_of_concentrate_fed_per_cow_per_day
+        as kg_of_concentrate_fed_per_cow_per_day
+    {% endif %}
+
 from {{ ref("rds__tasks_base") }} as t
 inner join
     {% if target.name == "beta" %}

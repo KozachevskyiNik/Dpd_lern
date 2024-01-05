@@ -22,7 +22,7 @@ with
         group by amd.db_name, amd.farm_id, date_trunc('month', amd.record_date)
     )
 
-select
+select distinct
     {{
         dbt_utils.generate_surrogate_key(
             ["amd.db_name", "amd.task_id", "amd.farm_id"]
