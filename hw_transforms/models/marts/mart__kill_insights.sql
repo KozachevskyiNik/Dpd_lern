@@ -10,6 +10,7 @@ select
     a.species as species,
     a.sex as sex,
     a.tag as tag,
+    a.freezebrand as management_tag,
     a.breed as breed,
     {{ cast_timestamp("a.moved_in_date") }} as move_in_date,
     {{ cast_timestamp("a.off_herd_date") }} as off_herd_date,

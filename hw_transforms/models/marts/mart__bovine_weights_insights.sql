@@ -48,10 +48,16 @@ with
                 partition by bw.db_name, bw.farm_id, bw.group_name, bw.weigh_date
             )
     )
-select
+select distinct
     {{
         dbt_utils.generate_surrogate_key(
-            ["bw.db_name", "bw.task_id", "bw.animal_id", "bw.farm_id"]
+            [
+                "bw.db_name",
+                "bw.task_id",
+                "bw.animal_id",
+                "bw.farm_id",
+                "bw.group_name",
+            ]
         )
     }} as uuid,
     bw.db_name,
@@ -91,7 +97,6 @@ select
     /***********************************
     weight information
     ************************************/
-    {{ cast_timestamp("bw.group_created_date") }} as group_created_date,
     {{ cast_timestamp("bw.weigh_date") }} as weigh_date,
     bw.group_name,
     bw.weight_on_date,

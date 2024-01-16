@@ -61,7 +61,7 @@ with
         window group_by_herd as (partition by wt.db_name, wt.farm_id)
     )
 
-select
+select distinct
     wt.db_name,
     wt.origin_app,
     wt.species,
@@ -82,7 +82,7 @@ select
     wt.days_btwn_movement_off,
     wt.inter_weighing_adg as adg,
     wt.lifetime_adg_at_weighing as lifetime_adg,
-    gaao.avg_offherd_age,
+    round(gaao.avg_offherd_age, 2) as avg_offherd_age,
     round(gawo.avg_offherd_weight, 2) as avg_offherd_weight,
     if((wt.record_date > gbgn.group_created_date), gbgn.group_name, null) as group_name
 

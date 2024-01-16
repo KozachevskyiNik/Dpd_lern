@@ -1,0 +1,41 @@
+name: Replicate to rds daily
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: [ self-hosted, alpha ]
+    strategy:
+      matrix:
+        target: [ test, beta, prod ]
+    name: Replicate to the RDS
+    steps:
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install awscli
+        run: |
+          python -m pip install --upgrade pip
+          pip install awscli
+      - name: Run the AWS Glue job
+        run: >
+          aws glue start-job-run
+          --job-name replicate_to_${{ matrix.target }}
+          --arguments='--scriptLocation="${{ vars.GLUE_SCRIPTS_PATH }}/replicate_to_${{ matrix.target }}.py"'
+        env:
+          AWS_DEFAULT_REGION: ${{ vars.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+
+
+
+
+     

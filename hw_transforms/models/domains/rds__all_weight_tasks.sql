@@ -38,6 +38,7 @@ with
                 )
                 or t.task_type = 'WEIGHTRECORDING'
             )
+            and t.animal_id is not null
         window
             weights_by_animal as (
                 partition by t.db_name, t.animal_id order by record_date
