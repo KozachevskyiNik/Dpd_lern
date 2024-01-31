@@ -1,4 +1,4 @@
-select
+select distinct
     -- general task cols
     ta.id as id,
     t.country as country,

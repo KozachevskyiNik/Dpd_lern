@@ -536,10 +536,10 @@ sources:
           - name: mart_weight
             data_type: double
             description: ""
-          - name: purchase_weight
+          - name: sale_weight
             data_type: double
             description: ""
-          - name: sale_weight
+          - name: purchase_weight
             data_type: double
             description: ""
           - name: yr
@@ -1428,6 +1428,82 @@ sources:
             data_type: bigint
             description: ""
 
+      - name: beta_maps
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: created_at
+            data_type: timestamp
+            description: ""
+          - name: created_offline
+            data_type: timestamp
+            description: ""
+          - name: deleted_date
+            data_type: timestamp
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: device_id
+            data_type: bigint
+            description: ""
+          - name: farm_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: polygon
+            data_type: struct<wkb:string>
+            description: ""
+          - name: properties
+            data_type: string
+            description: ""
+          - name: updated_at
+            data_type: timestamp
+            description: ""
+          - name: updated_offline
+            data_type: timestamp
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
       - name: beta_milk_rec_agg
         description: ""
         columns:
@@ -1810,6 +1886,149 @@ sources:
             description: ""
           - name: common_id
             data_type: string
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: beta_paddock
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: area_cm
+            data_type: bigint
+            description: ""
+          - name: area
+            data_type: double
+            description: ""
+          - name: created_offline
+            data_type: timestamp
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: crop_id
+            data_type: string
+            description: ""
+          - name: current_status_id
+            data_type: string
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: description
+            data_type: string
+            description: ""
+          - name: device_id
+            data_type: bigint
+            description: ""
+          - name: farm_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: name
+            data_type: string
+            description: ""
+          - name: purpose_id
+            data_type: string
+            description: ""
+          - name: updated_offline
+            data_type: timestamp
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: addtoauditlog
+            data_type: bigint
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: displayname
+            data_type: string
+            description: ""
+          - name: fieldno
+            data_type: string
+            description: ""
+          - name: locationcode
+            data_type: string
+            description: ""
+          - name: measureflag
+            data_type: bigint
+            description: ""
+          - name: milkflag
+            data_type: bigint
+            description: ""
+          - name: silagesuitable
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: beta_paddock_maps
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: map_id
+            data_type: string
+            description: ""
+          - name: paddock_id
+            data_type: string
+            description: ""
+          - name: _row_number
+            data_type: bigint
             description: ""
           - name: yr
             data_type: bigint
@@ -2315,6 +2534,204 @@ sources:
             data_type: bigint
             description: ""
 
+      - name: beta_task_bulk_tank
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: coop
+            data_type: string
+            description: ""
+          - name: fat
+            data_type: double
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: lactose
+            data_type: double
+            description: ""
+          - name: litres
+            data_type: bigint
+            description: ""
+          - name: number_of_milking_cows
+            data_type: bigint
+            description: ""
+          - name: number_of_milkings_per_day
+            data_type: bigint
+            description: ""
+          - name: protein
+            data_type: double
+            description: ""
+          - name: solids
+            data_type: double
+            description: ""
+          - name: somatic_cell_count
+            data_type: bigint
+            description: ""
+          - name: supplier_number
+            data_type: bigint
+            description: ""
+          - name: temperature
+            data_type: double
+            description: ""
+          - name: thermoduric_count
+            data_type: bigint
+            description: ""
+          - name: total_bacteria_count
+            data_type: bigint
+            description: ""
+          - name: urea
+            data_type: double
+            description: ""
+          - name: water
+            data_type: double
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: duetime
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: beta_task_general
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: belongs_to_app
+            data_type: string
+            description: ""
+          - name: country
+            data_type: string
+            description: ""
+          - name: created_offline
+            data_type: timestamp
+            description: ""
+          - name: description
+            data_type: string
+            description: ""
+          - name: device_id
+            data_type: bigint
+            description: ""
+          - name: due_date
+            data_type: date
+            description: ""
+          - name: farm_id
+            data_type: string
+            description: ""
+          - name: guid_id
+            data_type: bigint
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: status_id
+            data_type: string
+            description: ""
+          - name: task_type
+            data_type: string
+            description: ""
+          - name: type_id
+            data_type: string
+            description: ""
+          - name: updated_offline
+            data_type: timestamp
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: createdat
+            data_type: timestamp
+            description: ""
+          - name: updatedat
+            data_type: timestamp
+            description: ""
+          - name: deletedat
+            data_type: timestamp
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: beta_task_general_animal
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
       - name: beta_task_lambing
         description: ""
         columns:
@@ -2473,88 +2890,4 @@ sources:
           - name: yr
             data_type: bigint
             description: ""
-  
-      - name: beta_task_bulk_tank
-        description: ""
-        columns:
-          - name: _commit_time
-            data_type: timestamp
-            description: ""
-          - name: _event_time
-            data_type: timestamp
-            description: ""
-          - name: db
-            data_type: string
-            description: ""
-          - name: primary_key
-            data_type: string
-            description: ""
-          - name: processing_datetime
-            data_type: timestamp
-            description: ""
-          - name: _shard_number
-            data_type: bigint
-            description: ""
-          - name: _source_id
-            data_type: string
-            description: ""
-          - name: _event_date
-            data_type: date
-            description: ""
-          - name: coop
-            data_type: string
-            description: ""
-          - name: fat
-            data_type: double
-            description: ""
-          - name: id
-            data_type: string
-            description: ""
-          - name: kg_of_concentrate_fed_per_cow_per_day
-            data_type: double
-            description: ""
-          - name: lactose
-            data_type: double
-            description: ""
-          - name: litres
-            data_type: bigint
-            description: ""
-          - name: number_of_milking_cows
-            data_type: bigint
-            description: ""
-          - name: number_of_milkings_per_day
-            data_type: bigint
-            description: ""
-          - name: protein
-            data_type: double
-            description: ""
-          - name: solids
-            data_type: double
-            description: ""
-          - name: somatic_cell_count
-            data_type: bigint
-            description: ""
-          - name: supplier_number
-            data_type: bigint
-            description: ""
-          - name: temperature
-            data_type: double
-            description: ""
-          - name: thermoduric_count
-            data_type: bigint
-            description: ""
-          - name: total_bacteria_count
-            data_type: bigint
-            description: ""
-          - name: urea
-            data_type: double
-            description: ""
-          - name: water
-            data_type: double
-            description: ""
-          - name: _row_number
-            data_type: bigint
-            description: ""
-          - name: yr
-            data_type: bigint
-            description: ""
+

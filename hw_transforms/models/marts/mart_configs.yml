@@ -2,7 +2,7 @@ version: 2
 
 models: 
   - name: mart__kill_insights
-    description: '{{ doc("mart__kill_insights_doc") }}'
+    description: '{{ doc("mart__kill_insights") }}'
 
     config:
       tags: 
@@ -66,6 +66,12 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          
+      - name: management_tag
         data_type: string
         description: ""
         tests:
@@ -728,12 +734,6 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
-      - name: group_created_date
-        data_type: timestamp
-        description: ""
-        tests:
-          - dbt_expectations.expect_column_to_exist
-
       - name: weigh_date
         data_type: timestamp
         description: ""
@@ -1241,6 +1241,135 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: litres_per_kg
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+  - name: mart__farm_ranking
+    description: '{{ doc("mart__farm_ranking") }}'
+
+    config:
+      tags: 
+        - mart_tables
+        - week
+      materialized: incremental
+      incremental_strategy: append
+      schema: marts
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["ranking_date","bucket(farm_id, 50)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ranking_date
+        data_type: date
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: user_id
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: herd_number
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: national_herd_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: county
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: plan_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: origin_app_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_option
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_level
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_band
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: yearly_app_login
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: tasks_per_primary_unit
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: task_types_and_reports
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: login_freq_metric
+        data_type: int
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: tasks_per_primary_metric
+        data_type: int
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: task_types_and_reports_metric
+        data_type: int
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: final_star_ranking
         data_type: double
         description: ""
         tests:

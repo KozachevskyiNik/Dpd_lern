@@ -1,0 +1,32 @@
+name: Scheduled weekly
+
+on:
+  schedule:
+    - cron: '0 23 * * SUN'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  build:
+    name: Build
+    secrets: inherit
+    uses: ./.github/workflows/_build.yml
+    with:
+      build_stage: prod
+
+  run:
+    strategy:
+      matrix:
+        target: [ prod ]
+    name: DBT Run
+    secrets: inherit
+    uses: ./.github/workflows/_dbt_run.yml
+    needs: [ build ]
+    with:
+      tag: ${{ needs.build.outputs.tag }}
+      target: ${{ matrix.target }}
+      dbt_tag: week

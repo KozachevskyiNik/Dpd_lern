@@ -1,0 +1,69 @@
+sources:
+  - name: bq_prod
+    loader: upsolver
+    description: ""
+    database: bigquery
+    tags:
+      - prod
+    schema: normalized_metrics
+    tables:
+      - name: app_opened_weekly
+        description: ""
+        columns:
+          - name: farm_no
+            data_type: varchar
+            description: ""
+          - name: week_date
+            data_type: date
+            description: ""
+          - name: weekly_herdwatch_login
+            data_type: bigint
+            description: ""
+          - name: weekly_flockwatch_login
+            data_type: bigint
+            description: ""
+          - name: weekly_cropwatch_login
+            data_type: bigint
+            description: ""
+      - name: app_opened_monthly
+        description: ""
+        columns:
+          - name: farm_no
+            data_type: varchar
+            description: ""
+          - name: month_date
+            data_type: date
+            description: ""
+          - name: month_name
+            data_type: bigint
+            description: ""
+          - name: monthly_herdwatch_login
+            data_type: bigint
+            description: ""
+          - name: monthly_flockwatch_login
+            data_type: bigint
+            description: ""
+          - name: monthly_cropwatch_login
+            data_type: bigint
+            description: ""
+      - name: app_opened_quarterly
+        description: ""
+        columns:
+          - name: farm_no
+            data_type: varchar
+            description: ""
+          - name: quarter_date
+            data_type: date
+            description: ""
+          - name: quarter_name
+            data_type: bigint
+            description: ""
+          - name: quarterly_herdwatch_login
+            data_type: bigint
+            description: ""
+          - name: quarterly_flockwatch_login
+            data_type: bigint
+            description: ""
+          - name: quarterly_cropwatch_login
+            data_type: bigint
+            description: ""

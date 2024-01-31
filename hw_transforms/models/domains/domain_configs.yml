@@ -1049,7 +1049,7 @@ models:
           - dbt_expectations.expect_column_to_exist
 
   - name: rds__animal_milk_data
-    description: '{{ doc("dbt_profiler_results__prod_domains_rds__all_weight_tasks") }}'
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__animal_milk_data") }}'
     config:
       tags:
         - domain_tables
@@ -1183,6 +1183,382 @@ models:
 
       - name: kg_of_concentrate_fed_per_cow_per_day
         data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+    
+  - name: bq__get_login_frequency
+    description: '{{ doc("dbt_profiler_results__prod_domains_bq__get_login_frequency") }}'
+    config:
+      tags:
+        - domain_tables
+        - week
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(farm_id, 50)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: user_id
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: herd_number
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: national_herd_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: county
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: plan_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: origin_app_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_option
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_level
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_band
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: month_date
+        data_type: date
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: monthly_app_login
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+  - name: rds__report_metrics_by_app
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__report_metrics_by_app") }}'
+    config:
+      tags:
+        - domain_tables
+        - week
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(farm_id, 50)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: user_id
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: herd_number
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: national_herd_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: county
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: plan_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: origin_app_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_option
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_level
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_band
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: report_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: report_run_datetime
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: week_no
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: month_no
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: quarter_no
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: total_weekly_reports
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: total_monthly_reports
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: total_quarterly_reports
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+    
+  - name: rds__task_metrics_by_app
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__task_metrics_by_app") }}'
+    config:
+      tags:
+        - domain_tables
+        - week
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(farm_id, 50)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: user_id
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: herd_number
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: national_herd_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: county
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: plan_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: origin_app_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_option
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_level
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_band
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: total_animals_in_farm
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: total_paddocks_in_farm
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: month_of_task_creation
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: total_tasks
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: total_distinct_tasks
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+  - name: rds__task_type_metrics_by_app
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__task_type_metrics_by_app") }}'
+    config:
+      tags:
+        - domain_tables
+        - week
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(farm_id, 50)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: origin_app_type
+        data_type: int
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: day_of_task_creation
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: task_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: total_distinct_tasks_by_type
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
