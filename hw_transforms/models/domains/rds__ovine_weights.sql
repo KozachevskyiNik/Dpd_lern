@@ -1,5 +1,5 @@
 with
-    get_bovine_group_names as (
+    get_ovine_group_names as (
         select
             t.db_name,
             t.record_belongs_to_app as origin_app,
@@ -20,7 +20,7 @@ with
             on t.db_name = a.db_name
             and t.animal_id = a.animal_id
             and a.in_herd_flag = 1
-            and t.species = 'BOVINE'
+            and t.species = 'OVINE'
             and (
                 t.task_type_id
                 in ('GROUP-IE', 'GROUP-UK', 'GROUP-SC', 'GROUP-NI', 'GROUP-SC')
@@ -43,7 +43,7 @@ with
                 date_trunc('year', a.off_herd_date)
                 != date_trunc('year', date('1970-01-01'))
             )
-            and a.species = 'BOVINE'
+            and a.species = 'OVINE'
         window group_by_herd as (partition by a.db_name, a.farm_id)
     ),
     get_avg_weight_offherd as (
@@ -61,7 +61,7 @@ with
                 date_trunc('year', a.off_herd_date)
                 != date_trunc('year', date('1970-01-01'))
             )
-            and wt.species = 'BOVINE'
+            and wt.species = 'OVINE'
         window group_by_herd as (partition by wt.db_name, wt.farm_id)
     )
 
@@ -74,7 +74,7 @@ select distinct
     wt.farm_id,
     wt.country,
     wt.task_type,
-    {{ cast_timestamp("gbgn.group_created_date") }} as group_created_date,
+    {{ cast_timestamp("gogn.group_created_date") }} as group_created_date,
     {{ cast_timestamp("wt.record_date") }} as weigh_date,
     wt.weight_on_date,
     wt.record_adg,
@@ -88,14 +88,14 @@ select distinct
     wt.lifetime_adg_at_weighing as lifetime_adg,
     round(gaao.avg_offherd_age, 2) as avg_offherd_age,
     round(gawo.avg_offherd_weight, 2) as avg_offherd_weight,
-    if((wt.record_date > gbgn.group_created_date), gbgn.group_name, null) as group_name
+    if((wt.record_date > gogn.group_created_date), gogn.group_name, null) as group_name
 
 from {{ ref("rds__all_weight_tasks") }} as wt
 left join
-    get_bovine_group_names as gbgn
-    on wt.db_name = gbgn.db_name
-    and wt.animal_id = gbgn.animal_id
-    and wt.farm_id = gbgn.farm_id
+    get_ovine_group_names as gogn
+    on wt.db_name = gogn.db_name
+    and wt.animal_id = gogn.animal_id
+    and wt.farm_id = gogn.farm_id
 left join
     get_avg_age_offherd as gaao
     on wt.db_name = gaao.db_name
@@ -104,4 +104,4 @@ left join
     get_avg_weight_offherd as gawo
     on wt.db_name = gawo.db_name
     and wt.farm_id = gawo.farm_id
-where wt.species = 'BOVINE'
+where wt.species = 'OVINE'
