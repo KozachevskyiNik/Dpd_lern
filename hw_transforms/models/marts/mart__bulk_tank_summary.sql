@@ -5,19 +5,40 @@ with
             amd.farm_id,
             date_trunc('month', amd.record_date) as bulk_collection_month,
             sum(amd.bulk_tank_litres) as monthly_sum_litres,
-            round(avg(amd.bulk_tank_protein)) as monthly_avg_protein,
-            round(avg(amd.bulk_tank_fat)) as monthly_avg_fat,
-            round(avg(amd.bulk_tank_lactose)) as monthly_avg_lactose,
-            round(avg(amd.bulk_tank_solids)) as monthly_avg_solids,
-            round(avg(amd.bulk_tank_scc)) as monthly_avg_scc,
-            round(avg(amd.bulk_tank_tbc)) as monthly_avg_tbc,
-            round(avg(amd.bulk_tank_urea)) as monthly_avg_urea,
-            round(avg(amd.bulk_tank_temperature)) as monthly_avg_temperature,
+            -- use nullif to cast zero values to null to get accurate avgs
             round(
-                avg(amd.bulk_tank_thermoduric_count)
+                avg(cast(nullif(amd.bulk_tank_protein, 0) as double)), 2
+            ) as monthly_avg_protein,
+            round(
+                avg(cast(nullif(amd.bulk_tank_fat, 0) as double)), 2
+            ) as monthly_avg_fat,
+            round(
+                avg(cast(nullif(amd.bulk_tank_lactose, 0) as double)), 2
+            ) as monthly_avg_lactose,
+            round(
+                avg(cast(nullif(amd.bulk_tank_solids, 0) as double))
+            ) as monthly_avg_solids,
+            round(avg(cast(nullif(amd.bulk_tank_scc, 0) as double))) as monthly_avg_scc,
+            round(
+                avg(cast(nullif(amd.bulk_tank_tbc, 0) as double)), 2
+            ) as monthly_avg_tbc,
+            round(
+                avg(cast(nullif(amd.bulk_tank_urea, 0) as double)), 2
+            ) as monthly_avg_urea,
+            round(
+                avg(cast(nullif(amd.bulk_tank_temperature, 0) as double)), 2
+            ) as monthly_avg_temperature,
+            round(
+                avg(cast(nullif(amd.bulk_tank_thermoduric_count, 0) as double)), 2
             ) as monthly_avg_thermoduric_count,
-            round(avg(amd.bulk_tank_no_of_milking_cows)) as monthly_avg_no_of_cows,
-            round(avg(amd.kg_of_concentrate_fed_per_cow_per_day)) as monthly_avg_feed
+            round(
+                avg(cast(nullif(amd.bulk_tank_no_of_milking_cows, 0) as double))
+            ) as monthly_avg_no_of_cows,
+            round(
+                avg(
+                    cast(nullif(amd.kg_of_concentrate_fed_per_cow_per_day, 0) as double)
+                )
+            ) as monthly_avg_feed
         from {{ ref("rds__animal_milk_data") }} as amd
         group by amd.db_name, amd.farm_id, date_trunc('month', amd.record_date)
     )
@@ -36,20 +57,24 @@ select distinct
     ca.bulk_collection_month,
     amd.milk_coop,
     amd.supplier_number,
-    amd.bulk_tank_fat,
-    amd.bulk_tank_lactose,
-    amd.bulk_tank_protein,
-    amd.bulk_tank_solids,
-    amd.bulk_tank_litres,
-    amd.bulk_tank_scc,
-    amd.bulk_tank_urea,
-    amd.bulk_tank_water,
-    amd.bulk_tank_temperature,
-    amd.bulk_tank_thermoduric_count,
-    amd.bulk_tank_tbc,
-    amd.bulk_tank_no_of_milking_cows,
-    amd.bulk_tank_number_of_milkings_per_day,
-    amd.kg_of_concentrate_fed_per_cow_per_day,
+    sum(amd.bulk_tank_fat) over sum_same_day as bulk_tank_fat,
+    sum(amd.bulk_tank_lactose) over sum_same_day as bulk_tank_lactose,
+    sum(amd.bulk_tank_protein) over sum_same_day as bulk_tank_protein,
+    sum(amd.bulk_tank_solids) over sum_same_day as bulk_tank_solids,
+    sum(amd.bulk_tank_litres) over sum_same_day as bulk_tank_litres,
+    sum(amd.bulk_tank_scc) over sum_same_day as bulk_tank_scc,
+    sum(amd.bulk_tank_urea) over sum_same_day as bulk_tank_urea,
+    sum(amd.bulk_tank_water) over sum_same_day as bulk_tank_water,
+    sum(amd.bulk_tank_temperature) over sum_same_day as bulk_tank_temperature,
+    sum(amd.bulk_tank_thermoduric_count) over sum_same_day
+    as bulk_tank_thermoduric_count,
+    sum(amd.bulk_tank_tbc) over sum_same_day as bulk_tank_tbc,
+    sum(amd.bulk_tank_no_of_milking_cows) over sum_same_day
+    as bulk_tank_no_of_milking_cows,
+    sum(amd.bulk_tank_number_of_milkings_per_day) over sum_same_day
+    as bulk_tank_number_of_milkings_per_day,
+    sum(amd.kg_of_concentrate_fed_per_cow_per_day) over sum_same_day
+    as kg_of_concentrate_fed_per_cow_per_day,
     ca.monthly_sum_litres,
     ca.monthly_avg_protein,
     ca.monthly_avg_fat,
@@ -68,7 +93,14 @@ select distinct
         null
     ) as avg_litres_per_cow_per_day,
     if(
-        ca.monthly_avg_feed is not null, ca.monthly_sum_litres / monthly_avg_feed, null
+        ca.monthly_avg_feed is not null,
+        if(
+            ca.monthly_avg_no_of_cows is not null,
+            ((ca.monthly_sum_litres / ca.monthly_avg_no_of_cows) / 30),
+            null
+        )
+        / monthly_avg_feed,
+        null
     ) as litres_per_kg
 from {{ ref("rds__animal_milk_data") }} as amd
 left join
@@ -76,4 +108,5 @@ left join
     on amd.db_name = ca.db_name
     and amd.farm_id = ca.farm_id
     and date_trunc('month', amd.record_date) = ca.bulk_collection_month
+window sum_same_day as (partition by amd.db_name, amd.farm_id, amd.record_date)
 order by record_date, farm_id

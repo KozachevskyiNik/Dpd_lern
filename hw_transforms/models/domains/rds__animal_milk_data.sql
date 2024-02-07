@@ -1,4 +1,4 @@
-select
+select distinct
     t.db_name,
     t.task_id,
     t.farm_id,
