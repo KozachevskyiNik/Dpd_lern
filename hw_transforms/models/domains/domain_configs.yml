@@ -1568,7 +1568,7 @@ models:
     config:
       tags:
         - domain_tables
-        - week
+        - day
       materialized: table
       schema: domains
       table_type: iceberg
