@@ -16,9 +16,12 @@ with
             as avg_yearly_app_login
         from {{ ref("bq__get_login_frequency") }} as glf
         where
-            glf.month_date between date_trunc(
-                'year', date_add('year', -1, current_date)
-            ) and date_trunc('year', current_date)
+            (
+                glf.month_date between date_trunc(
+                    'month', date_add('year', -1, current_date)
+                ) and date_trunc('month', current_date)
+                or glf.month_date is null
+            )
         window
             partition_by_farm_type as (
                 partition by glf.db_name, glf.farm_id, glf.origin_app_type

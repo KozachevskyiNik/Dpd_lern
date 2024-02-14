@@ -8,7 +8,7 @@ with
             aom.month_date,
             aom.monthly_herdwatch_login as monthly_app_login
         from {{ ref("rds__user_and_farm_base") }} as uaf
-        inner join
+        left join
             {{ source("bq_prod", "app_opened_monthly") }} as aom
             on uaf.herd_number = aom.farm_no
         where uaf.farm_type not in ('CROP_FARM', 'SHEEP_FARM')
@@ -22,7 +22,7 @@ with
             aom.month_date,
             aom.monthly_flockwatch_login as monthly_app_login
         from {{ ref("rds__user_and_farm_base") }} as uaf
-        inner join
+        left join
             {{ source("bq_prod", "app_opened_monthly") }} as aom
             on uaf.herd_number = aom.farm_no
         where uaf.farm_type = 'SHEEP_FARM'
@@ -36,7 +36,7 @@ with
             aom.month_date,
             aom.monthly_cropwatch_login as monthly_app_login
         from {{ ref("rds__user_and_farm_base") }} as uaf
-        inner join
+        left join
             {{ source("bq_prod", "app_opened_monthly") }} as aom
             on uaf.herd_number = aom.farm_no
         where uaf.farm_type = 'CROP_FARM'
@@ -71,7 +71,7 @@ select
     uaf.farm_level,
     uaf.farm_band,
     gml.month_date,
-    gml.monthly_app_login
+    cast(nullif(gml.monthly_app_login, 0) as bigint) as monthly_app_login
 from {{ ref("rds__user_and_farm_base") }} as uaf
 left join
     get_monthly_logins as gml
