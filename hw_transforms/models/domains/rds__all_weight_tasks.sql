@@ -57,7 +57,16 @@ with
             ) as days_till_200,
             if(
                 species = 'OVINE', abs(days_lived_till_weighing - 40), null
-            ) as days_till_40
+            ) as days_till_40,
+            if(
+                species = 'OVINE', abs(days_lived_till_weighing - 100), null
+            ) as days_till_100,
+            if(
+                species = 'OVINE', abs(days_lived_till_weighing - 150), null
+            ) as days_till_150,
+            if(
+                species = 'OVINE', abs(days_lived_till_weighing - 200), null
+            ) as ov_days_till_200
         from weight_aggregates
     )
 
@@ -103,9 +112,12 @@ select
         then round(((weight_on_date - 6.00) / wa.days_lived_till_weighing), 2)
     end as lifetime_adg_at_weighing,
     -- this will be used to calculate 200day weight by checking closest valid adg to
-    -- 200 days
-    dwc.days_till_200 as days_till_200,
-    dwc.days_till_40 as days_till_40
+    -- x days
+    dwc.days_till_200 as bov_days_till_200,
+    dwc.days_till_40 as ov_days_till_40,
+    dwc.days_till_100 as ov_days_till_100,
+    dwc.days_till_150 as ov_days_till_150,
+    dwc.ov_days_till_200 as ov_days_till_200
 
 from {{ ref("rds__tasks_base") }} as t
 left join
