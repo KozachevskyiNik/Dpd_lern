@@ -1376,7 +1376,7 @@ models:
           - dbt_expectations.expect_column_to_exist
 
   - name: mart__ovine_weights_insights
-    description: ''
+    description: '{{ doc("mart__ovine_weights_insights") }}'
 
     config:
       tags: 
@@ -1835,6 +1835,296 @@ models:
 
       - name: min_group_lifetime_adg
         data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+  - name: mart__get_ovine_counts_of_stock
+    description: '{{ doc("mart__get_ovine_counts_of_stock") }}'
+
+    config:
+      tags: 
+        - mart_tables
+        - fortnight
+      materialized: table
+      schema: marts
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(farm_id, 80)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: reconciliation_month
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_born_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: under_6_net_transfer
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_7_12_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_7_12_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_7_12_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_7_12_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_7_12_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: between_7_12_net_transfer
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: male_over_13_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: male_over_13_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: male_over_13_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: male_over_13_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: male_over_13_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: male_over_13_net_transfer
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: rams_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: rams_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: rams_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: rams_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: rams_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: rams_net_transfer
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: breeding_female_over_13_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: breeding_female_over_13_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: breeding_female_over_13_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: breeding_female_over_13_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: breeding_female_over_13_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: breeding_female_over_13_net_transfer
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: non_breeding_female_over_13_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: non_breeding_female_over_13_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: non_breeding_female_over_13_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: non_breeding_female_over_13_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: non_breeding_female_over_13_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: non_breeding_female_over_13_net_transfer
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: missing_sex_over_13_start_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: missing_sex_over_13_bought_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: missing_sex_over_13_sold_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: missing_sexover_13_died_in_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: missing_sex_over_13_end_of_month
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: missing_sex_over_13_net_transfer
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist

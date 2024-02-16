@@ -57,23 +57,23 @@ select distinct
     ca.bulk_collection_month,
     amd.milk_coop,
     amd.supplier_number,
-    sum(amd.bulk_tank_fat) over sum_same_day as bulk_tank_fat,
-    sum(amd.bulk_tank_lactose) over sum_same_day as bulk_tank_lactose,
-    sum(amd.bulk_tank_protein) over sum_same_day as bulk_tank_protein,
-    sum(amd.bulk_tank_solids) over sum_same_day as bulk_tank_solids,
+    avg(amd.bulk_tank_fat) over sum_same_day as bulk_tank_fat,
+    avg(amd.bulk_tank_lactose) over sum_same_day as bulk_tank_lactose,
+    avg(amd.bulk_tank_protein) over sum_same_day as bulk_tank_protein,
+    avg(amd.bulk_tank_solids) over sum_same_day as bulk_tank_solids,
     sum(amd.bulk_tank_litres) over sum_same_day as bulk_tank_litres,
-    sum(amd.bulk_tank_scc) over sum_same_day as bulk_tank_scc,
-    sum(amd.bulk_tank_urea) over sum_same_day as bulk_tank_urea,
-    sum(amd.bulk_tank_water) over sum_same_day as bulk_tank_water,
-    sum(amd.bulk_tank_temperature) over sum_same_day as bulk_tank_temperature,
-    sum(amd.bulk_tank_thermoduric_count) over sum_same_day
+    avg(amd.bulk_tank_scc) over sum_same_day as bulk_tank_scc,
+    avg(amd.bulk_tank_urea) over sum_same_day as bulk_tank_urea,
+    avg(amd.bulk_tank_water) over sum_same_day as bulk_tank_water,
+    avg(amd.bulk_tank_temperature) over sum_same_day as bulk_tank_temperature,
+    avg(amd.bulk_tank_thermoduric_count) over sum_same_day
     as bulk_tank_thermoduric_count,
-    sum(amd.bulk_tank_tbc) over sum_same_day as bulk_tank_tbc,
-    sum(amd.bulk_tank_no_of_milking_cows) over sum_same_day
+    avg(amd.bulk_tank_tbc) over sum_same_day as bulk_tank_tbc,
+    avg(amd.bulk_tank_no_of_milking_cows) over sum_same_day
     as bulk_tank_no_of_milking_cows,
-    sum(amd.bulk_tank_number_of_milkings_per_day) over sum_same_day
+    avg(amd.bulk_tank_number_of_milkings_per_day) over sum_same_day
     as bulk_tank_number_of_milkings_per_day,
-    sum(amd.kg_of_concentrate_fed_per_cow_per_day) over sum_same_day
+    avg(amd.kg_of_concentrate_fed_per_cow_per_day) over sum_same_day
     as kg_of_concentrate_fed_per_cow_per_day,
     ca.monthly_sum_litres,
     ca.monthly_avg_protein,

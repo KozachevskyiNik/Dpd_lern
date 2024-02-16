@@ -171,7 +171,7 @@ with
                 and (cac.dt = date_trunc('month', cac.dod_date) and (cac.sex = 'F'))
             ) over partition_by_month as female_over_25_died_in_month
 
-        from {{ ref("rds__create_animal_categories") }} as cac
+        from {{ ref("rds__create_bovine_categories") }} as cac
         window partition_by_month as (partition by cac.db_name, cac.dt, cac.farm_id)
 
     ),

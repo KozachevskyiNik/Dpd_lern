@@ -455,7 +455,7 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
   
-  - name: rds__create_animal_categories
+  - name: rds__create_bovine_categories
     description: '{{ doc("dbt_profiler_results__prod_domains_rds__create_animal_categories") }}'
     config:
       tags: 
@@ -524,6 +524,97 @@ models:
       
       - name: animal_type_id
         data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_category
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+  - name: rds__create_ovine_categories
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__create_ovine_categories") }}'
+    config:
+      tags: 
+        - domain_tables
+        - fortnight
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(farm_id, 10)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "20"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dt
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dob_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: moved_in_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: off_herd_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: dod_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sex
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_type_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: purpose
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ov_is_stock_ram
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
@@ -752,6 +843,7 @@ models:
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
+          
   - name: rds__bovine_weights
     description: '{{ doc("dbt_profiler_results__prod_domains_rds__bovine_weights") }}'
     config:
@@ -1036,13 +1128,31 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
-      - name: days_till_200
+      - name: bov_days_till_200
         data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
 
-      - name: days_till_40
+      - name: ov_days_till_40
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ov_days_till_100
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ov_days_till_150
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ov_days_till_200
         data_type: bigint
         description: ""
         tests:
@@ -1564,7 +1674,7 @@ models:
           - dbt_expectations.expect_column_to_exist
 
   - name: rds__ovine_weights
-    description: '{{ doc("dbt_profiler_results__prod_domains_rds__task_type_metrics_by_app") }}'
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__ovine_weights") }}'
     config:
       tags:
         - domain_tables

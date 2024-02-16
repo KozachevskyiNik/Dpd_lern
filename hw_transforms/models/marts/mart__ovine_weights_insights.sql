@@ -177,7 +177,7 @@ left join
     on bw.db_name = a.db_name
     and bw.animal_id = a.animal_id
 left join
-    {{ ref("rds__create_animal_categories") }} as cac
+    {{ ref("rds__create_ovine_categories") }} as cac
     on bw.db_name = cac.db_name
     and bw.animal_id = cac.animal_id
     and bw.weigh_date = date_trunc('month', cac.dt)
