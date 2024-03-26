@@ -19,6 +19,9 @@ select distinct
     tbt.total_bacteria_count as bulk_tank_tbc,
     tbt.number_of_milking_cows as bulk_tank_no_of_milking_cows,
     tbt.number_of_milkings_per_day as bulk_tank_number_of_milkings_per_day,
+    date_diff(
+        'day', lag(t.record_date, 1, t.record_date) over day_diff, t.record_date
+    ) as days_between_milkings,
     {% if target.name == "beta" %}
         cast(null as double) as kg_of_concentrate_fed_per_cow_per_day
     {% else %}
@@ -32,3 +35,4 @@ inner join
         {{ source("rds_beta", "beta_task_bulk_tank") }} as tbt
     {% else %} {{ source("rds_prod", "task_bulk_tank") }} as tbt
     {% endif %} on t.db_name = tbt.db and t.task_id = tbt.id
+window day_diff as (partition by t.db_name, t.farm_id order by t.record_date asc)

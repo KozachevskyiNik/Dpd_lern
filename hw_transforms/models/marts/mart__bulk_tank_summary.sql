@@ -87,21 +87,59 @@ select distinct
     ca.monthly_avg_thermoduric_count,
     ca.monthly_avg_no_of_cows,
     ca.monthly_avg_feed,
-    if(
-        ca.monthly_avg_no_of_cows is not null,
-        ((ca.monthly_sum_litres / ca.monthly_avg_no_of_cows) / 30),
-        null
-    ) as avg_litres_per_cow_per_day,
-    if(
-        ca.monthly_avg_feed is not null,
+    round(
         if(
             ca.monthly_avg_no_of_cows is not null,
             ((ca.monthly_sum_litres / ca.monthly_avg_no_of_cows) / 30),
             null
-        )
-        / monthly_avg_feed,
-        null
-    ) as litres_per_kg
+        ),
+        2
+    ) as avg_litres_per_cow_per_day,
+    round(
+        if(
+            avg(amd.bulk_tank_no_of_milking_cows) over sum_same_day is not null,
+            (
+                (
+                    sum(amd.bulk_tank_litres) over sum_same_day
+                    / avg(amd.bulk_tank_no_of_milking_cows) over sum_same_day
+                ) / if(
+                    max(amd.days_between_milkings) over sum_same_day > 10,
+                    3,
+                    max(amd.days_between_milkings) over sum_same_day
+                )
+            ),
+            null
+        ),
+        2
+    ) as avg_litres_per_cow_between_milkings,
+    round(
+        if(
+            ca.monthly_avg_feed is not null,
+            if(
+                ca.monthly_avg_no_of_cows is not null,
+                ((ca.monthly_sum_litres / ca.monthly_avg_no_of_cows) / 30),
+                null
+            )
+            / monthly_avg_feed,
+            null
+        ),
+        2
+    ) as litres_per_kg,
+    round(
+        if(
+            avg(amd.kg_of_concentrate_fed_per_cow_per_day) over sum_same_day
+            is not null,
+            (
+                (
+                    sum(amd.bulk_tank_litres) over sum_same_day
+                    / avg(amd.bulk_tank_no_of_milking_cows) over sum_same_day
+                )
+                / avg(amd.kg_of_concentrate_fed_per_cow_per_day) over sum_same_day
+            ),
+            null
+        ),
+        2
+    ) as litres_per_kg_between_milkings
 from {{ ref("rds__animal_milk_data") }} as amd
 left join
     create_aggregates as ca

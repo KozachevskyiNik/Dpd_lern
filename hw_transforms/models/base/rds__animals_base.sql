@@ -37,10 +37,12 @@ with
             aos.brand as ov_brand,
             aos.is_alive as ov_is_alive,
             aos.is_stock_ram as ov_is_stock_ram,
-            regexp_replace(
-                aos.lambing_difficulty_id, '\-(.*)-IE', ''
+            regexp_extract(aos.vigour_id, '\-(.*)-', 1) as ov_vigour,
+            regexp_extract(aos.rearing_id, '\-(.*)-', 1) as ov_rearing,
+            regexp_extract(
+                aos.lambing_difficulty_id, '\-(.*)-', 1
             ) as lambing_difficulty,
-            regexp_replace(aos.milkiness_id, '\-(.*)-IE', '') as ov_milkiness,
+            regexp_extract(aos.milkiness_id, '\-(.*)-', 1) as ov_milkiness,
             aos.expected_lambing_date,
             aos.last_lambed_date,
             aos.ram_let_to_ewe_date
@@ -101,7 +103,11 @@ select
     a.tag as tag,
     {{ cast_timestamp("a.dob") }} as dob_date,
     {{ cast_timestamp("a.dod") }} as dod_date,
-    regexp_replace(a.breed_id, '\-(.*)', '') as breed,
+    if(
+        a.species_id = 'BOVINE',
+        regexp_extract(a.breed_id, '(.*)-', 1),
+        regexp_extract(a.breed_id, '-(.*)-', 1)
+    ) as breed,
     a.inherd as in_herd_flag,
     -- condition is used to remove false move in dates for animals not sold at mart
     {{
@@ -111,7 +117,7 @@ select
     }}
     as moved_in_date,
     {{ cast_timestamp("a.offherddate") }} as off_herd_date,
-    a.offherdreason as off_herd_reason,
+    regexp_extract(a.offherdreason, '-(.*)-', 1) as off_herd_reason,
     a.stockbull as stock_bull_flag,
     a.pedigree as pedigree,
     a.freezebrand as freezebrand,
@@ -152,6 +158,8 @@ select
     aos.ov_is_alive,
     aos.ov_is_stock_ram,
     aos.lambing_difficulty,
+    aos.ov_vigour,
+    aos.ov_rearing,
     aos.ov_milkiness,
     {{ cast_timestamp("aos.expected_lambing_date") }} as expected_lambing_date,
     {{ cast_timestamp("aos.last_lambed_date") }} as last_lambed_date,

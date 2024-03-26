@@ -97,8 +97,7 @@ models:
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
-
-  
+ 
   - name: rds__sire_data
     description: '{{ doc("dbt_profiler_results__prod_domains_rds__sire_data") }}'
     config:
@@ -364,8 +363,8 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
-  - name: rds__animal_parentage_data
-    description: '{{ doc("dbt_profiler_results__prod_domains_rds__animal_parentage_data") }}'
+  - name: rds__bovine_parentage_data
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__bovine_parentage_data") }}'
     config:
       tags: 
         - domain_tables
@@ -456,7 +455,7 @@ models:
           - dbt_expectations.expect_column_to_exist
   
   - name: rds__create_bovine_categories
-    description: '{{ doc("dbt_profiler_results__prod_domains_rds__create_animal_categories") }}'
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__create_bovine_categories") }}'
     config:
       tags: 
         - domain_tables
@@ -1290,13 +1289,19 @@ models:
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
+      
+      - name: days_between_milkings
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
 
       - name: kg_of_concentrate_fed_per_cow_per_day
         data_type: double
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
-    
+   
   - name: bq__get_login_frequency
     description: '{{ doc("dbt_profiler_results__prod_domains_bq__get_login_frequency") }}'
     config:
@@ -1824,3 +1829,758 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+  - name: rds__ewe_data
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__ewe_data") }}'
+    config:
+      tags:
+        - domain_tables
+        - day
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(ewe_id, 5)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_dob
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: species
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_sex
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_breed
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_lambing_difficulty
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: foster_ewe_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: foster_ewe_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: foster_ewe_total_children
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_sex
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_breed
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_age_in_months_at_birth
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_age_in_days_at_birth
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_age_in_years_at_birth
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_total_children
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_dob
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+  - name: rds__ram_data
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__ram_data") }}'
+    config:
+      tags:
+        - domain_tables
+        - day
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(ram_id, 5)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_dob
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_sex
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_breed
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_lambing_difficulty
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_sex
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_breed
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_pedigree
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: stock_bull_flag
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_age_in_months_at_birth
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_age_in_days_at_birth
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_age_in_years_at_birth
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_total_children
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_dob
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+  - name: rds__ovine_parentage_data
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__ovine_parentage_data") }}'
+    config:
+      tags:
+        - domain_tables
+        - day
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(animal_id, 50)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: child_lambing_difficulty
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_dob
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_sex
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_breed
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_age_in_months_at_birth
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_age_in_days_at_birth
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_age_in_years_at_birth
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_total_children
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: foster_ewe_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: foster_ewe_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: foster_ewe_total_children
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_dob
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_sex
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_breed
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_pedigree
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_age_in_months_at_birth
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_age_in_days_at_birth
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_age_in_years_at_birth
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_total_children
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+  - name: rds__ovine_lambing_tasks
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__ovine_lambing_tasks") }}'
+    config:
+      tags:
+        - domain_tables
+        - day
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(farm_id, 10)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: task_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: task_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: record_belongs_to_app
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: record_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: record_created_datetime
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: season_born_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: genetic_ewe_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_breed
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_breed
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: lambing_number
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: notes
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: lambs_count
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: all_lambs_aborted
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: birthing_difficulty
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: mothering_ability
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ewe_milkiness_at_birth
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+  - name: rds__ovine_mating_tasks
+    description: '{{ doc("dbt_profiler_results__prod_domains_rds__ovine_mating_tasks") }}'
+    config:
+      tags:
+        - domain_tables
+        - day
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(farm_id, 10)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+    columns:
+      - name: db_name
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: task_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: farm_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: task_type
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: record_belongs_to_app
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animal_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: record_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: record_created_datetime
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ram_used_id
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: raddle_color
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: animals_linked_flag
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: no_of_ewes_unlinked
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+  - name: rds__ovine_scan_tasks
+    description: ''
+    config:
+      tags:
+        - domain_tables
+        - day
+      materialized: table
+      schema: domains
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(farm_id, 10)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+      columns:
+        - name: db_name
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: task_id
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: farm_id
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: task_type
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: record_belongs_to_app
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: animal_id
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: record_date
+          data_type: timestamp
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: task_notes
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: record_created_datetime
+          data_type: timestamp
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: operator_id
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: re_check_flag
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: unknown_sire_flag
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: use_pregnant_status_flag
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: unknown_number_of_lambs
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: is_carrying_flag
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: no_of_expected_lambs
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: cost_of_scanning
+          data_type: double
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist

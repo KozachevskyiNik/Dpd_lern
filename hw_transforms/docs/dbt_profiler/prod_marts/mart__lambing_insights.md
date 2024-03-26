@@ -1,0 +1,51 @@
+{% docs dbt_profiler_results__prod_marts_mart__lambing_insights  %}
+| column_name                | data_type    | row_count | not_null_proportion | distinct_count | is_unique | profiled_at                 |
+| -------------------------- | ------------ | --------- | ------------------- | -------------- | --------- | --------------------------- |
+| uuid                       | varchar      |   135,651 |            1.000000 |         135360 |     False | 2024-03-25 13:29:46.021 UTC |
+| db_name                    | varchar      |   135,651 |            1.000000 |              4 |     False | 2024-03-25 13:29:46.021 UTC |
+| record_date                | timestamp(6) |   135,651 |            1.000000 |           1211 |     False | 2024-03-25 13:29:46.021 UTC |
+| record_year                | timestamp(6) |   135,651 |            1.000000 |             12 |     False | 2024-03-25 13:29:46.021 UTC |
+| lamb_dob                   | timestamp(6) |   135,651 |            0.939536 |           1155 |     False | 2024-03-25 13:29:46.021 UTC |
+| dod_date                   | timestamp(6) |   135,651 |            0.000000 |              0 |     False | 2024-03-25 13:29:46.021 UTC |
+| off_herd_date              | timestamp(6) |   135,651 |            0.327082 |            864 |     False | 2024-03-25 13:29:46.021 UTC |
+| off_herd_reason            | varchar      |   135,651 |            0.000059 |              3 |     False | 2024-03-25 13:29:46.021 UTC |
+| age_at_death_in_hours      | bigint       |   135,651 |            0.939536 |            708 |     False | 2024-03-25 13:29:46.021 UTC |
+| farm_id                    | varchar      |   135,651 |            1.000000 |           1241 |     False | 2024-03-25 13:29:46.021 UTC |
+| animal_id                  | varchar      |   135,651 |            0.992414 |         134612 |     False | 2024-03-25 13:29:46.021 UTC |
+| born_alive_flag            | bigint       |   135,651 |            0.928419 |              2 |     False | 2024-03-25 13:29:46.021 UTC |
+| sex                        | varchar      |   135,651 |            0.939536 |              3 |     False | 2024-03-25 13:29:46.021 UTC |
+| tag                        | varchar      |   135,651 |            0.939536 |          61845 |     False | 2024-03-25 13:29:46.021 UTC |
+| management_tag             | varchar      |   135,651 |            0.061150 |           4911 |     False | 2024-03-25 13:29:46.021 UTC |
+| ov_vigour                  | varchar      |   135,651 |            0.288136 |              5 |     False | 2024-03-25 13:29:46.021 UTC |
+| ov_rearing                 | varchar      |   135,651 |            0.928088 |              3 |     False | 2024-03-25 13:29:46.021 UTC |
+| ewe_id                     | varchar      |   135,651 |            1.000000 |          67765 |     False | 2024-03-25 13:29:46.021 UTC |
+| ewe_tag                    | varchar      |   135,651 |            0.928626 |          59488 |     False | 2024-03-25 13:29:46.021 UTC |
+| ewe_breed                  | varchar      |   135,651 |            0.990446 |            262 |     False | 2024-03-25 13:29:46.021 UTC |
+| ewe_age_in_months_at_birth | bigint       |   135,651 |            0.928626 |            177 |     False | 2024-03-25 13:29:46.021 UTC |
+| ewe_age_in_years_at_birth  | bigint       |   135,651 |            0.928626 |             32 |     False | 2024-03-25 13:29:46.021 UTC |
+| foster_ewe_id              | varchar      |   135,651 |            0.005721 |            723 |     False | 2024-03-25 13:29:46.021 UTC |
+| foster_ewe_tag             | varchar      |   135,651 |            0.005721 |            714 |     False | 2024-03-25 13:29:46.021 UTC |
+| ram_id                     | varchar      |   135,651 |            0.354852 |           1877 |     False | 2024-03-25 13:29:46.021 UTC |
+| ram_tag                    | varchar      |   135,651 |            0.348298 |           1692 |     False | 2024-03-25 13:29:46.021 UTC |
+| ram_pedigree               | varchar      |   135,651 |            0.340174 |            773 |     False | 2024-03-25 13:29:46.021 UTC |
+| ram_breed                  | varchar      |   135,651 |            0.533708 |            181 |     False | 2024-03-25 13:29:46.021 UTC |
+| ram_age_in_months_at_birth | bigint       |   135,651 |            0.348298 |            126 |     False | 2024-03-25 13:29:46.021 UTC |
+| ram_age_in_years_at_birth  | bigint       |   135,651 |            0.348298 |             19 |     False | 2024-03-25 13:29:46.021 UTC |
+| lambing_number             | bigint       |   135,651 |            0.998164 |           3545 |     False | 2024-03-25 13:29:46.021 UTC |
+| lambs_count                | bigint       |   135,651 |            1.000000 |              6 |     False | 2024-03-25 13:29:46.021 UTC |
+| all_lambs_aborted          | bigint       |   135,651 |            1.000000 |              2 |     False | 2024-03-25 13:29:46.021 UTC |
+| birthing_difficulty        | varchar      |   135,651 |            0.500490 |              4 |     False | 2024-03-25 13:29:46.021 UTC |
+| mothering_ability          | varchar      |   135,651 |            0.531069 |              5 |     False | 2024-03-25 13:29:46.021 UTC |
+| ewe_milkiness_at_birth     | varchar      |   135,651 |            0.502798 |              5 |     False | 2024-03-25 13:29:46.021 UTC |
+| total_lambs                | bigint       |   135,651 |            0.939536 |            310 |     False | 2024-03-25 13:29:46.021 UTC |
+| total_ewes_in_season       | bigint       |   135,651 |            0.939536 |            226 |     False | 2024-03-25 13:29:46.021 UTC |
+| total_ewes_mated           | bigint       |   135,651 |            0.221679 |            130 |     False | 2024-03-25 13:29:46.021 UTC |
+| birth_weight               | double       |   135,651 |            0.164090 |            822 |     False | 2024-03-25 13:29:46.021 UTC |
+| total_live_lambs           | bigint       |   135,651 |            0.939536 |            311 |     False | 2024-03-25 13:29:46.021 UTC |
+| total_dead_lambs           | bigint       |   135,651 |            0.939536 |             46 |     False | 2024-03-25 13:29:46.021 UTC |
+| live_percent               | double       |   135,651 |            0.939536 |             52 |     False | 2024-03-25 13:29:46.021 UTC |
+| dead_percent               | double       |   135,651 |            0.939536 |             52 |     False | 2024-03-25 13:29:46.021 UTC |
+| litter_size                | double       |   135,651 |            0.939536 |            177 |     False | 2024-03-25 13:29:46.021 UTC |
+| lambing_percent            | double       |   135,651 |            0.208719 |            211 |     False | 2024-03-25 13:29:46.021 UTC |
+| avg_birth_weight_by_year   | double       |   135,651 |            0.299732 |            335 |     False | 2024-03-25 13:29:46.021 UTC |
+{% enddocs %}

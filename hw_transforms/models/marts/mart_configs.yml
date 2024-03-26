@@ -1012,7 +1012,6 @@ models:
   
   - name: mart__bulk_tank_summary
     description: '{{ doc("dbt_profiler_results__prod_marts_mart__bulk_tank_summary") }}'
-
     config:
       tags: 
         - mart_tables
@@ -2128,3 +2127,299 @@ models:
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
+
+  - name: mart__lambing_insights
+    description: '{{ doc("dbt_profiler_results__prod_marts_mart__lambing_insights") }}'
+
+    config:
+      tags: 
+        - mart_tables
+        - day
+      materialized: table
+      schema: marts
+      table_type: iceberg
+      format: parquet
+      partitioned_by: ["bucket(farm_id, 30)"]
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+      columns:
+        - name: uuid
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: db_name
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: record_date
+          data_type: timestamp
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: record_year
+          data_type: timestamp
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: lamb_dob
+          data_type: timestamp
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: dod_date
+          data_type: timestamp
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: off_herd_date
+          data_type: timestamp
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: off_herd_reason
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: age_at_death_in_hours
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: farm_id
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: animal_id
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: born_alive_flag
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: sex
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: tag
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: management_tag
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ov_vigour
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ov_rearing
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ewe_id
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ewe_tag
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ewe_breed
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ewe_age_in_months_at_birth
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ewe_age_in_years_at_birth
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: foster_ewe_id
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: foster_ewe_tag
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ram_id
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ram_tag
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ram_pedigree
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ram_breed
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ram_age_in_months_at_birth
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ram_age_in_years_at_birth
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: lambing_number
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: lambs_count
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: all_lambs_aborted
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: birthing_difficulty
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: mothering_ability
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ewe_milkiness_at_birth
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: total_lambs
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: total_ewes_in_season
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: total_ewes_mated
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: birth_weight
+          data_type: double
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: total_live_lambs
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: total_dead_lambs
+          data_type: bigint
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: live_percent
+          data_type: double
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: dead_percent
+          data_type: double
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: litter_size
+          data_type: double
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: lambing_percent
+          data_type: double
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: avg_birth_weight_by_year
+          data_type: double
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist

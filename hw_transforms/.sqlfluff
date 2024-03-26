@@ -32,7 +32,7 @@ processes = -1
 project_dir = .
 profiles_dir = .
 profile = hw_transforms
-target = beta
+target = prod
 
 [sqlfluff:templater:jinja]
 apply_dbt_builtins = True

@@ -57,7 +57,7 @@ select
 
 from {{ ref("rds__animals_base") }} as a
 left join
-    {{ ref("rds__animal_parentage_data") }} as apd
+    {{ ref("rds__bovine_parentage_data") }} as apd
     on a.db_name = apd.db_name
     and a.animal_id = apd.animal_id
 

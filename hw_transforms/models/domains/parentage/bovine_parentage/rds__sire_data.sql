@@ -20,4 +20,5 @@ inner join
     {{ ref("rds__animals_base") }} as sire_base
     on animals_base.db_name = sire_base.db_name
     and animals_base.sire_id = sire_base.animal_id
+where animals_base.species = 'BOVINE'
 window sire_children as (partition by animals_base.db_name, animals_base.sire_id)

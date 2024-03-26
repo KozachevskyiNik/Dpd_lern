@@ -2222,6 +2222,9 @@ sources:
           - name: measureorder
             data_type: bigint
             description: ""
+          - name: walk_order
+            data_type: bigint
+            description: ""
           - name: yr
             data_type: bigint
             description: ""
@@ -3577,6 +3580,9 @@ sources:
           - name: duetime
             data_type: bigint
             description: ""
+          - name: is_created_by_user
+            data_type: bigint
+            description: ""
           - name: yr
             data_type: bigint
             description: ""
@@ -3706,6 +3712,9 @@ sources:
             data_type: timestamp
             description: ""
           - name: updatedat
+            data_type: timestamp
+            description: ""
+          - name: deletedat
             data_type: timestamp
             description: ""
           - name: yr
@@ -3871,6 +3880,289 @@ sources:
             data_type: bigint
             description: ""
 
+      - name: task_mating_record
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: expected_lambing_date
+            data_type: timestamp
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: link_to_tags
+            data_type: bigint
+            description: ""
+          - name: number_of_ewes_in_group
+            data_type: bigint
+            description: ""
+          - name: raddle_color_id
+            data_type: string
+            description: ""
+          - name: ram_used_id
+            data_type: string
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: task_sheep_movement_out
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: abattoir_id
+            data_type: string
+            description: ""
+          - name: death_reason_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: link_to_tags
+            data_type: bigint
+            description: ""
+          - name: movement_reason_id
+            data_type: string
+            description: ""
+          - name: quoted_price
+            data_type: double
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: abattoirfactory
+            data_type: string
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: task_sheep_pregnancy_scan
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: cost
+            data_type: double
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: lambs_count
+            data_type: bigint
+            description: ""
+          - name: performed_by_id
+            data_type: string
+            description: ""
+          - name: re_check
+            data_type: bigint
+            description: ""
+          - name: result
+            data_type: bigint
+            description: ""
+          - name: sire_id
+            data_type: string
+            description: ""
+          - name: task_id
+            data_type: bigint
+            description: ""
+          - name: unknown_number
+            data_type: bigint
+            description: ""
+          - name: unknown_sire
+            data_type: bigint
+            description: ""
+          - name: use_pregnant_status
+            data_type: bigint
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: user_sub_hist
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: action_type
+            data_type: string
+            description: ""
+          - name: date_last_change
+            data_type: timestamp
+            description: ""
+          - name: days_since_last_change
+            data_type: bigint
+            description: ""
+          - name: farm_id
+            data_type: string
+            description: ""
+          - name: farm_type_id
+            data_type: string
+            description: ""
+          - name: from_farm_type
+            data_type: string
+            description: ""
+          - name: from_level
+            data_type: string
+            description: ""
+          - name: from_plan
+            data_type: string
+            description: ""
+          - name: from_size
+            data_type: string
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: is_dnr
+            data_type: bigint
+            description: ""
+          - name: is_free
+            data_type: bigint
+            description: ""
+          - name: is_paid
+            data_type: bigint
+            description: ""
+          - name: on_date
+            data_type: timestamp
+            description: ""
+          - name: payment_id
+            data_type: string
+            description: ""
+          - name: payment_subscription_id
+            data_type: bigint
+            description: ""
+          - name: to_farm_type
+            data_type: string
+            description: ""
+          - name: to_level
+            data_type: string
+            description: ""
+          - name: to_plan
+            data_type: string
+            description: ""
+          - name: to_size
+            data_type: string
+            description: ""
+          - name: total_days_free
+            data_type: bigint
+            description: ""
+          - name: total_days_paid
+            data_type: bigint
+            description: ""
+          - name: user_id
+            data_type: bigint
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: refund_id
+            data_type: string
+            description: ""
+          - name: subscription_id
+            data_type: string
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
       - name: zoho_credit_note_invoice
         description: ""
         columns:
@@ -3941,4 +4233,3 @@ sources:
             data_type: bigint
             description: ""
 
- 

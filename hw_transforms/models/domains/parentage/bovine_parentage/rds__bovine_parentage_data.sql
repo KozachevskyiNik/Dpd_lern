@@ -21,3 +21,4 @@ left join
     {{ ref("rds__sire_data") }} as s
     on a.db_name = s.db_name
     and a.animal_id = s.child_id
+where a.species = 'BOVINE'

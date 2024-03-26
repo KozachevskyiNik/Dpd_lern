@@ -269,6 +269,226 @@ sources:
             data_type: bigint
             description: ""
 
+      - name: beta_animal2
+        description: ""
+        columns:
+          - name: $event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: milk_withdrawal_period_end
+            data_type: timestamp
+            description: ""
+          - name: weight
+            data_type: double
+            description: ""
+          - name: device_id
+            data_type: bigint
+            description: ""
+          - name: buyer_id
+            data_type: string
+            description: ""
+          - name: changes_logs
+            data_type: string
+            description: ""
+          - name: source
+            data_type: string
+            description: ""
+          - name: displaydescription
+            data_type: string
+            description: ""
+          - name: dam
+            data_type: string
+            description: ""
+          - name: addtoauditlog
+            data_type: bigint
+            description: ""
+          - name: size
+            data_type: string
+            description: ""
+          - name: offherddate
+            data_type: date
+            description: ""
+          - name: lastweightdate
+            data_type: date
+            description: ""
+          - name: dob
+            data_type: date
+            description: ""
+          - name: tag
+            data_type: string
+            description: ""
+          - name: supplier_id
+            data_type: string
+            description: ""
+          - name: lactation
+            data_type: bigint
+            description: ""
+          - name: bloc
+            data_type: string
+            description: ""
+          - name: stockbull
+            data_type: bigint
+            description: ""
+          - name: changes_source
+            data_type: string
+            description: ""
+          - name: expectedcalvingdate
+            data_type: date
+            description: ""
+          - name: offherdreason
+            data_type: string
+            description: ""
+          - name: calfregsuccessdate
+            data_type: timestamp
+            description: ""
+          - name: geneticdamtag
+            data_type: string
+            description: ""
+          - name: inherd
+            data_type: bigint
+            description: ""
+          - name: meat_withdrawal_period_end
+            data_type: timestamp
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: animal_type_id
+            data_type: string
+            description: ""
+          - name: sex
+            data_type: string
+            description: ""
+          - name: colour_id
+            data_type: string
+            description: ""
+          - name: last_adg_weight
+            data_type: double
+            description: ""
+          - name: eid
+            data_type: string
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: ploc
+            data_type: string
+            description: ""
+          - name: updated
+            data_type: timestamp
+            description: ""
+          - name: weightdate
+            data_type: date
+            description: ""
+          - name: pedigree
+            data_type: string
+            description: ""
+          - name: species_id
+            data_type: string
+            description: ""
+          - name: status
+            data_type: string
+            description: ""
+          - name: purpose_id
+            data_type: string
+            description: ""
+          - name: vigor
+            data_type: string
+            description: ""
+          - name: breed_id
+            data_type: string
+            description: ""
+          - name: tbtestdate
+            data_type: date
+            description: ""
+          - name: $row_number
+            data_type: bigint
+            description: ""
+          - name: sirebreedid
+            data_type: string
+            description: ""
+          - name: changes_tracker_id
+            data_type: string
+            description: ""
+          - name: aibullcode
+            data_type: string
+            description: ""
+          - name: notes
+            data_type: string
+            description: ""
+          - name: $shard_number
+            data_type: bigint
+            description: ""
+          - name: $event_date
+            data_type: date
+            description: ""
+          - name: saleprice
+            data_type: double
+            description: ""
+          - name: datemovedin
+            data_type: date
+            description: ""
+          - name: last_weight
+            data_type: double
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+          - name: changes_ipsource
+            data_type: string
+            description: ""
+          - name: sire
+            data_type: string
+            description: ""
+          - name: calvingdifficulty
+            data_type: string
+            description: ""
+          - name: farm_id
+            data_type: string
+            description: ""
+          - name: freezebrand
+            data_type: string
+            description: ""
+          - name: $source_id
+            data_type: string
+            description: ""
+          - name: ageflag
+            data_type: string
+            description: ""
+          - name: deleted
+            data_type: bigint
+            description: ""
+          - name: created
+            data_type: timestamp
+            description: ""
+          - name: changes_owner
+            data_type: string
+            description: ""
+          - name: purchaseprice
+            data_type: double
+            description: ""
+          - name: dod
+            data_type: date
+            description: ""
+          - name: stillborn
+            data_type: string
+            description: ""
+          - name: calfweight
+            data_type: double
+            description: ""
+          - name: deleteddate
+            data_type: timestamp
+            description: ""
+          - name: brtestdate
+            data_type: date
+            description: ""
+
       - name: beta_animal_additional_info
         description: ""
         columns:
@@ -996,6 +1216,9 @@ sources:
           - name: farmtypeid
             data_type: string
             description: ""
+          - name: plan_id
+            data_type: string
+            description: ""
           - name: yr
             data_type: bigint
             description: ""
@@ -1423,6 +1646,9 @@ sources:
             description: ""
           - name: app_language
             data_type: string
+            description: ""
+          - name: failed_payments
+            data_type: bigint
             description: ""
           - name: yr
             data_type: bigint
@@ -2615,6 +2841,9 @@ sources:
           - name: duetime
             data_type: bigint
             description: ""
+          - name: is_created_by_user
+            data_type: bigint
+            description: ""
           - name: yr
             data_type: bigint
             description: ""
@@ -2727,6 +2956,24 @@ sources:
             description: ""
           - name: _event_date
             data_type: date
+            description: ""
+          - name: animal_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: task_id
+            data_type: bigint
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: createdat
+            data_type: timestamp
+            description: ""
+          - name: updatedat
+            data_type: timestamp
             description: ""
           - name: yr
             data_type: bigint
@@ -2883,6 +3130,168 @@ sources:
             description: ""
           - name: id
             data_type: string
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: beta_task_mating_record
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: expected_lambing_date
+            data_type: timestamp
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: link_to_tags
+            data_type: bigint
+            description: ""
+          - name: number_of_ewes_in_group
+            data_type: bigint
+            description: ""
+          - name: raddle_color_id
+            data_type: string
+            description: ""
+          - name: ram_used_id
+            data_type: string
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: beta_task_sheep_movement_out
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: abattoir_id
+            data_type: string
+            description: ""
+          - name: death_reason_id
+            data_type: string
+            description: ""
+          - name: id
+            data_type: string
+            description: ""
+          - name: link_to_tags
+            data_type: bigint
+            description: ""
+          - name: movement_reason_id
+            data_type: string
+            description: ""
+          - name: quoted_price
+            data_type: double
+            description: ""
+          - name: _row_number
+            data_type: bigint
+            description: ""
+          - name: yr
+            data_type: bigint
+            description: ""
+
+      - name: beta_task_sheep_pregnancy_scan
+        description: ""
+        columns:
+          - name: _commit_time
+            data_type: timestamp
+            description: ""
+          - name: _event_time
+            data_type: timestamp
+            description: ""
+          - name: db
+            data_type: string
+            description: ""
+          - name: primary_key
+            data_type: string
+            description: ""
+          - name: processing_datetime
+            data_type: timestamp
+            description: ""
+          - name: _shard_number
+            data_type: bigint
+            description: ""
+          - name: _source_id
+            data_type: string
+            description: ""
+          - name: _event_date
+            data_type: date
+            description: ""
+          - name: id
+            data_type: bigint
+            description: ""
+          - name: lambs_count
+            data_type: bigint
+            description: ""
+          - name: re_check
+            data_type: bigint
+            description: ""
+          - name: result
+            data_type: bigint
+            description: ""
+          - name: task_id
+            data_type: bigint
+            description: ""
+          - name: unknown_number
+            data_type: bigint
+            description: ""
+          - name: unknown_sire
+            data_type: bigint
+            description: ""
+          - name: use_pregnant_status
+            data_type: bigint
             description: ""
           - name: _row_number
             data_type: bigint

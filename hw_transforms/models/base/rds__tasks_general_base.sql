@@ -10,7 +10,7 @@ select
     t.status_id as status_id,
     t.farm_id as farm_id,
     t.belongs_to_app as record_belongs_to_app,
-    {% if target.name == "prod" %} ta.animal_id as animal_id, {% endif %}
+    ta.animal_id as animal_id,
     {{ cast_timestamp("t.due_date") }} as record_date,
     t.description as task_notes,
     {{ cast_timestamp("t.createdat") }} as record_created_datetime
