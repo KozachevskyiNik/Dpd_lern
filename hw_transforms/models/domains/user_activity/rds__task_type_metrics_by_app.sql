@@ -22,7 +22,8 @@ select
         then 2
     end as origin_app_type,
     date_trunc('day', t.record_created_datetime) as day_of_task_creation,
-    t.task_type_id as task_type,
+    regexp_extract(t.task_type_id, '(.*)-', 1) as task_type,
+    regexp_extract(t.task_type_id, '-(.*)', 1) as country,
     count(distinct t.task_id) as total_distinct_tasks_by_type
 from {{ ref("rds__tasks_base") }} as t
 where (t.source is null or t.source = 'Uploaded File')
@@ -38,11 +39,12 @@ select
         then 0
         when (tg.record_belongs_to_app = 'FLOCKWATCH')
         then 1
-        when (tg.record_belongs_to_app is null)
+        when (tg.record_belongs_to_app is null or 'CROPWATCH')
         then 2
     end as origin_app_type,
     date_trunc('day', tg.record_created_datetime) as month_of_task_creation,
-    tg.task_type_id as task_type,
+    regexp_extract(tg.task_type_id, '(.*)-', 1) as task_type,
+    regexp_extract(tg.task_type_id, '-(.*)', 1) as country,
     count(distinct tg.task_id) as total_distinct_tasks_by_type
 from {{ ref("rds__tasks_general_base") }} as tg
 group by 1, 2, 3, 4, 5

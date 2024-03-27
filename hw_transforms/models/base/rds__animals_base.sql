@@ -37,12 +37,12 @@ with
             aos.brand as ov_brand,
             aos.is_alive as ov_is_alive,
             aos.is_stock_ram as ov_is_stock_ram,
-            regexp_extract(aos.vigour_id, '\-(.*)-', 1) as ov_vigour,
-            regexp_extract(aos.rearing_id, '\-(.*)-', 1) as ov_rearing,
+            regexp_extract(aos.vigour_id, '-(.*)-', 1) as ov_vigour,
+            regexp_extract(aos.rearing_id, '-(.*)-', 1) as ov_rearing,
             regexp_extract(
-                aos.lambing_difficulty_id, '\-(.*)-', 1
+                aos.lambing_difficulty_id, '-(.*)-', 1
             ) as lambing_difficulty,
-            regexp_extract(aos.milkiness_id, '\-(.*)-', 1) as ov_milkiness,
+            regexp_extract(aos.milkiness_id, '-(.*)-', 1) as ov_milkiness,
             aos.expected_lambing_date,
             aos.last_lambed_date,
             aos.ram_let_to_ewe_date

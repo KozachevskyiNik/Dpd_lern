@@ -14,12 +14,11 @@ select
     {{ cast_timestamp("t.due_date") }} as record_date,
     t.description as task_notes,
     {{ cast_timestamp("t.createdat") }} as record_created_datetime
-{% if target.name == "beta" %} from {{ source("rds_beta", "beta_task_general") }} as t
-{% else %}
-    from {{ source("rds_prod", "task_general") }} as t
-    left join
-        {{ source("rds_prod", "task_general_animal") }} as ta
-        on ta.task_id = t.id
-        and ta.db = t.db
-    where t.deletedat is null
-{% endif %}
+{% if target.name == "beta" %} from {{ source("rds_beta", "beta_task_general") }}
+{% else %} from {{ source("rds_prod", "task_general") }}
+{% endif %} as t
+left join
+    {% if target.name == "beta" %} {{ source("rds_beta", "beta_task_general_animal") }}
+    {% else %} {{ source("rds_prod", "task_general_animal") }}
+    {% endif %} as ta on ta.task_id = t.id and ta.db = t.db
+where t.deletedat is null

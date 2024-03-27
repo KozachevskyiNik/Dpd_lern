@@ -317,6 +317,18 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: ov_vigour
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: ov_rearing
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: ov_milkiness
         data_type: string
         description: ""

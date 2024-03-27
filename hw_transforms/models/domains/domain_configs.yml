@@ -2440,6 +2440,18 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: dob_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: age_at_mating_in_months
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: record_created_datetime
         data_type: timestamp
         description: ""
@@ -2482,7 +2494,7 @@ models:
       format: parquet
       partitioned_by: ["bucket(farm_id, 10)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
-      columns:
+    columns:
         - name: db_name
           data_type: string
           description: ""

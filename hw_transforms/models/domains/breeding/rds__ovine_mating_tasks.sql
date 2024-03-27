@@ -6,6 +6,8 @@ select distinct
     t.record_belongs_to_app,
     t.animal_id,
     {{ cast_timestamp("t.record_date") }} as record_date,
+    a.dob_date,
+    date_diff('month', a.dob_date, t.record_date) as age_at_mating_in_months,
     {{ cast_timestamp("t.record_created_datetime") }} as record_created_datetime,
     tmr.ram_used_id,
     regexp_extract(tmr.raddle_color_id, 'COLOR-(.*)-', 1) as raddle_color,
@@ -16,4 +18,8 @@ left join
     {% if target.name == "beta" %} {{ source("rds_beta", "beta_task_mating_record") }}
     {% else %} {{ source("rds_prod", "task_mating_record") }}
     {% endif %} as tmr on t.db_name = tmr.db and t.task_id = tmr.id
+left join
+    {{ ref("rds__animals_base") }} as a
+    on t.db_name = a.db_name
+    and t.animal_id = a.animal_id
 where t.task_type = 'MATING_RECORD'

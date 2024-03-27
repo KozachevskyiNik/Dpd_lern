@@ -1239,7 +1239,19 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: avg_litres_per_cow_between_milkings
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: litres_per_kg
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: litres_per_kg_between_milkings
         data_type: double
         description: ""
         tests:
@@ -2130,7 +2142,6 @@ models:
 
   - name: mart__lambing_insights
     description: '{{ doc("dbt_profiler_results__prod_marts_mart__lambing_insights") }}'
-
     config:
       tags: 
         - mart_tables
@@ -2141,7 +2152,7 @@ models:
       format: parquet
       partitioned_by: ["bucket(farm_id, 30)"]
       table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
-      columns:
+    columns:
         - name: uuid
           data_type: string
           description: ""
