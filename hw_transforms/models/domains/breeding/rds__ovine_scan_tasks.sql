@@ -4,18 +4,18 @@ select distinct
     tgb.farm_id,
     tgb.task_type,
     tgb.record_belongs_to_app,
-    {% if target.name == "prod" %} tgb.animal_id, {% endif %}
+    tgb.animal_id,
     {{ cast_timestamp("tgb.record_date") }} as record_date,
     tgb.task_notes,
     {{ cast_timestamp("tgb.record_created_datetime") }} as record_created_datetime,
-    tsps.performed_by_id as operator_id,
+    {% if target.name == "prod" %} tsps.performed_by_id as operator_id, {% endif %}
     tsps.re_check as re_check_flag,
     tsps.unknown_sire as unknown_sire_flag,
     tsps.use_pregnant_status as use_pregnant_status_flag,
     tsps.unknown_number as unknown_number_of_lambs,
     tsps.result as is_carrying_flag,
-    tsps.lambs_count as no_of_expected_lambs,
-    tsps.cost as cost_of_scanning
+    tsps.lambs_count as no_of_expected_lambs
+    {% if target.name == "prod" %}, tsps.cost as cost_of_scanning {% endif %}
 from {{ ref("rds__tasks_general_base") }} as tgb
 left join
     {% if target.name == "beta" %}

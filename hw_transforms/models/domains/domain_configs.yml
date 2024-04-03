@@ -2483,7 +2483,7 @@ models:
           - dbt_expectations.expect_column_to_exist
 
   - name: rds__ovine_scan_tasks
-    description: ''
+    description: "TBD"
     config:
       tags:
         - domain_tables
