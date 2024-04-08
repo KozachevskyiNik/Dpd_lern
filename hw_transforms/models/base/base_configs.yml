@@ -7,15 +7,12 @@ models:
       tags: 
         - base_tables
         - hour
-      materialized: incremental
+      materialized: table
       schema: base
       table_type: iceberg
-      incremental_strategy: merge
       format: parquet
-      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-      on_schema_change: append_new_columns
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
       partitioned_by: ["bucket(animal_id, 50)"]
-      unique_key: ["db_name","animal_id"]
     columns:
       - name: db_name
         data_type: string
@@ -359,13 +356,12 @@ models:
       tags: 
         - base_tables
         - hour
-      materialized: incremental
+      materialized: table
       schema: base
       table_type: iceberg
-      incremental_strategy: merge
+
       format: parquet
-      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-      on_schema_change: append_new_columns
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
       partitioned_by: ["bucket(task_id, 50)"]
       unique_key: ["db_name","id"]
     columns:
@@ -687,20 +683,17 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
-
   - name: rds__user_and_farm_base
     description: '{{ doc("dbt_profiler_results__prod_base_rds__user_and_farm_base") }}'
     config:
       tags: 
         - base_tables
         - hour
-      materialized: incremental
+      materialized: table
       schema: base
       table_type: iceberg
-      incremental_strategy: merge
       format: parquet
-      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-      on_schema_change: append_new_columns
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
       partitioned_by: ["bucket(farm_id, 10)"]
       unique_key: ["db_name","farm_app_type","farm_id"]
     columns:
@@ -860,13 +853,13 @@ models:
       tags: 
         - base_tables
         - hour
-      materialized: incremental
+      materialized: table
       schema: base
       table_type: iceberg
-      incremental_strategy: merge
+
       format: parquet
-      table_properties: {"optimize_rewrite_delete_file_threshold": "2"}
-      on_schema_change: append_new_columns
+      table_properties: {"optimize_rewrite_delete_file_threshold": "10"}
+
       partitioned_by: ["bucket(tracking_code, 12)","bucket(farm_id,50)"]
       unique_key: ["db_name","primary_key"]
     columns:

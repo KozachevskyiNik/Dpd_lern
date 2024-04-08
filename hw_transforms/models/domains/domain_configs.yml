@@ -1672,6 +1672,12 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: country
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: total_distinct_tasks_by_type
         data_type: bigint
         description: ""
