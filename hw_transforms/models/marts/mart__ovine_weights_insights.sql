@@ -48,6 +48,10 @@ with
                 partition by bw.db_name, bw.farm_id, bw.group_name, bw.weigh_date
             )
     ),
+    flatten_duplicate_groups as (
+        select distinct bw.db_name, bw.task_id, bw.animal_id, bw.farm_id, bw.weigh_date
+        from {{ ref("rds__ovine_weights") }} as bw
+    ),
     create_ov_mart as (
         select distinct
             {{
@@ -103,7 +107,7 @@ with
             bw.weight_on_date,
             bw.prev_weight,
             bw.weight_difference,
-            bw.adg,
+            if(bw.adg is not null, bw.adg, bw.lifetime_adg) as adg,
             bw.lifetime_adg,
             bw.avg_offherd_age,
             bw.avg_offherd_weight,
@@ -173,30 +177,37 @@ with
             gga.max_group_lifetime_adg,
             gga.min_group_lifetime_adg
 
-        from {{ ref("rds__ovine_weights") }} as bw
+        from flatten_duplicate_groups as fdg
+        left join
+            {{ ref("rds__ovine_weights") }} as bw
+            on fdg.db_name = bw.db_name
+            and fdg.task_id = bw.task_id
+            and fdg.animal_id = bw.animal_id
+            and fdg.weigh_date = bw.weigh_date
         left join
             get_group_aggregates as gga
-            on bw.db_name = gga.db_name
-            and bw.task_id = gga.task_id
-            and bw.animal_id = gga.animal_id
-            and bw.weigh_date = gga.weigh_date
-            and bw.group_name = gga.group_name
+            on fdg.db_name = gga.db_name
+            and fdg.task_id = gga.task_id
+            and fdg.animal_id = gga.animal_id
+            and fdg.weigh_date = gga.weigh_date
         left join
             {{ ref("rds__ovine_parentage_data") }} as apd
-            on bw.db_name = apd.db_name
-            and bw.animal_id = apd.animal_id
+            on fdg.db_name = apd.db_name
+            and fdg.animal_id = apd.animal_id
         left join
             {{ ref("rds__animals_base") }} as a
-            on bw.db_name = a.db_name
-            and bw.animal_id = a.animal_id
+            on fdg.db_name = a.db_name
+            and fdg.animal_id = a.animal_id
+            and fdg.farm_id = a.farm_id
         left join
             {{ ref("rds__create_ovine_categories") }} as cac
-            on bw.db_name = cac.db_name
-            and bw.animal_id = cac.animal_id
-            and bw.weigh_date = date_trunc('month', cac.dt)
+            on fdg.db_name = cac.db_name
+            and fdg.animal_id = cac.animal_id
+            and fdg.farm_id = cac.farm_id
+            and date_trunc('month', fdg.weigh_date) = date_trunc('month', cac.dt)
         window
-            group_by_date as (partition by bw.db_name, bw.farm_id, bw.weigh_date),
-            group_by_animal as (partition by bw.db_name, bw.farm_id, bw.animal_id)
+            group_by_date as (partition by fdg.db_name, fdg.farm_id, fdg.weigh_date),
+            group_by_animal as (partition by fdg.db_name, fdg.farm_id, fdg.animal_id)
 
     )
 select *

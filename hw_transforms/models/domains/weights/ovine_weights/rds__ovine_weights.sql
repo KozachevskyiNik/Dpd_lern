@@ -19,7 +19,7 @@ with
             {{ ref("rds__animals_base") }} as a
             on t.db_name = a.db_name
             and t.animal_id = a.animal_id
-            and a.in_herd_flag = 1
+            and a.off_herd_date is null
             and t.species = 'OVINE'
             and (
                 t.task_type_id
