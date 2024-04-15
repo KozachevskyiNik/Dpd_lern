@@ -77,6 +77,24 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: pedigree
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: genetic_dam_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: purpose
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: breed
         data_type: string
         description: ""
@@ -173,8 +191,20 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: age_in_months_at_sale
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: purchase_date
         data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: age_in_months_at_purchase
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
@@ -257,6 +287,12 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: ppkg_dead
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: days_in_herd
         data_type: bigint
         description: ""
@@ -282,6 +318,12 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: adg_in_herd
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: lifetime_adg
         data_type: double
         description: ""
         tests:

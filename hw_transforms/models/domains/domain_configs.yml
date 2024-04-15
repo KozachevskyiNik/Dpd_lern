@@ -739,6 +739,12 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: lifetime_adg
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: kill_out_percentage
         data_type: double
         description: ""

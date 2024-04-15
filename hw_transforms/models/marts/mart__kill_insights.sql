@@ -11,6 +11,9 @@ select
     a.sex as sex,
     a.tag as tag,
     a.freezebrand as management_tag,
+    a.pedigree,
+    a.genetic_dam_tag,
+    {{ titlecase("regexp_extract(a.purpose, 'PURPOSE_(.*)', 1)") }} as purpose,
     a.breed as breed,
     {{ cast_timestamp("a.moved_in_date") }} as move_in_date,
     {{ cast_timestamp("a.off_herd_date") }} as off_herd_date,
@@ -31,9 +34,15 @@ select
     if(
         a.dod_date is not null, null,{{ cast_timestamp("a.off_herd_date") }}
     ) as sale_date,
+    date_diff(
+        'month', a.dob_date, if(a.dod_date is not null, null, a.off_herd_date)
+    ) as age_in_months_at_sale,
     if(
         a.animal_type_id = 'BORNONFARM', null,{{ cast_timestamp("a.moved_in_date") }}
     ) as purchase_date,
+    date_diff(
+        'month', a.dob_date, if(a.animal_type_id = 'BORNONFARM', null, a.moved_in_date)
+    ) as age_in_months_at_purchase,
     a.buyer_herd as sourced_from,
     a.buyer_name as sourced_from_name,
     a.seller_herd as sold_to,
@@ -48,11 +57,13 @@ select
     kipc.derived_live_wt as derived_live_wt,
     a.dead_weight as dead_weight,
     kipc.ppkg_live as ppkg_live,
+    kipc.ppkg_dead as ppkg_dead,
     kipc.days_in_herd as days_in_herd,
     kipc.months_in_herd as months_in_herd,
     kipc.gross_margin as gross_margin,
     kipc.gross_margin_dih as gross_margin_dih,
     kipc.adg_in_herd as adg_in_herd,
+    kipc.lifetime_adg as lifetime_adg,
     kipc.kill_out_percentage as kill_out_percentage
 
 from {{ ref("rds__animals_base") }} as a

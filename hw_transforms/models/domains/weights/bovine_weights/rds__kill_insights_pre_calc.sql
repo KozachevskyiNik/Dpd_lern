@@ -82,13 +82,23 @@ with
                 then 2
                 else null
             end as conf_multi,
+            date_diff(
+                'day',
+                a.dob_date,
+                if(
+                    date_trunc('year', a.off_herd_date)
+                    = date_trunc('year', date('1970-01-01')),
+                    null,
+                    a.off_herd_date
+                )
+            ) as days_since_dob,
             if(
                 a.off_herd_date = date('1970-01-01'),
                 null,
                 date_diff(
                     'day',
                     if(a.moved_in_date is not null, a.moved_in_date, a.dob_date),
-                    off_herd_date
+                    a.off_herd_date
                 )
             ) as days_in_herd,
             if(
@@ -97,7 +107,7 @@ with
                 date_diff(
                     'month',
                     if(a.moved_in_date is not null, a.moved_in_date, a.dob_date),
-                    off_herd_date
+                    a.off_herd_date
                 )
             ) as months_in_herd,
             case
@@ -170,6 +180,16 @@ select
             2
         )
     ) as adg_in_herd,
+    (
+        round(
+            (
+                if(ffc.sale_weight is not null, ffc.sale_weight, dw.derived_live_wt)
+                - if(a.sex = 'M', 45, 40)
+            )
+            / ffc.days_since_dob,
+            2
+        )
+    ) as lifetime_adg,
     (
         a.dead_weight
         / if(ffc.sale_weight is not null, ffc.sale_weight, dw.derived_live_wt)
