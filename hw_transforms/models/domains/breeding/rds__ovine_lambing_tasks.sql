@@ -13,6 +13,8 @@ select distinct
         {{ cast_timestamp("tl.season_born_date") }}
     ) as season_born_date,
     tl.genetic_dam_id as genetic_ewe_id,
+    a.tag as genetic_ewe_tag,
+    a.breed as genetic_ewe_breed,
     tl.dam_id as ewe_id,
     regexp_extract(tl.dam_breed_id, '-(.*)-', 1) as ewe_breed,
     tl.sire_id as ram_id,
@@ -29,4 +31,8 @@ inner join
     {% if target.name == "beta" %} {{ source("rds_beta", "beta_task_lambing") }}
     {% else %} {{ source("rds_prod", "task_lambing") }}
     {% endif %} as tl on t.db_name = tl.db and t.task_id = tl.id
+left join
+    {{ ref("rds__animals_base") }} as a
+    on t.db_name = a.db_name
+    and tl.genetic_dam_id = a.animal_id
 where t.task_type = 'LAMBING'

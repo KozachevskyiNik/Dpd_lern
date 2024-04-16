@@ -2331,6 +2331,18 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: genetic_ewe_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: genetic_ewe_breed
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: ewe_id
         data_type: string
         description: ""
