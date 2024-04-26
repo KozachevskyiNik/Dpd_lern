@@ -10,6 +10,9 @@ select distinct
     date_diff('month', a.dob_date, t.record_date) as age_at_mating_in_months,
     {{ cast_timestamp("t.record_created_datetime") }} as record_created_datetime,
     tmr.ram_used_id,
+    rd.ram_tag,
+    rd.ram_breed,
+    rd.ram_pedigree,
     regexp_extract(tmr.raddle_color_id, 'COLOR-(.*)-', 1) as raddle_color,
     tmr.link_to_tags as animals_linked_flag,
     tmr.number_of_ewes_in_group as no_of_ewes_unlinked
@@ -22,4 +25,8 @@ left join
     {{ ref("rds__animals_base") }} as a
     on t.db_name = a.db_name
     and t.animal_id = a.animal_id
+left join
+    {{ ref("rds__ram_data") }} as rd
+    on t.db_name = a.db_name
+    and tmr.ram_used_id = rd.ram_id
 where t.task_type = 'MATING_RECORD'

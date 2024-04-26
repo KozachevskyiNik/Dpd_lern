@@ -2279,6 +2279,12 @@ models:
           tests:
             - dbt_expectations.expect_column_to_exist
 
+        - name: pedigree
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
         - name: management_tag
           data_type: string
           description: ""
