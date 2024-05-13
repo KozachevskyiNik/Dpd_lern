@@ -64,4 +64,4 @@ left join
     {% if target.name == "beta" %} {{ source("rds_beta", "beta_task_animal") }}
     {% else %} {{ source("rds_prod", "task_animal") }}
     {% endif %} as ta on ta.task_id = t.id and ta.db = t.db
-where t.deleted = 0
+where t.deleted = 0 and ta.deleted = 0

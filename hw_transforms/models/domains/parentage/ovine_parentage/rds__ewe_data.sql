@@ -13,6 +13,7 @@ select
     dam_base.animal_id as ewe_id,
     dam_base.sex as ewe_sex,
     dam_base.tag as ewe_tag,
+    dam_base.generated_tag as ewe_generated_tag,
     dam_base.breed as ewe_breed,
     date_diff(
         'month', dam_base.dob_date, animals_base.dob_date

@@ -2279,6 +2279,18 @@ models:
           tests:
             - dbt_expectations.expect_column_to_exist
 
+        - name: generated_tag
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: lambing_indentifier
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
         - name: pedigree
           data_type: string
           description: ""
@@ -2310,6 +2322,12 @@ models:
             - dbt_expectations.expect_column_to_exist
 
         - name: ewe_tag
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ewe_generated_tag
           data_type: string
           description: ""
           tests:
@@ -2370,6 +2388,12 @@ models:
             - dbt_expectations.expect_column_to_exist
 
         - name: ram_tag
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
+        - name: ram_generated_tag
           data_type: string
           description: ""
           tests:

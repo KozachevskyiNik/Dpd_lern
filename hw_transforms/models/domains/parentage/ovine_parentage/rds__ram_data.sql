@@ -27,6 +27,7 @@ select
     sire_base.animal_id as ram_id,
     sire_base.sex as ram_sex,
     sire_base.tag as ram_tag,
+    sire_base.generated_tag as ram_generated_tag,
     sire_base.breed as ram_breed,
     sire_base.pedigree as ram_pedigree,
     sire_base.ov_is_stock_ram as stock_bull_flag,

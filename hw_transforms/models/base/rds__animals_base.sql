@@ -37,6 +37,7 @@ with
             aos.brand as ov_brand,
             aos.is_alive as ov_is_alive,
             aos.is_stock_ram as ov_is_stock_ram,
+            aos.lambing_number,
             regexp_extract(aos.vigour_id, '-(.*)-', 1) as ov_vigour,
             regexp_extract(aos.rearing_id, '-(.*)-', 1) as ov_rearing,
             regexp_extract(
@@ -101,6 +102,7 @@ select
     a.sex as sex,
     a.farm_id as farm_id,
     a.tag as tag,
+    a.displaydescription as generated_tag,
     {{ cast_timestamp("a.dob") }} as dob_date,
     {{ cast_timestamp("a.dod") }} as dod_date,
     if(
@@ -157,6 +159,7 @@ select
     aos.ov_brand,
     aos.ov_is_alive,
     aos.ov_is_stock_ram,
+    aos.lambing_number,
     aos.lambing_difficulty,
     aos.ov_vigour,
     aos.ov_rearing,

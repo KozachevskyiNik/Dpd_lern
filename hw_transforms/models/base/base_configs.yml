@@ -50,6 +50,12 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: generated_tag
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: dob_date
         data_type: timestamp
         description: ""
@@ -303,6 +309,12 @@ models:
           - dbt_expectations.expect_column_to_exist
 
       - name: ov_is_stock_ram
+        data_type: bigint
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: lambing_number
         data_type: bigint
         description: ""
         tests:
