@@ -97,3 +97,4 @@ where
         'LIVESTOCK_SALES', 'LIVESTOCK_PURCHASES'
     )
     and t.status_id = 'COMPLETE'
+    and t.task_animal_deleted = 0

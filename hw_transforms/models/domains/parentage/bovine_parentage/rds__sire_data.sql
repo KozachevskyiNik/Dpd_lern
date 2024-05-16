@@ -10,6 +10,7 @@ select
     sire_base.animal_id as sire_id,
     sire_base.sex as sire_sex,
     sire_base.tag as sire_tag,
+    sire_base.generated_tag as sire_generated_tag,
     sire_base.breed as sire_breed,
     sire_base.pedigree as sire_pedigree,
     sire_base.stock_bull_flag as stock_bull_flag,

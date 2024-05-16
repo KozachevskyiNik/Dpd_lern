@@ -132,6 +132,9 @@ select
     a.purpose_id as purpose,
     a.animal_type_id as animal_type_id,
     a.source as source,
+    {{ cast_timestamp("a.tbtestdate") }} as tb_test_date,
+    {{ cast_timestamp("a.brtestdate") }} as br_test_date,
+    a.notes,
     -- animal financials
     a.purchaseprice as purchase_price,
     a.saleprice as sale_price,

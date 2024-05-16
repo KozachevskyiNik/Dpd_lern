@@ -78,6 +78,7 @@ select distinct
     {{ cast_timestamp("wt.record_date") }} as weigh_date,
     wt.weight_on_date,
     wt.record_adg,
+    wt.first_weight,
     wt.last_weight,
     wt.prev_weight,
     wt.weight_difference,
@@ -86,6 +87,7 @@ select distinct
     wt.days_btwn_movement_off,
     wt.inter_weighing_adg as adg,
     wt.lifetime_adg_at_weighing as lifetime_adg,
+    wt.in_herd_adg,
     round(gaao.avg_offherd_age, 2) as avg_offherd_age,
     round(gawo.avg_offherd_weight, 2) as avg_offherd_weight,
     if((wt.record_date > gbgn.group_created_date), gbgn.group_name, null) as group_name

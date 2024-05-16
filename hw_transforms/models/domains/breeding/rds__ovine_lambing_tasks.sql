@@ -35,4 +35,4 @@ left join
     {{ ref("rds__animals_base") }} as a
     on t.db_name = a.db_name
     and tl.genetic_dam_id = a.animal_id
-where t.task_type = 'LAMBING'
+where t.task_type = 'LAMBING' and t.task_animal_deleted = 0

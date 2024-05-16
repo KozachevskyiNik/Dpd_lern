@@ -32,4 +32,4 @@ left join
     {{ ref("rds__ram_data") }} as rd
     on t.db_name = a.db_name
     and tmr.ram_used_id = rd.ram_id
-where t.task_type = 'MATING_RECORD'
+where t.task_type = 'MATING_RECORD' and t.task_animal_deleted = 0

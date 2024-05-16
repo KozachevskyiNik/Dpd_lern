@@ -4,6 +4,9 @@ with
             t.task_id,
             t.db_name,
             t.species,
+            -- get get weight for first recorded weight
+            min_by(t.weight_on_date, t.record_date) over weights_unordered
+            as first_weight,
             -- get get weight for last recorded weight
             max_by(t.weight_on_date, t.record_date) over weights_unordered
             as last_weight,
@@ -19,6 +22,7 @@ with
             ) as days_btwn_weighings,
             -- date_diff between dob and weight date
             date_diff('day', a.dob_date, t.record_date) as days_lived_till_weighing,
+            date_diff('day', a.moved_in_date, a.off_herd_date) as days_in_herd,
             -- date_diff between off_herd_date and record_date
             date_diff('day', t.record_date, a.off_herd_date) as days_btwn_movement_off
 
@@ -83,6 +87,7 @@ select
     t.lifetime_adg as record_adg,
     t.species as species,
     -- get aggregates from cte
+    wa.first_weight,
     wa.last_weight as last_weight,
     wa.prev_weight as prev_weight,
     wa.weight_difference as weight_difference,
@@ -103,14 +108,68 @@ select
     -- different defaults for other species
     case
         when a.sex = 'M' and a.species = 'BOVINE' and wa.days_lived_till_weighing > 0
-        then round(((weight_on_date - 45.00) / wa.days_lived_till_weighing), 2)
+        then round(((t.weight_on_date - 45.00) / wa.days_lived_till_weighing), 2)
         when a.sex = 'F' and a.species = 'BOVINE' and wa.days_lived_till_weighing > 0
-        then round(((weight_on_date - 40.00) / wa.days_lived_till_weighing), 2)
+        then round(((t.weight_on_date - 40.00) / wa.days_lived_till_weighing), 2)
         when a.sex = 'M' and a.species = 'OVINE' and wa.days_lived_till_weighing > 0
-        then round(((weight_on_date - 6.00) / wa.days_lived_till_weighing), 2)
+        then round(((t.weight_on_date - 6.00) / wa.days_lived_till_weighing), 2)
         when a.sex = 'F' and a.species = 'OVINE' and wa.days_lived_till_weighing > 0
-        then round(((weight_on_date - 6.00) / wa.days_lived_till_weighing), 2)
+        then round(((t.weight_on_date - 6.00) / wa.days_lived_till_weighing), 2)
     end as lifetime_adg_at_weighing,
+    case
+        when a.sex = 'M' and a.species = 'BOVINE' and wa.days_in_herd > 0
+        then
+            round(
+                (
+                    if(
+                        wa.first_weight is not null,
+                        wa.first_weight,
+                        (t.weight_on_date - 45.00)
+                    )
+                    / wa.days_in_herd
+                ),
+                2
+            )
+        when a.sex = 'F' and a.species = 'BOVINE' and wa.days_in_herd > 0
+        then
+            round(
+                (
+                    if(
+                        wa.first_weight is not null,
+                        wa.first_weight,
+                        (weight_on_date - 40.00)
+                    )
+                    / wa.days_in_herd
+                ),
+                2
+            )
+        when a.sex = 'M' and a.species = 'OVINE' and wa.days_in_herd > 0
+        then
+            round(
+                (
+                    if(
+                        wa.first_weight is not null,
+                        wa.first_weight,
+                        (weight_on_date - 5.33)
+                    )
+                    / wa.days_in_herd
+                ),
+                2
+            )
+        when a.sex = 'F' and a.species = 'OVINE' and wa.days_in_herd > 0
+        then
+            round(
+                (
+                    if(
+                        wa.first_weight is not null,
+                        wa.first_weight,
+                        (weight_on_date - 5.33)
+                    )
+                    / wa.days_in_herd
+                ),
+                2
+            )
+    end as in_herd_adg,
     -- this will be used to calculate 200day weight by checking closest valid adg to
     -- x days
     dwc.days_till_200 as bov_days_till_200,
@@ -138,3 +197,4 @@ where
         )
         or t.task_type = 'WEIGHTRECORDING'
     )
+    and t.task_animal_deleted = 0

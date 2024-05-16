@@ -79,6 +79,7 @@ with
             cac.animal_category,
             a.sex,
             a.tag,
+            a.generated_tag,
             {{ cast_timestamp("a.dob_date") }} as dob_date,
             date_diff('month', a.dob_date, bw.weigh_date) as age_in_months,
             a.breed,
@@ -93,10 +94,15 @@ with
             /***********************************
     animal parentage information
     ************************************/
+            apd.foster_ewe_tag,
+            apd.foster_ewe_generated_tag,
+            apd.genetic_ewe_tag as genetic_dam_tag,
             apd.ewe_tag as dam_tag,
+            apd.ewe_generated_tag as dam_generated_tag,
             apd.ewe_breed as dam_breed,
             apd.ewe_total_children as dam_total_children,
             apd.ram_tag as sire_tag,
+            apd.ram_generated_tag as sire_generated_tag,
             apd.ram_breed as sire_breed,
             apd.ram_total_children as sire_total_children,
             /***********************************
@@ -105,9 +111,11 @@ with
             {{ cast_timestamp("bw.weigh_date") }} as weigh_date,
             bw.group_name,
             bw.weight_on_date,
+            bw.first_weight,
             bw.prev_weight,
             bw.weight_difference,
             if(bw.adg is not null, bw.adg, bw.lifetime_adg) as adg,
+            bw.in_herd_adg,
             bw.lifetime_adg,
             bw.avg_offherd_age,
             bw.avg_offherd_weight,

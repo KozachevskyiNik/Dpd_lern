@@ -170,6 +170,24 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: tb_test_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: br_test_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: notes
+        data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: purchase_price
         data_type: double
         description: ""
@@ -433,6 +451,12 @@ models:
 
       - name: animal_id
         data_type: string
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: task_animal_deleted
+        data_type: bigint
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
