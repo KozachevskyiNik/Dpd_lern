@@ -10,7 +10,7 @@ select distinct
     a.dob_date,
     date_diff('month', a.dob_date, t.record_date) as age_at_mating_in_months,
     {{ cast_timestamp("t.record_created_datetime") }} as record_created_datetime,
-    {{ cast_timestamp("a.expected_lambing_date") }} as expected_lambing_date,
+    date_add('day', 147, t.record_date) as expected_lambing_date,
     tmr.ram_used_id,
     rd.ram_tag,
     rd.ram_generated_tag,
