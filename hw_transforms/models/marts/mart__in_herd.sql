@@ -7,11 +7,26 @@ with
             max_by(wt.weight_on_date, wt.record_date) as last_weight
         from {{ ref("rds__all_weight_tasks") }} as wt
         group by 1, 2
+    ),
+    get_group_names as (
+        select t.db_name, t.farm_id, t.animal_id, t.task_name as group_name
+        from {{ ref("rds__tasks_base") }} as t
+        inner join
+            {{ ref("rds__animals_base") }} as a
+            on t.db_name = a.db_name
+            and t.animal_id = a.animal_id
+            and a.off_herd_date is null
+            and (
+                t.task_type_id
+                in ('GROUP-IE', 'GROUP-UK', 'GROUP-SC', 'GROUP-NI', 'GROUP-SC')
+                or t.task_type = 'GROUP'
+            )
     )
 select
     a.db_name,
     a.farm_id,
     a.animal_id,
+    ggn.group_name,
     a.animal_type_id,
     a.species,
     a.tag,
@@ -68,6 +83,11 @@ left join
     and a.animal_id = opd.animal_id
     and a.species = 'OVINE'
 left join get_last_weight as lw on a.db_name = lw.db_name and a.animal_id = lw.animal_id
+left join
+    get_group_names as ggn
+    on a.db_name = ggn.db_name
+    and a.animal_id = ggn.animal_id
+    and a.farm_id = ggn.farm_id
 where
     a.animal_type_id not in ('AIBULL', 'PREHW')
     and (

@@ -2641,6 +2641,12 @@ models:
           tests:
             - dbt_expectations.expect_column_to_exist
 
+        - name: group_name
+          data_type: string
+          description: ""
+          tests:
+            - dbt_expectations.expect_column_to_exist
+
         - name: animal_type_id
           data_type: string
           description: ""
