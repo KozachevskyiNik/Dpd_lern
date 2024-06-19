@@ -190,9 +190,12 @@ select
             2
         )
     ) as lifetime_adg,
-    (
-        a.dead_weight
-        / if(ffc.sale_weight is not null, ffc.sale_weight, dw.derived_live_wt)
+    round(
+        (
+            a.dead_weight
+            / if(ffc.sale_weight is not null, ffc.sale_weight, dw.derived_live_wt)
+        ),
+        2
     ) as kill_out_percentage
 
 from {{ ref("rds__animals_base") }} as a

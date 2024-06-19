@@ -976,6 +976,12 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: first_weight_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: last_weight
         data_type: double
         description: ""
@@ -984,6 +990,12 @@ models:
 
       - name: prev_weight
         data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: prev_weight_date
+        data_type: timestamp
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
@@ -1024,7 +1036,25 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: lifetime_weight_gain
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: in_herd_adg
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: in_herd_weight_gain
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: prev_adg
         data_type: double
         description: ""
         tests:
@@ -1133,6 +1163,12 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: first_weight_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: last_weight
         data_type: double
         description: ""
@@ -1141,6 +1177,12 @@ models:
 
       - name: prev_weight
         data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: prev_weight_date
+        data_type: timestamp
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
@@ -1187,7 +1229,25 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: lifetime_weight_gain
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: in_herd_adg
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: in_herd_weight_gain
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: prev_adg
         data_type: double
         description: ""
         tests:
@@ -1841,6 +1901,12 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: first_weight_date
+        data_type: timestamp
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: last_weight
         data_type: double
         description: ""
@@ -1849,6 +1915,12 @@ models:
 
       - name: prev_weight
         data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: prev_weight_date
+        data_type: timestamp
         description: ""
         tests:
           - dbt_expectations.expect_column_to_exist
@@ -1889,7 +1961,25 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: lifetime_weight_gain
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: in_herd_adg
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: in_herd_weight_gain
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: prev_adg
         data_type: double
         description: ""
         tests:

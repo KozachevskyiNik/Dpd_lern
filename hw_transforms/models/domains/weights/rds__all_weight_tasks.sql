@@ -7,11 +7,15 @@ with
             -- get get weight for first recorded weight
             min_by(t.weight_on_date, t.record_date) over weights_unordered
             as first_weight,
+            min(t.record_date) over weights_unordered as first_weight_date,
             -- get get weight for last recorded weight
             max_by(t.weight_on_date, t.record_date) over weights_unordered
             as last_weight,
             -- get get weight for prev recorded weight
             lag(t.weight_on_date, 1, null) over weights_by_animal as prev_weight,
+            lag(t.record_date, 1, null) over weights_by_animal as prev_weight_date,
+            -- prev adg
+            lag(t.lifetime_adg, 1, null) over weights_by_animal as prev_adg,
             -- inter weighing weight diff partitioned by animal
             (
                 t.weight_on_date - lag(t.weight_on_date, 1, null) over weights_by_animal
@@ -88,15 +92,15 @@ select
     t.species as species,
     -- get aggregates from cte
     wa.first_weight,
+    {{ cast_timestamp("wa.first_weight_date") }} as first_weight_date,
     wa.last_weight as last_weight,
     wa.prev_weight as prev_weight,
+    {{ cast_timestamp("wa.prev_weight_date") }} as prev_weight_date,
     wa.weight_difference as weight_difference,
     wa.days_btwn_weighings as days_btwn_weighings,
     wa.days_lived_till_weighing as days_lived_till_weighing,
     wa.days_btwn_movement_off as days_btwn_movement_off,
-    if(
-        wa.days_btwn_movement_off < 7, weight_on_date, wa.last_weight
-    ) as derived_live_wt,
+    if(wa.days_btwn_movement_off < 7, weight_on_date, null) as derived_live_wt,
     round(
         (
             wa.weight_difference
@@ -116,6 +120,16 @@ select
         when a.sex = 'F' and a.species = 'OVINE' and wa.days_lived_till_weighing > 0
         then round(((t.weight_on_date - 6.00) / wa.days_lived_till_weighing), 2)
     end as lifetime_adg_at_weighing,
+    case
+        when a.sex = 'M' and a.species = 'BOVINE' and wa.days_lived_till_weighing > 0
+        then (t.weight_on_date - 45.00)
+        when a.sex = 'F' and a.species = 'BOVINE' and wa.days_lived_till_weighing > 0
+        then (t.weight_on_date - 40.00)
+        when a.sex = 'M' and a.species = 'OVINE' and wa.days_lived_till_weighing > 0
+        then (t.weight_on_date - 5.33)
+        when a.sex = 'F' and a.species = 'OVINE' and wa.days_lived_till_weighing > 0
+        then (t.weight_on_date - 5.33)
+    end as lifetime_weight_gain,
     case
         when a.sex = 'M' and a.species = 'BOVINE' and wa.days_in_herd > 0
         then
@@ -170,6 +184,20 @@ select
                 2
             )
     end as in_herd_adg,
+    case
+        when a.sex = 'M' and a.species = 'BOVINE' and wa.days_in_herd > 0
+        then
+            if(wa.first_weight is not null, wa.first_weight, (t.weight_on_date - 45.00))
+
+        when a.sex = 'F' and a.species = 'BOVINE' and wa.days_in_herd > 0
+        then
+            if(wa.first_weight is not null, wa.first_weight, (t.weight_on_date - 40.00))
+        when a.sex = 'M' and a.species = 'OVINE' and wa.days_in_herd > 0
+        then if(wa.first_weight is not null, wa.first_weight, (t.weight_on_date - 5.33))
+        when a.sex = 'F' and a.species = 'OVINE' and wa.days_in_herd > 0
+        then if(wa.first_weight is not null, wa.first_weight, (t.weight_on_date - 5.33))
+    end as in_herd_weight_gain,
+    wa.prev_adg,
     -- this will be used to calculate 200day weight by checking closest valid adg to
     -- x days
     dwc.days_till_200 as bov_days_till_200,
