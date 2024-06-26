@@ -239,7 +239,19 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
 
+      - name: purchase_weight
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
       - name: sale_price
+        data_type: double
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: sale_weight
         data_type: double
         description: ""
         tests:

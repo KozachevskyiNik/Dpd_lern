@@ -49,7 +49,9 @@ select
     a.seller_name as sold_to_name,
     -- animal finance
     kipc.purchase_price as purchase_price,
+    a.purchase_weight,
     kipc.sale_price as sale_price,
+    a.sale_weight,
     kipc.fat_str as fat_str,
     kipc.conf_str as conf_str,
     kipc.fat_conf_encoded as fat_conf_encoded,
