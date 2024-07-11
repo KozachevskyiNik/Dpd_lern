@@ -34,3 +34,74 @@ Any pipeline in herdwatch follows the below lifecycle :
 - [Project Structure Best Practices Guide](https://docs.getdbt.com/guides/best-practices/how-we-structure/1-guide-overview)
 
 {% enddocs %}
+# Query Documentation: Retrieving Bovine Animal Sales from betauk Database
+
+## Overview
+
+This section describes how to retrieve information about bovine animals that have been sold, from the `betauk` database. The data is stored in the `bovine_event_movement` and `events_base` tables.
+
+### Key Definitions
+
+- **animal_base_sur_key**: This key represents the unique identifier for bovine or ovine animals in the animal base.
+- **event_base_sur_key**: This key represents the unique identifier for events related to all bovine events.
+- **bovine_event_movement.surrogate_key**: The unique key for bovine event movements.
+- **events_base.surrogate_key**: The unique key for events in the event base.
+
+### SQL Query
+
+
+```sql
+The following SQL query can be used to retrieve all bovine animals that have sales events from the `hwbetauk` database:
+1) SELECT *
+FROM bovine_event_movement AS bem
+INNER JOIN events_base AS eb ON bem.surrogate_key = eb.surrogate_key
+WHERE eb.event_name = 'livestock_sales'
+  AND eb.db_name = 'hwbetauk';
+
+
+
+Top 5 Medicines Purchased for One Herd in Produk Database
+2) WITH drug_purchase AS (
+    SELECT
+        hb.farm_id, 
+        eb.db_name AS event_db_name,
+        hb.db_name AS herd_db_name,
+        bedp.total_amount_of_drug_purchased,
+        hb.herd_number,
+        ROW_NUMBER() OVER (PARTITION BY eb.db_name, eb.farm_id, hb.herd_number ORDER BY bedp.total_amount_of_drug_purchased DESC) AS row_num
+    FROM
+        events_base AS eb
+    INNER JOIN
+        bovine_event_drug_purchase AS bedp ON eb.surrogate_key = bedp.surrogate_key
+    LEFT JOIN 
+        herd_base AS hb ON eb.db_name = hb.db_name AND eb.farm_id = hb.farm_id
+)
+SELECT
+    farm_id, 
+    total_amount_of_drug_purchased,
+    herd_number
+FROM
+    drug_purchase
+WHERE
+    row_num <= 5 AND event_db_name = 'hwbetaie';
+
+3) Most Recent Weight for Bovine Animals in One Herd in Prodie Database
+SELECT
+    hb.herd_number,
+    hb.country,
+    eb.animal_id,
+    eb.event_created_datetime,
+    max_by(bew.weight_on_date, eb.event_created_datetime) OVER (PARTITION BY eb.db_name, eb.farm_id, eb.animal_id) as last_weight
+FROM
+    events_base AS eb
+INNER JOIN
+    bovine_event_weight AS bew ON eb.surrogate_key = bew.surrogate_key
+LEFT JOIN 
+    herd_base AS hb ON eb.db_name = hb.db_name AND eb.farm_id = hb.farm_id
+WHERE
+    eb.db_name = 'hwbetaie'
+    AND eb.species = 'BOVINE';
+```
+Additional Resources
+For a complete list of functions available in Trino, visit the Trino Aggregate Functions documentation.
+https://trino.io/docs/current/functions/aggregate.html
