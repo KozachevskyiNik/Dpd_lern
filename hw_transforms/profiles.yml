@@ -27,4 +27,4 @@ hw_transforms:
         num_retries: 0
         type: athena
 
-  target: prod
+  target: beta

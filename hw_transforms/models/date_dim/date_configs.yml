@@ -1,0 +1,13 @@
+version: 2
+ 
+models:
+  - name: date_dim
+    description: ''
+    config:
+      tags:
+        - date_dim
+      materialized: table
+      schema: nikita
+      table_type: iceberg
+      format: parquet
+      table_properties: {"optimize_rewrite_delete_file_threshold": "2","vacuum_max_snapshot_age_seconds": "259200"}
