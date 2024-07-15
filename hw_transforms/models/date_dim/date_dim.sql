@@ -42,9 +42,55 @@ with
             date_format(dim_date, '%m%Y') as mmyyyy,
             date_format(dim_date, '%Y-%m') as monthyear,
             if(day_of_week(dim_date) in (1, 2, 3, 4, 5), 1, 0) as isweekday,
-            '0' as isholiday,
-            '0' as holidayname,
-            '0' as specialdays,
+            case
+                when
+                    month(dim_date) = 11
+                    and day_of_week(dim_date) = 4
+                    and (day(dim_date) between 22 and 28)
+                then true
+                when
+                    month(dim_date) = 11
+                    and day_of_week(dim_date) = 5
+                    and day(dim_date) >= 23
+                    and day(dim_date) < 30
+                then true
+                when
+                    month(dim_date) = 11
+                    and day_of_week(dim_date) = 1
+                    and (day(dim_date) between 26 and 30)
+                then true
+                when date_format(dim_date, '%m-%d') = '01-01'
+                then true
+                when date_format(dim_date, '%m-%d') = '12-25'
+                then true
+                else false
+            end as isholiday,
+            case
+                when date_format(dim_date, '%m-%d') = '01-01'
+                then 'New Year'
+                when date_format(dim_date, '%m-%d') = '12-25'
+                then 'Christmas'
+                when
+                    month(dim_date) = 11
+                    and day_of_week(dim_date) = 4
+                    and (day(dim_date) between 22 and 28)
+                then 'Thanksgiving'
+                else null
+            end as holidayname,
+            case
+                when
+                    month(dim_date) = 11
+                    and day_of_week(dim_date) = 5
+                    and day(dim_date) >= 23
+                    and day(dim_date) < 30
+                then 'Black Friday'
+                when
+                    month(dim_date) = 11
+                    and day_of_week(dim_date) = 1
+                    and (day(dim_date) between 26 and 30)
+                then 'Cyber Monday'
+                else null
+            end as specialdays,
             date_format(dim_date, '%Y') as financialyear,
             quarter(dim_date) as financialquater,
             month(dim_date) as financialmonth,
